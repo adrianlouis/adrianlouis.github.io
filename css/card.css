@@ -1,0 +1,110 @@
+body {
+    display: flex;    
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100vw;
+    /* height: 100vh; */
+    margin: 0;
+    padding: 0;
+   
+}
+
+
+
+
+.card{
+    margin: 10px;
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #bbb;
+    padding: 10px;
+    border-radius: 3px;
+}
+.img{
+    width: 200px;
+    position: relative;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+}
+.img img{
+    object-fit: cover;
+    max-width: 100%;
+    height: 300px;    
+}
+.cardTexto{
+    width: 100%;
+    height: 150px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    margin: 5px 0px;
+}
+.promo{
+    font-weight: 700;
+    background-color: rgb(100, 123, 255);
+    border: 2px solid blue;
+    color: white;
+    padding: 2px 5px;
+    border-radius: 5px;
+    /* position: absolute;
+    top: 0;
+    left: 0; */
+}
+.nomeDoProduto{
+    font-size: 1.2rem;
+}
+.precoDoProduto{
+    font-size: 1.5rem;
+    font-weight: 900;
+}
+.btnBuy{
+    background-color: crimson;
+    color: white;
+    padding: 5px 10px;
+    text-decoration: none;
+    text-transform: uppercase;
+    border-radius: 3px;
+}
+
+
+@media only screen and (max-width: 320px) {
+.card{
+    width: 100%;
+    border-radius: unset;
+    flex-direction: row;
+}
+.img img{
+    object-fit: cover;
+    max-width: 147px;
+    height: 200px;
+}
+.card{
+    margin: 0;
+}
+.precoDoProduto{
+    font-size: 1.2em;
+}
+
+}
+
+@media only screen and (max-width: 240px) {
+.card{
+    flex-direction: column;
+}
+.parcelas, .nomeDoProduto, .promo{
+    display: none;
+}
+.cardTexto{
+    height: unset;
+}
+}

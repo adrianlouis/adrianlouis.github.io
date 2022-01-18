@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/e12642acd8.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="hqcss/index.css">
+    <script type="text/javascript" src="hqjs/login.js" defer></script>
+
+    <title>Taverna</title>
+</head>
+
+<main>
+    <form>
+
+            <span class="title">Login</span>
+        <span>Entre com seu nome de usuário e senha</span>
+
+        <label id="lbUser" for="user">Usuário</label>
+        <input id="user" onfocus="inputFocus('#lbUser')" onblur="inputBlur('#lbUser', '#user')" type="text">
+        
+        <label id="lbSenha" for="password">Senha</label>
+        <input id="password" type="password" onfocus="inputFocus('#lbSenha')" onblur="inputBlur('#lbSenha', '#password')">
+
+        <button type="submit" onclick="log()">Entrar</button>
+        <button type="submit" onclick="cad()">Cadastrar</button>
+    </form>
+
+</main>

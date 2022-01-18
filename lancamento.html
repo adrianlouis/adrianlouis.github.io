@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="css/jogos.css">
+    <!-- <link rel="stylesheet" type="text/css" href="css/newStyle.css"> -->
+    <script type="text/javascript" src="js/newScript.js" defer></script>
+    <script src="jquery-3.6.0.js"></script>
+    <script src="https://kit.fontawesome.com/e12642acd8.js" crossorigin="anonymous"></script>
+
+
+    <title>GM Lançamentos</title>
+</head>
+
+<body id="body" onload="lancamentos()">
+
+    <header>
+        <div class="head">
+
+            <div class="headerTop">
+
+                <!-- MENU DA ESQUERDA  -->
+                <div class="headerTopLeft">
+
+                    <!-- MENU ANIMADO  -->
+                    <div id="menuHeader" class="menuCont" onclick="openMenu()">
+
+                        <div class="bar1"></div>
+                        <div class="bar2"></div>
+                        <div class="bar3"></div>
+
+                    </div>
+
+                    <!-- CONTAINER DO SIDEMENU  -->
+                    <div id="mySidenav" class="sidenav">
+                        <a href="javascript:void(0)" onclick="closeBtn()" class="closebtn">&times;</a>
+                        <a href="index.html">Home</a>
+                        <a href="log.html">Login</a>
+                        <a href="loja.html">Loja</a>
+                        <a href="lancamento.html">Lançamentos</a>
+                        <a href="prevenda.html">Pré-venda</a>
+
+                    </div>
+
+                </div>
+
+                <!-- LOGO GAME MANIA  -->
+                <div class="headerTopLogo">
+                    <input id="inputFind" class="inputFind" type="search" placeholder="Buscar. . .">
+
+                    <span id='aa' class="topLogoTxt">Game</span><span class="textoRedLogo">Mania</span>
+                </div>
+
+                <!-- MENU DA DIREITA  -->
+                <div class="headerTopRight">
+                    <a href="log.html"><img id="iconUser" src="newImg/user.svg"></a>
+                    <img id="iconCart" src="newImg/cart.svg">
+                    <img id="iconLupa" src="newImg/Lupa.svg">
+
+                </div>
+            </div>
+
+            <div id="barras" class="headerBot">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="#jogosDestaque" onclick="xbox()">Xbox</a></li>
+                    <li><a href="#jogosDestaque" onclick="sony()">Playstation</a></li>
+                    <li><a href="#jogosDestaque" onclick="nintendo()">Nintendo</a></li>
+
+                </ul>
+            </div>
+
+        </div>
+    </header>
+
+    <!-- BANNER E SLIDER  -->
+    <div class="banner">
+
+        <img src="img/banners/lancamentos.jpg">
+    </div>
+
+    <div class="news">
+
+        <div class="barraMensal">
+            <span class="barraTxt">Lançamentos de Novembro - 2021</span>
+        </div>
+
+        <!-- LANÇAMENTOS DE NOVEMBRO 21  -->
+        <div class="contNov21">
+        </div>
+    </div>
+
+    <div class="news">
+        <div class="barraMensal">
+            <span class="barraTxt">Lançamentos de Outubro - 2021</span>
+        </div>
+        <div class="contOut21">
+        </div>
+
+    </div>
+
+    <div class="news">
+        <div class="barraMensal">
+            <span class="barraTxt">Lançamentos de Setembro - 2021</span>
+        </div>
+        <div class="contSet21">
+        </div>
+    </div>
+
+    <div class="news">
+        <div class="barraMensal">
+            <span class="barraTxt">Lançamentos de Agosto - 2021</span>
+        </div>
+        <div class="contAgo21">
+        </div>
+    </div>
+
+    <div class="bans1">
+
+        <div class="bans1Left">
+            <a href="index.html">
+                <div class="banImg">
+                    <img class="lancImg" src="img/banners/banner1.jpg">
+                </div>
+            </a>
+
+            <div class="captionB1L">
+                <a href="index.html">
+                    <span>Início</span>
+                    <p>comprar agora</p>
+                </a>
+            </div>
+        </div>
+
+        <div class="bans1Right">
+            <a href="loja.html">
+                <div class="banImg">
+                    <img src="img/banners/banner2.jpg">
+                </div>
+            </a>
+
+            <div class="captionB1L">
+                <a href="loja.html">
+                    <span>Loja</span>
+                    <p>comprar agora</p>
+                </a>
+            </div>
+        </div>
+
+    </div>
+
+    <footer class="marginSuperior">
+        <div class="footerTop">
+            <span class="footerGame">Game</span><span class="footerMania">Mania</span><br>
+            <span class="cnpj">
+                CNPJ: 22.183.899/0001-68
+            </span>
+        </div>
+
+        <div class="footerBot">
+            <div class="footerLeft">
+                Mapa do site:<br><br>
+
+                <a href="index.html">
+                    Home<br>
+                </a>
+                <a href="cart.html">
+                    Carrinho<br>
+                </a>
+                <a href="log.html">
+                    Login<br>
+                </a>
+                <a href="loja.html">
+                    Loja<br>
+                </a>
+                <a href="lancamento.html">
+                    Lançamentos<br>
+                </a>
+                <a href="prevenda.html">
+                    Pré-venda<br>
+                </a>
+
+            </div>
+
+            <div class="footerMid">
+
+                <br>
+                <br>
+                <span class="footerEndereco">
+                    Rua Edward Kenway, 4823<br>
+                    Vila James - São Paulo - SP<br>
+                    Telefones: 11 3353-5535<br><br></span>
+
+                email: informacao@gamemania.com.br
+
+                <div class="socialMediaIcons">
+                    <img src="newImg/faceIcon.svg">
+                    <img src="newImg/ttIcon.svg">
+                    <img src="newImg/instaIcon.svg">
+                </div>
+            </div>
+
+            <div class="footerRight">
+                <span>
+                    Horário de atendimento:
+                </span>
+
+                <span>
+                    Segunda à Sexta<br>
+                    09h às 18h<br>
+                </span>
+
+                <span>
+                    Sábados, Domingos<br>
+                    e Feriados<br>
+                    09h às 14h
+                </span>
+            </div>
+
+        </div>
+        <div class="direitos">
+            <span>Copyright © 2021 GameMania - Desenvolvido por Adriano / GameMania - CNPJ: 22.111.555/0001-11
+
+            </span>
+        </div>
+
+    </footer>
+
+</body>
+
+</html>

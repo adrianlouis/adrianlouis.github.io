@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="css/jogos.css">
+    <script type="text/javascript" src="js/newScript.js" defer></script>
+    <script src="jquery-3.6.0.js"></script>
+    <script src="https://kit.fontawesome.com/e12642acd8.js" crossorigin="anonymous"></script>
+
+
+    <title>GM Pre-Venda</title>
+</head>
+
+<body id="body" onload="tempCard()">
+
+    <header>
+        <div class="head">
+
+            <div class="headerTop">
+
+                <!-- MENU DA ESQUERDA  -->
+                <div class="headerTopLeft">
+
+                    <!-- MENU ANIMADO  -->
+                    <div id="menuHeader" class="menuCont" onclick="openMenu()">
+
+                        <div class="bar1"></div>
+                        <div class="bar2"></div>
+                        <div class="bar3"></div>
+
+                    </div>
+
+                    <!-- CONTAINER DO SIDEMENU  -->
+                    <div id="mySidenav" class="sidenav">
+                        <a href="javascript:void(0)" onclick="closeBtn()" class="closebtn">&times;</a>
+                        <a href="index.html">Home</a>
+                        <a href="log.html">Login</a>
+                        <a href="loja.html">Loja</a>
+                        <a href="lancamento.html">Lançamentos</a>
+                        <a href="prevenda.html">Pré-venda</a>
+
+                    </div>
+
+                </div>
+
+                <!-- LOGO GAME MANIA  -->
+                <div class="headerTopLogo">
+                    <input id="inputFind" class="inputFind" type="search" placeholder="Buscar. . .">
+
+                    <span id='aa' class="topLogoTxt">Game</span><span class="textoRedLogo">Mania</span>
+                </div>
+
+                <!-- MENU DA DIREITA  -->
+                <div class="headerTopRight">
+                    <a href="log.html"><img id="iconUser" src="newImg/user.svg"></a>
+                    <img id="iconCart" src="newImg/cart.svg">
+                    <img id="iconLupa" src="newImg/Lupa.svg">
+
+                </div>
+            </div>
+
+            <div id="barras" class="headerBot">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="#jogosDestaque" onclick="xbox()">Xbox</a></li>
+                    <li><a href="#jogosDestaque" onclick="sony()">Playstation</a></li>
+                    <li><a href="#jogosDestaque" onclick="nintendo()">Nintendo</a></li>
+
+                </ul>
+            </div>
+
+        </div>
+    </header>
+
+    <!-- BANNER E SLIDER  -->
+    <div class="banner">
+
+        <img src="img/banners/bannerPreVenda.jpg">
+    </div>
+
+
+
+
+
+    <div class="news">
+
+        <div class="barraMensal">
+            <span class="barraTxt">Lançamentos de Novembro - 2021</span>
+        </div>
+
+        <!-- LANÇAMENTOS DE NOVEMBRO 21  -->
+        <div class="contNov21">
+          
+
+            <div class="grid-item">
+                <img src="img/capas/bf2042.jpg">
+                <span>Battlefield 2042</span>
+                <span>19.11.21</span>
+            </div>
+            <div class="grid-item">
+                <img src="img/capas/ffXIVEndWalker.png">
+                <span>Final Fantasy XIV EndWalker</span>
+                <span>19.11.21</span>
+            </div>
+            <div class="grid-item">
+                <img src="img/capas/brilliantDiamond.webp">
+                <span>Pokémon Brilliant Diamond</span>
+                <span>19.11.21</span>
+            </div>
+            <div class="grid-item">
+                <img src="img/capas/farmingSimulator22.jpg">
+                <span>Farming Simulator 22</span>
+                <span>22.11.21</span>
+            </div>
+            
+
+        </div>
+    </div>
+
+    <div class="news">
+        <div class="barraMensal">
+            <span class="barraTxt">Lançamentos de Dezembro - 2021</span>
+        </div>
+
+        <div class="contDez">
+
+            <div class="grid-item">
+                <img src="img/capas/chorus.jpg">
+                <span>Chorus</span>
+                <span>03.12.21</span>
+            </div>
+
+            <div class="grid-item">
+                <img src="img/capas/humble.jpg">
+                <span>Happy's Humble Burger Farm</span>
+                <span>03.12.21</span>
+            </div>
+
+            <div class="grid-item">
+                <img src="img/capas/haloinfinite.jpg">
+                <span>Halo Infinite</span>
+                <span>08.12.21</span>
+            </div>
+
+            <div class="grid-item">
+                <img src="img/capas/antar.jpg">
+                <span>Antarctica 88</span>
+                <span>09.12.21</span>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="news">
+        <div class="barraMensal">
+            <span class="barraTxt">Lançamentos de Janeiro - 2022</span>
+        </div>
+
+        <div class="contJan">
+
+            <div class="grid-item">
+                <img src="img/capas/cogen.jpg">
+                <span>COGEN: Sword of Rewind</span>
+                <span>26.01.22</span>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="news">
+        <div class="barraMensal">
+            <span class="barraTxt">Lançamentos de Fevereiro - 2022</span>
+        </div>
+
+        <div class="contFev">
+
+            <div class="grid-item">
+                <img src="img/capas/dyinglight.jpg">
+                <span>Dying Light 2</span>
+                <span>03.02.22</span>
+            </div>
+
+            <div class="grid-item play">
+                <img src="img/capas/kof.jpg">
+                <span>The King of Fighters XIV</span>
+                <span>17.02.22</span>
+            </div>
+
+            <div class="grid-item play">
+                <img src="img/capas/saintsRow.jpg">
+                <span>Saints Row</span>
+                <span>25.02.22</span>
+            </div>
+
+         
+
+            <div class="grid-item play">
+                <img src="img/capas/eldenRing.jpg">
+                <span>Elden Ring</span>
+                <span>25.02.22</span>
+            </div>
+
+            
+
+        </div>
+    </div>
+
+
+    <footer>
+        <div class="footerTop">
+            <span class="footerGame">Game</span><span class="footerMania">Mania</span><br>
+            <span class="cnpj">
+                CNPJ: 22.183.899/0001-68
+            </span>
+        </div>
+
+        <div class="footerBot">
+            <div class="footerLeft">
+                Mapa do site:<br><br>
+
+                <a href="index.html">Home</a><br>
+                <a href="log.html">Login</a><br>
+                <a href="loja.html">Loja</a><br>
+                <a href="lancamento.html">Lançamentos</a><br>
+                <a href="prevenda.html">Pré-venda</a><br>
+               
+            </div>
+
+            <div class="footerMid">
+
+
+                <!-- <p class="topLogoTxt">Game Mania</p> -->
+
+                <br>
+                <br>
+                <span class="footerEndereco">
+                    Rua Edward Kenway, 4823<br>
+                    Vila James - São Paulo - SP<br>
+                    Telefones: 11 3353-5535<br><br></span>
+
+                email: informacao@gamemania.com.br
+
+                <div class="socialMediaIcons">
+                    <img src="newImg/faceIcon.svg">
+                    <img src="newImg/ttIcon.svg">
+                    <img src="newImg/instaIcon.svg">
+                </div>
+            </div>
+
+            <div class="footerRight">
+                Horário de atendimento:<br><br>
+
+                Segunda à Sexta<br>
+                09h às 18h<br><br>
+
+                Sábados, Domingos<br>
+                e Feriados<br>
+                09h às 14h
+            </div>
+        </div>
+        <div class="direitos">
+            <span>Copyright © 2021 GameMania - Desenvolvido por Adriano / GameMania - CNPJ: 22.111.555/0001-11
+
+            </span>
+        </div>
+
+
+    </footer>
+
+
+</body>
+
+
+</html>

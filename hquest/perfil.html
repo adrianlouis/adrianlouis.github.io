@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="hqcss/perfil.css">
+    <script src="https://kit.fontawesome.com/e12642acd8.js" crossorigin="anonymous"></script>
+    <script src='hqjs/script.js'></script>
+
+
+    <title>Perfil</title>
+</head>
+
+
+<body onload="testeClean(change())">
+    <div class="infos">
+        <img id="headerWlppr" src="img/classes/necro.jpg" class="wlppr">
+        <form>
+            <input id="nome" type="text" value="Louis" disabled>
+
+            <div class="classSex">
+
+                <select onchange="testeClean(change())" id="selectClass">
+                    <option value="necro">Necromante</option>
+                    <option value="mage">Mago</option>
+                    <option value="barbaro">Bárbaro</option>
+                </select>
+
+                <select id="sexo" onchange="testeClean(change())">
+                    <option value="M">Masc.</option>
+                    <option value="F">Fem.</option>
+                </select>
+
+                <i class="fas fa-cube" onclick="bag()"></i>
+
+            </div>
+
+        </form>
+        <div class="stats"></div>
+
+        <div class="itensEquipados">
+
+            <div class='itensDiv'>
+                <i class="fas fa-hard-hat"></i>
+
+
+            </div>
+
+
+
+            <div class="itensDiv">
+
+                <i class="fas fa-hand-paper"></i>
+
+
+            </div>
+            <div class="itensDiv">
+                <i class="fas fa-hand-paper"></i>
+
+            </div>
+            <div class="itensDiv">
+                <i class="fas fa-vest-patches"></i>
+            </div>
+            <div class="itensDiv">
+                <i class="fas fa-socks"></i>
+            </div>
+
+
+        </div>
+
+        <div class="itensEquipados">
+            <div class="itensDiv">
+                <i class="fas fa-flask"></i>
+            </div>
+            <div class="itensDiv">
+                <i class="fas fa-ring"></i>
+            </div>
+            <div class="itensDiv">
+                <i class="fas fa-scroll"></i>
+            </div>
+        </div>
+    </div>
+
+    <div id="bag" class="inventario">
+        <i class="fas fa-arrow-circle-left closeBag" onclick="fecharBag()"></i>
+
+        <ul>
+            <li>Elmos</li>
+            <li>Armaduras</li>
+            <li>Manoplas</li>
+            <li>Botas</li>
+            <li>Pergaminhos</li>
+            <li>Poções</li>
+            <li>Artefatos</li>
+        </ul>
+
+        <div class="itemsInventario">
+
+
+
+            <div style="background-image: url(img/adaga.png);" onclick="scaleIt(this)" id="item" class="item">
+                <!-- <img src="img/adaga.png"> -->
+                <div class="itemExp">
+                    <span>Adaga</span>
+                    <div class="itemStats">
+                        <i class="fas fa-fist-raised"> 1</i>
+                    </div>
+                    <button type="button">Equipar</button>
+                </div>
+            </div>
+            
+            <div style="background-image: url(img/lanca.png);" onclick="scaleIt(this)" id="item" class="item">
+                <!-- <img src="img/adaga.png"> -->
+                <div class="itemExp">
+                    <span>Lança</span>
+                    <div class="itemStats">
+                        <i class="fas fa-fist-raised"> 2</i>
+                    </div>
+                    <button type="button">Equipar</button>
+                </div>
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="css/newStyle.css">
+    <script type="text/javascript" src="js/newScript.js" defer></script>
+    <script src="jquery-3.6.0.js"></script>
+    <script src="https://kit.fontawesome.com/e12642acd8.js" crossorigin="anonymous"></script>
+
+
+    <title>Game Mania</title>
+</head>
+
+<body id="body" onload="tempCard()">
+
+    <header>
+        <div class="head">
+
+            <div class="headerTop">
+
+                <!-- MENU DA ESQUERDA  -->
+                <div class="headerTopLeft">
+
+                    <!-- MENU ANIMADO  -->
+                    <div id="menuHeader" class="menuCont" onclick="openMenu()">
+
+                        <div class="bar1"></div>
+                        <div class="bar2"></div>
+                        <div class="bar3"></div>
+
+                    </div>
+
+                    <!-- CONTAINER DO SIDEMENU  -->
+                    <div id="mySidenav" class="sidenav">
+                        <a href="javascript:void(0)" onclick="closeBtn()" class="closebtn">&times;</a>
+                        <a href="index.html">Home</a>
+                        <a href="log.html">Login</a>
+                        <a href="loja.html">Loja</a>
+                        <a href="lancamento.html">Lançamentos</a>
+                        <a href="prevenda.html">Pré-venda</a>
+
+                    </div>
+
+                </div>
+
+                <!-- LOGO GAME MANIA  -->
+                <div class="headerTopLogo">
+                    <input id="inputFind" class="inputFind" type="search" placeholder="Buscar. . .">
+
+                    <span id='aa' class="topLogoTxt">Game</span><span class="textoRedLogo">Mania</span>
+                </div>
+
+                <!-- MENU DA DIREITA  -->
+                <div class="headerTopRight">
+                    <a href="log.html"><img id="iconUser" src="newImg/user.svg"></a>
+                    <a href="cart.html"><img id="iconCart" src="newImg/cart.svg"></a>
+                    <img id="iconLupa" src="newImg/Lupa.svg">
+                </div>
+            </div>
+
+
+
+            <div id="barras" class="headerBot">
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#jogosDestaque" onclick="xbox()">Xbox</a></li>
+                    <li><a href="#jogosDestaque" onclick="sony()">Playstation</a></li>
+                    <li><a href="#jogosDestaque" onclick="nintendo()">Nintendo</a></li>
+
+                </ul>
+            </div>
+
+
+        </div>
+
+
+    </header>
+
+    <!-- BANNER E SLIDER  -->
+    <div class="slideCont">
+
+        <div class="mySlide fade">
+            <div class="nTxt">1/3</div>
+            <img src="img/banners/banner1.jpg" style="width: 100%;">
+        </div>
+
+        <div class="mySlide fade">
+            <div class="nTxt">2/3</div>
+            <img src="img/banners/banner2.jpg" style="width: 100%;">
+        </div>
+
+        <div class="mySlide fade">
+            <div class="nTxt">3/3</div>
+            <img src="img/banners/banner3.jpg" style="width: 100%;">
+        </div>
+
+        <div style="text-align: center; background-color: black; padding-top: 10px;">
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+        </div>
+    </div>
+
+    <div class="bannerImg">
+        <img src="img/banners/bannerResp.svg">
+    </div>
+
+    <div class="news">
+        
+        
+        
+        <!-- BARRA DOS PRODUTOS EM DESTAQUE  -->
+        <div id="barraDestaque" class="barraDivisoriaDeSecao">
+            <span id="jogosDestaque" class="barraTxt">Produtos em Destaque</span>
+        </div>
+        
+        <div class="contDestaques">
+            
+            <!-- CONTAINER DOS CARTOES -->
+            <div id="destaque" class="contJogosDest">
+            </div>
+        </div>
+
+        <!-- NOME DA BARRA  -->
+        <div class="barraDivisoriaDeSecao">
+            <span class="barraTxt">Notícias Gamer</span>
+        </div>
+
+        
+        <!-- NOTICIAS GAMER  -->
+        <div class="contNews">
+            
+            <div class="cardNews">
+                
+                <div class="newsPic">
+                    <img src="img/news/fifa19.jpg">
+                </div>
+                
+                <div class="spanDesc">
+                    <span>O jogo Fifa 19 em breve estará fora do Game Pass e com ele, alguns outros jogos.</span>
+                </div>
+            </div>
+            
+            <div class="cardNews">
+                
+                <div class="newsPic">
+                    <img src="img/news/raceTeamRivals.jpg">
+                </div>
+
+                <div class="spanDesc">
+                    <span>Supremacy Games lança jogo de corrida NFT exclusivo para celulares, Race Team Rivals.</span>
+                </div>
+            </div>
+
+            <div class="cardNews">
+
+                <div class="newsPic">
+                    <img src="img/news/deadByDaylight.jpg">
+                </div>
+
+                <div class="spanDesc">
+                    <span>Dead by Daylight confirmado como o próximo jogo grátis da Epic Store</span>
+                </div>
+            </div>
+
+            <div class="cardNews">
+
+                <div class="newsPic">
+                    <img src="img/news/epicgames.png">
+                </div>
+
+                <div class="spanDesc">
+                    <span>Epic Games adiciona jogo retrô por streaming no catálogo.</span>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- GALERIA DE FOTOS DOS CLIENTES  -->
+        <div id="galeria" class="barraDivisoriaDeSecao">
+            <span class="barraTxt">Galeria</span>
+        </div>
+
+        <div class="galeriaEnews">
+
+            <div class="galeria">
+
+                <div class="containerFlex">
+                    <div class="containerNews">
+                        <span class="spanNews">Para nós, o mais gratificante é ver a satisfação dos nossos clientes
+                            enquanto estão utilizando
+                            nossos
+                            produtos.
+                            Por isso sempre pedimos para que nos marquem nas redes sociais, com fotos ou vídeos, para
+                            que
+                            nossa
+                            galeria
+                            de
+                            clientes satisfeitos continue sempre a crescer, junto com nosso time Game Mania!
+                        </span>
+                    </div>
+
+                </div>
+
+                <div class="galeriaSpan">
+                    <div class="containerGaleria">
+                        <h2 style="text-align:center">Gameníacos</h2>
+
+                        <div class="container">
+                            <div class="mySlidesG">
+                                <div class="numbertext">1 / 6</div>
+                                <img src="gallery/play1.jpg" style="width:100%">
+                            </div>
+
+                            <div class="mySlidesG">
+                                <div class="numbertext">2 / 6</div>
+                                <img src="gallery/pla2.jpg" style="width:100%">
+                            </div>
+
+                            <div class="mySlidesG">
+                                <div class="numbertext">3 / 6</div>
+                                <img src="gallery/pla3.jpg" style="width:100%">
+                            </div>
+
+                            <div class="mySlidesG">
+                                <div class="numbertext">4 / 6</div>
+                                <img src="gallery/play4.jpg" style="width:100%">
+                            </div>
+
+                            <div class="mySlidesG">
+                                <div class="numbertext">5 / 6</div>
+                                <img src="gallery/play5.jpg" style="width:100%">
+                            </div>
+
+                            <div class="mySlidesG">
+                                <div class="numbertext">6 / 6</div>
+                                <img src="gallery/play6.jpg" style="width:100%">
+                            </div>
+
+                            <a class="prev" onclick="plusSlidesG(-1)">❮</a>
+                            <a class="next" onclick="plusSlidesG(1)">❯</a>
+
+                            <div class="caption-container">
+                                <p id="caption"></p>
+                            </div>
+
+                            <div class="row">
+                                <div class="column">
+                                    <img class="demo cursor" src="gallery/play1.jpg" style="width:100%;"
+                                        onclick="currentSlideG(1)" alt="@ChrisKrad - Curitiba - PR">
+                                </div>
+                                <div class="column">
+                                    <img class="demo cursor" src="gallery/pla2.jpg" style="width:100%"
+                                        onclick="currentSlideG(2)" alt="@PatrickDellaCruz - São Paulo - SP">
+                                </div>
+                                <div class="column">
+                                    <img class="demo cursor" src="gallery/pla3.jpg" style="width:100%"
+                                        onclick="currentSlideG(3)" alt="@Christine18122002 - Rio de Janeiro - RJ">
+                                </div>
+                                <div class="column">
+                                    <img class="demo cursor" src="gallery/play4.jpg" style="width:100%"
+                                        onclick="currentSlideG(4)" alt="@MandyInTheWoodlands - São Paulo - SP">
+                                </div>
+                                <div class="column">
+                                    <img class="demo cursor" src="gallery/play5.jpg" style="width:100%"
+                                        onclick="currentSlideG(5)" alt="@CamilaSkaterZO - Rio de Janeiro - RJ">
+                                </div>
+                                <div class="column">
+                                    <img class="demo cursor" src="gallery/play6.jpg" style="width:100%"
+                                        onclick="currentSlideG(6)" alt="@RodrigoALenda - Belo Horizonte - MG">
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- BARA DE MAIS VENDIDOS  -->
+        <div class="barraDivisoriaDeSecao">
+            <span class="barraTxt">Mais Vendidos</span>
+        </div>
+
+        <div id="destaqueMaisVendidos" class="contJogosMaisVendidos">
+
+        </div>
+
+
+    </div>
+    <footer class="marginSuperior">
+        <div class="footerTop">
+            <span class="footerGame">Game</span><span class="footerMania">Mania</span><br>
+            <span class="cnpj">
+                CNPJ: 22.183.899/0001-68
+            </span>
+        </div>
+
+        <div class="footerBot">
+            <div class="footerLeft">
+                Mapa do site:<br><br>
+
+                <a href="index.html">
+                    Home<br>
+                </a>
+                <a href="cart.html">
+                    Carrinho<br>
+                </a>
+                <a href="log.html">
+                    Login<br>
+                </a>
+                <a href="loja.html">
+                    Loja<br>
+                </a>
+                <a href="lancamento.html">
+                    Lançamentos<br>
+                </a>
+                <a href="prevenda.html">
+                    Pré-venda<br>
+                </a>
+
+            </div>
+
+            <div class="footerMid">
+
+
+                <!-- <p class="topLogoTxt">Game Mania</p> -->
+
+                <br>
+                <br>
+                <span class="footerEndereco">
+                    Rua Edward Kenway, 4823<br>
+                    Vila James - São Paulo - SP<br>
+                    Telefones: 11 3353-5535<br><br></span>
+
+                email: informacao@gamemania.com.br
+
+                <div class="socialMediaIcons">
+                    <img src="newImg/faceIcon.svg">
+                    <img src="newImg/ttIcon.svg">
+                    <img src="newImg/instaIcon.svg">
+                </div>
+            </div>
+
+            <div class="footerRight">
+                <span>
+                    Horário de atendimento:
+                </span>
+
+                <span>
+                    Segunda à Sexta<br>
+                    09h às 18h<br>
+                </span>
+
+                <span>
+                    Sábados, Domingos<br>
+                    e Feriados<br>
+                    09h às 14h
+                </span>
+            </div>
+
+            <!-- <div class="footerLeft">
+                <span>GameMania</span>
+
+                Gamemania é um site dedicado aos nossos clientes, oferecendo os melhores jogos, video-games,
+                smartphones e notebooks para a sua necessidade, além de acessórios para melhorar ainda mais a sua
+                experiência, seja como gamer ou profissional de TI. Fundado em
+                2021 possuindo no centro de São Paulo a nossa loja física com um ambiente receptivo, o Gamemania
+                também é uma loja online muito confiável, tendo avaliação de 4,9 no Reclame Aqui. Nosso foco está em
+                vender nossos produtos por um preço acesível a todos de forma segura e entregar conteúdo
+                de qualidade quando o assunto é tecnologia.
+            </div> -->
+        </div>
+        <div class="direitos">
+            <span>Copyright © 2021 GameMania - Desenvolvido por Adriano / GameMania - CNPJ: 22.111.555/0001-11
+
+            </span>
+        </div>
+
+
+    </footer>
+
+</body>
+
+
+</html>

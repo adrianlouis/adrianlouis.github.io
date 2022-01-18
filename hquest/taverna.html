@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/e12642acd8.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="hqcss/stylesheet.css">
+    <script type="text/javascript" src="hqjs/script.js" defer></script>
+
+    <title>Taverna</title>
+</head>
+
+<body onload="render()">
+    <header>
+        <span class="headSpan">Armas</span>
+
+        <i onclick="arrows('#arrowUp', '#arrowDown')" id="arrowDown" class="fas fa-arrow-circle-down headerArrow"></i>
+        <i onclick="arrows('#arrowUp', '#arrowDown')"  id="arrowUp" class="fas fa-arrow-circle-up headerArrow"></i>
+        <i class="fas fa-coins headerArrow"></i>
+      
+    </header>
+
+    <main>
+        <div onclick="player()" id="player" class="player">
+            <span>Louis</span>
+            <span>Mago</span>
+            <span>Ouro: 850</span>
+        </div>
+
+        <div id="containerCards" class="contCard">
+            <div class="menu"></div> 
+        </div>
+
+        <div id="containerCardsArmor" class="contCard">
+         </div>
+
+         <div id="containerArtefatos" class="contCard"></div>
+
+
+    </main>
+
+    <footer>
+        <div class="menuFtr"  onclick="menuFooter()">
+            <i id="menuFooter" class="fas fa-bars"  ></i>
+        </div>
+        <div class="containerFtr">
+            <ul onclick="menuFooter()">
+                <li onclick="cards('#containerCards', 'Armas')">Armas</li>
+                <li onclick="cards('#containerCardsArmor', 'Armaduras')">Armadura</li>
+                <li onclick="cards('#containerArtefatos', 'Artefatos')">Artefatos</li>
+                <li>Poções</li>
+                <li>Pergaminhos</li>
+            </ul>
+        </div>
+
+    </footer>
+
+</body>
+
+</html>
