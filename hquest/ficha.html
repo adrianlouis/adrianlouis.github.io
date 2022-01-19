@@ -20,7 +20,11 @@
         </span>
 
         <div class="headerMenu">
-            <i class="fas fa-ellipsis-v"></i>
+            <i onclick="modalMenu('0', '.headerMenu', '.modalMenu')" class="fas fa-ellipsis-v"></i>
+        </div>
+
+        <div class="modalMenu">
+            <i onclick="modalMenu('-100vw', '.modalMenu', '.headerMenu')" class="fas fa-times modalMenuClose"></i>
         </div>
 
     </div>

@@ -261,9 +261,15 @@ function itemClose(arrow, id){
 
     if (flecha.style.transform !== 'rotate(180deg)'){
         flecha.style.transform = 'rotate(180deg)'
-        document.querySelector(id).style.height = '0px'
+        document.querySelector(id).style.maxHeight = '1px'
     }else{
         arrow.style.transform = 'rotate(0deg)'
-        document.querySelector(id).style.height = 'unset'
+        document.querySelector(id).style.maxHeight = '8000px'
     }
+}
+
+function modalMenu(value, hide, show){
+    document.querySelector(hide).style.opacity = '0'
+    document.querySelector(show).style.opacity = '1'
+    document.querySelector('.modalMenu').style.left = value
 }
