@@ -261,10 +261,10 @@ function itemClose(arrow, id){
 
     if (flecha.style.transform !== 'rotate(180deg)'){
         flecha.style.transform = 'rotate(180deg)'
-        document.querySelector(id).style.maxHeight = '1px'
+        document.querySelector(id).style.maxHeight = '0px'
     }else{
         arrow.style.transform = 'rotate(0deg)'
-        document.querySelector(id).style.maxHeight = '8000px'
+        document.querySelector(id).style.maxHeight = '1000px'
     }
 }
 
@@ -272,4 +272,25 @@ function modalMenu(value, hide, show){
     document.querySelector(hide).style.opacity = '0'
     document.querySelector(show).style.opacity = '1'
     document.querySelector('.modalMenu').style.left = value
+}
+
+// var container = document.querySelector('.itemRow').style.opacity = '0';
+
+// document.querySelector()
+function buzzOff(e){
+    let elem = document.querySelector(e)
+    // elem.style.opacity = 1;
+
+    console.log(elem.style.opacity)
+    if (elem.style.opacity != 0 ){
+        elem.style.opacity = 0;
+       
+        console.log('case = 1')
+    }else{
+        console.log('case = 2')
+        elem.style.opacity = 1;
+    
+    }
+
+
 }
