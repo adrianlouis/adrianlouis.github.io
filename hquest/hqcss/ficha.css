@@ -6,12 +6,7 @@
 body{
     max-width: 500px;
     margin: auto;
-    /* background-color: #463239; */
     background-image: linear-gradient(to right, #dbdbdb, #f6f6f4);
-
-}
-.spanteste{
-    border: red 1px solid;
 }
 
 .header{
