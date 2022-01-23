@@ -35,11 +35,12 @@ form{
 
 button{
     width: 100px;
-    border-radius: 10px;
+    border-radius: 5px;
     height: 30px;
     font-weight: 700;
-    background-image: linear-gradient(red, blue);
-    color: white;
+    background-image: linear-gradient(to right, #adadad, #818181);
+    color: #fff;
+
 }
 
 #lbUser, #lbSenha{
@@ -47,4 +48,9 @@ button{
     font-weight: 700;
     color: black;
     transition: all 1s;
+}
+
+.spanReturn{
+    color: red;
+    font-weight: 700;
 }

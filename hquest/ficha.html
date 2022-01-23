@@ -8,14 +8,15 @@
     <link rel="stylesheet" type="text/css" href="hqcss/ficha.css">
     <script src="https://kit.fontawesome.com/e12642acd8.js" crossorigin="anonymous"></script>
     <script src='hqjs/script.js'></script>
+    <script src='hqjs/login.js'></script>
     <title>Hero Quest - Ficha</title>
 </head>
 
-<body>
+<body onload="loading()">
 
     <div class="header">
         <div class="mask"></div>
-        <span class="headerNome">
+        <span id="nicknameHero" class="headerNome">
             Louis
         </span>
 
@@ -31,7 +32,7 @@
 
     <div class="stats">
         <div class="class">
-            <span>Necromante</span>
+            <span id="heroClass">Necromante</span>
             <span>Nivel: 1</span>
             <span>Ouro: 450</span>
         </div>
@@ -108,9 +109,7 @@
                         <i class="fas fa-shield-alt"> 1</i>
                     </div>
                     <div class="itemTextRow">
-                        <span> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Id ipsa debitis quaerat est
-                            aliquid quis aperiam consequuntur ipsum. Earum voluptate distinctio veritatis culpa dolore
-                            assumenda laudantium consequuntur alias nemo magnam? Esta cota mágica é coberta de runas
+                        <span> Esta cota mágica é coberta de runas
                             místicas, protegendo o mago com 1d de defesa a
                             mais.</span>
                     </div>

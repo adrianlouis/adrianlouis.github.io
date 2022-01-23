@@ -11,20 +11,26 @@
 
     <title>Taverna</title>
 </head>
+<body onload="reset()">
 
-<main>
-    <form>
+    <main >
+
+        <form >
             <span class="title">Login</span>
-        <span>Entre com seu nome de usuário e senha</span>
-
-        <label id="lbUser" for="user">Usuário</label>
-        <input id="user" onfocus="inputFocus('#lbUser')" onblur="inputBlur('#lbUser', '#user')" type="text">
+            <span >Entre com seu nome de usuário e senha</span>
+            
+            <label id="lbUser" for="user">Usuário</label>
+            <input id="user" onfocus="inputFocus('#lbUser')" onblur="inputBlur('#lbUser', '#user')" type="text">
+            <span id="spanReturn" class="spanReturn"></span>
+            
+            <label id="lbSenha" for="password">Senha</label>
+            <input id="password" type="password" onfocus="inputFocus('#lbSenha')"
+            onblur="inputBlur('#lbSenha', '#password')">
+            
+            <button type="button" onclick="log()">Entrar</button>
+            <button type="button" onclick="cad()">Cadastrar</button>
+        </form>
         
-        <label id="lbSenha" for="password">Senha</label>
-        <input id="password" type="password" onfocus="inputFocus('#lbSenha')" onblur="inputBlur('#lbSenha', '#password')">
+    </main>
 
-        <button type="submit" onclick="log()">Entrar</button>
-        <button type="submit" onclick="cad()">Cadastrar</button>
-    </form>
-
-</main>
+</body>
