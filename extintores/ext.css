@@ -1,0 +1,250 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
+body{
+width: 450px;
+margin: auto;
+min-height: 100vh;
+position: relative;
+z-index: 2;
+margin-top: 35px;
+}
+header{
+    max-width: 450px;
+    background-color: #333;
+    position: relative;
+}
+
+.header{
+    height: 35px;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+    align-items: center;
+    margin: 0 auto;
+    color: #eee;
+    /* top: 0; */
+    background-color: #333;
+    border-bottom: 1px solid #a1a1a1;
+}
+
+.modalMenu{
+    width: 100%;
+    position:absolute;
+    top: -100vw;
+    left: 0;
+    display: flex;
+    justify-content: center ;
+    align-items: center;
+    flex-direction: column;
+    background-color: #333;
+    z-index: 1;
+}
+
+.modalIconClose{
+    font-size: 1.5rem;
+}
+
+.modalRadio{
+    display: flex;
+    flex-wrap: wrap;
+    width: 95%;
+    margin: 15px auto;
+}
+
+.modalRadio .modalInput {
+display: none;
+}
+
+.modalRadio .modalInputLabel{
+    font-weight: 700;
+    font-size: 1.3rem;
+    padding: 5px 10px;
+    color: #a1a1a1;
+    text-transform: uppercase;
+    border-bottom: 3px solid transparent;
+}
+.modalRadio .modalInputLabel:hover{
+    border-bottom: 3px solid green;
+}
+.modalInput:checked + .modalInputLabel{
+    color: #e2e2e2;
+    border-bottom: 3px solid yellowgreen;
+}
+
+.modalRadio .modalRadioContent{
+    width: 100%;
+    padding: 10px;
+    background-color: #c1c1c1;
+    order: 1;
+    display: none;
+}
+
+.contentModalCheckbox{
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+    flex-direction: column;
+}
+.checkAndLabel{
+    margin: 10px 0;
+}
+
+.modalRadio .modalInput:checked + .modalInputLabel + .modalRadioContent{
+    display: block;
+}
+
+
+table{
+    width: 100%;
+    text-align: center;
+}
+td, th{
+    padding: 5px 8px;
+}
+tr{
+    background-color: thistle;
+}
+.tabelaScroll{
+    width: 100%;
+    overflow-x: scroll;
+}
+
+.fSize{
+    font-size: 1.5rem;
+    transition: all .3s;
+}
+
+.fSize:hover{
+    color: white;
+}
+
+.containerCards{
+    background-color: #1b1b1b;
+    padding: 1px;
+}
+
+.extCard, .extCardDetalhe{
+    width: 90%;
+    border-radius: 10px;
+    background-color: #3b3b3b;
+    padding: 10px;
+    margin: 15px auto;
+    color: #d1d1d1;
+
+    display: flex;
+    justify-content: space-between;
+    text-align: left;
+    align-items: center;
+    box-shadow: #bbb 0 0 3px;
+    transition: all .5s;
+}
+
+.extCardDetalhe{
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+
+.extCardLeft, .extCardRight{
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+    align-items: center;
+    text-align: left;
+}
+.extCardRight{
+    align-items: unset;
+}
+
+
+
+
+.modalExtFull{
+    position: fixed;
+    top: -101vh;
+    /* left: -101vw; */
+    transition: all .5s;
+    width: 450px;
+    height: 100%;
+
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+
+    background-color: rgba(0,0,0,0.8);
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    width: 100%;
+    justify-content: space-evenly;
+}
+.formCol{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+
+}
+.formRow{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+}
+
+.formCol div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+    margin: 10px;
+}
+
+#avaria{
+    height: 100px;
+    text-align: justify;
+    resize: none;
+    
+}
+.formBtn{
+    margin: 10px;
+}
+.formBtn button{
+    font-size: 1rem;
+    margin: 0 15px;
+    padding: 3px 10px;
+    font-weight: 700;
+}
+
+.innactive{
+    display: none;
+}
+
+form input, form select{
+    text-align: center;
+}
+
+form input:disabled, form select:disabled, form textarea:disabled{
+background-color: transparent;
+border: transparent;
+color: white;
+}
+
+form input::-webkit-outer-spin-button,
+form input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+form input[type=number] {
+    -moz-appearance: textfield;
+}
+form label, form input, form select{
+    font-size: 1.2rem;
+}
