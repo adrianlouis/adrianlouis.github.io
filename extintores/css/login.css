@@ -1,0 +1,102 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+*{
+    padding: 0;
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    
+}
+
+body{
+    width: 100vw;
+    height: 100vh;
+    
+}
+
+.cont{
+    min-width: 390px;
+    min-height: 844px;
+    height: 100vh;
+    position: relative;
+    background-color: rgba(156, 142, 252, 1);
+    border-radius: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+}
+
+.cont i {
+    font-size: 10rem;
+    color: #ffffff;
+    margin-top: 20vh;
+}
+
+input::placeholder{
+    padding-left: 10px;
+}
+
+section, form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+form{
+background-color: white;
+border-radius: 20px;
+margin: 20px 20px;
+width: 90%;
+padding: 40px 0;
+}
+
+form input{
+    border: 1px solid rgba(156, 142, 252, 1);
+    border-radius: 25px;
+    margin: 10px 0;
+    padding: 10px;
+}
+
+.loginEmail, .loginSenha, button{
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+}
+.loginEmail{
+    font-size: 1.5rem;
+    font-weight: 900;
+}
+.loginSenha{
+    text-align: end;
+    font-size: .8rem;
+    margin-bottom: 15px;
+}
+.loginSenha a{
+    text-decoration: none;
+    color: black;
+}
+.loginSenha a:hover{
+    color: blue;
+}
+form button{
+    background-color: rgba(156, 142, 252, 1);
+    color: #ffffff;
+    border-radius: 25px;
+    padding: 5px 0;
+    font-size: 1.3rem;
+    margin: 20px;
+    border-color: transparent;
+    font-weight: 700;
+    text-align: center;
+}
+form button:active{
+    background-color: rgba(106, 92, 202, 1);
+}
+
+.botao{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}

@@ -1,0 +1,173 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+:root{
+    --bg-color: #f6f6f6;
+    --primaria-color: #8877f1;
+    --secundaria-color: #49adcc;
+    --terciaria-color: #e14e4e;
+    --quaternaria-color: #fc9319;
+    --quinaria-color: #999999;
+
+    --darkBg-color: #2F2947;
+    --primaria-color: #544978;
+    --secundaria-color: #e1e1f1;
+}
+
+*{
+    padding: 0;
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+body{
+    width: 100vw;
+    border-radius: 20px;
+    /* border:1px solid black; */
+}
+
+header{
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+}
+header, main, footer{
+    width: 390px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: #F6F6F6;
+}
+
+.headerAvatar{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+.headerUsuario{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 50px 20px;
+    margin-bottom: 30px;
+    flex-direction: row;
+    width: 90%;
+}
+
+.headerName{
+    width: 65%;
+}
+.headerName span{
+    font-size: 0.8rem;
+    color: rgba(153, 153, 153, 1);
+}
+.headerNomeUsuario{
+    font-size: 1.5rem;
+}
+.headerUsuario i{
+    font-size: 2rem;
+    color: #8877F1;
+}
+.historico{
+    width: 90%;
+}
+.historicoFiltro{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 0;
+}
+.historicoFiltro a{
+    text-decoration: none;
+    background-color: #E9E7FC;
+    padding: 5px 10px;
+    border-radius: 10px;
+    color: #000000;
+    /* EM JAVASCRIPT, APLICAR CLASSE A COR rgba(136, 119, 241, 1) AO CLICAR */
+}
+.historicoFiltro a:hover{
+    background-color: rgba(136, 119, 241, 1);
+}
+.historico span{
+    font-size: 1.5rem;
+}
+
+.smallCard{
+    width: 90%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 15px;
+    transition: all .5s ease-in-out;
+    border: 1px solid transparent;
+    border-radius: 20px;
+}
+.smallCard:hover{
+    background-color: #f0f0f0;
+    border-radius: 20px;
+
+}
+
+.extType{
+    border-radius: 15px;
+    background-color: #FEEDDA;
+    color: rgba(252, 147, 25, 1);
+}
+
+.extType, .extSinalizacao{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    height: 60px;
+    font-size: 1.1rem;
+    text-align: center;
+    font-weight: 600;
+}
+
+.extNumber span{
+    font-size: .8rem;
+    color: rgba(153, 153, 153, 1);
+}
+
+.extSinalizacao{
+    color: rgba(225, 78, 78, 1);
+
+}
+
+footer{
+    flex-direction: row;
+    justify-content: space-evenly;
+    background-color: #FFFFFF;
+    font-size: 2rem;
+    padding: 5px 0;
+    padding: 15px 0;
+    color: rgba(186, 176, 252, 1);
+    border-end-end-radius: 20px;
+    border-end-start-radius: 20px;
+    position: sticky;
+    bottom: 0;
+    transition: all .5s ease-in-out;
+}
+.footerDot{
+    position: absolute;
+    width: 5px;
+    height: 5px;
+    background-color: rgba(186, 176, 252, 1);
+    border-radius: 50%;
+    left: 17.5%;
+    bottom: 4px;
+    transition: all .7s ease-in-out;
+}
+.footerActive{
+    color: rgba(136, 119, 241, 1);
+}
+footer a{
+    text-decoration: none;
+    color: rgba(186, 176, 252, 1);
+    transition: all .5s ease-in-out;
+}
+footer a:hover{
+color:rgba(136, 119, 241, 1)
+}
