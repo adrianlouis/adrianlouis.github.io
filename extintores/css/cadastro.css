@@ -65,14 +65,15 @@ header, main, footer{
 .headerNomeUsuario{
     font-size: 1.5rem;
 }
-.headerUsuario i{
+.headerUsuario i, .headerNovoExt i{
     font-size: 2rem;
     color: #8877F1;
 }
 .historico{
     width: 90%;
 }
-.historicoFiltro{
+
+.historicoFiltro, .headerNovoExt{
     width: 100%;
     display: flex;
     justify-content: space-between;
@@ -84,81 +85,37 @@ header, main, footer{
     padding: 5px 10px;
     border-radius: 10px;
     color: #000000;
+    width: 15%;
+    text-align: center;
     /* EM JAVASCRIPT, APLICAR CLASSE A COR rgba(136, 119, 241, 1) AO CLICAR */
 }
-.historicoFiltro a:hover{
-    background-color: rgba(136, 119, 241, 1);
+.historicoFiltro a:nth-child(1){
+    color: rgba(225, 78, 78, 1);
+    background-color: rgba(250, 223, 223, 1);
 }
+.historicoFiltro a:nth-child(2){
+    color: rgba(73, 173, 204, 1);
+    background-color: rgba(228, 246, 252, 1);
+}
+.historicoFiltro a:nth-child(3){
+    color: rgba(252, 147, 25, 1);
+    background-color: rgba(254, 237, 218, 1);
+}
+
 .historico span{
     font-size: 1.5rem;
 }
 
 .smallCard{
-    width: 90vw;
+    width: 90%;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    margin: 40px;
+    margin: 15px;
     transition: all .5s ease-in-out;
+    border: 1px solid transparent;
     border-radius: 20px;
-
-    transform-style: preserve-3d;
-    position: relative;
 }
-
-.smallCard .smCard{
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    transform-style: preserve-3d;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    transition: .75s ease-in-out;
-    backface-visibility: hidden;
-    transform: perspective(500px) rotateY(0deg);
-}
-
-.smallCard .smCard.front{
-    background-color: black;
-}
-
-/* .smallCard:hover .smCard.front{
-transform: perspective(500px) rotateY(180deg);
-} */
-
-.smallCard .smCard.back{
-background-color: #49adcc;
-transform: perspective(500px) rotateY(180deg);
-justify-content: space-evenly;
-font-size: 1.5rem;
-}
-
-.smallCard .smCard.back i{
-    cursor: pointer;
-}
-
-#back h3{
-    font-size: 1.2rem;
-}
-
-/* .smallCard:hover .smCard.back{
-transform: perspective(500px) rotateY(360deg);
-} */
-
-.delete{
-background-color: orange;
-color: wheat;
-width: 30vw;
-
-/* position: absolute; */
-right: 0;
-top: 0;
-}
-
-
 .smallCard:hover{
     background-color: #f0f0f0;
     border-radius: 20px;
@@ -233,4 +190,104 @@ footer a{
 }
 footer a:hover{
 color:rgba(136, 119, 241, 1)
+}
+
+
+
+
+
+
+
+
+form{
+    width: 90%;
+}
+.formInputRow{
+    width: 100%;
+}
+
+.formInputRow, .datas{
+    margin: 20px auto;
+    width: 100%;
+    /* border: 1px solid red; */
+    display: flex;
+    flex-direction: column;    
+}
+
+label{
+    margin-bottom: 5px;
+}
+#ultRec, #proxRet{
+    margin-top: 5px;
+}
+
+.formInputRow input, .formInputRow select{
+    width: 100%;
+    box-sizing: border-box;
+    border-radius: 25px;
+    margin: 0 auto;
+    padding: 10px 0;
+    background-color: rgba(246, 246, 246, 1);
+    border: 1px solid rgba(153, 153, 153, 1);
+    padding-left: 15px;
+    color: #999999;
+}
+
+.formInputRow select{
+    width: 100%;
+    appearance: none;
+    color: rgba(153, 153, 153, 1);
+    background-color: rgba(246, 246, 246, 1);
+
+}
+
+.select{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.select img{
+    position: absolute;
+    right: 10px;
+    width: 25px;
+    color: rgb(231, 10, 10);
+    filter: opacity(40%);
+}
+
+.select select option{
+    background-color: #f6f6f6;
+    border: 1px solid rgba(153, 153, 153, 1);
+    border-radius: 25px;
+}
+
+.formInputRow .datas{
+    /* width: 40%; */
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0;
+    /* border: 1px solid red; */
+}
+.datas .recarga, .datas .reteste{
+width: 45%;
+/* border: 1px solid blue; */
+}
+.datas input{
+    padding-left: unset;
+    width: 100%;
+    text-align: center;
+    color: #999999;
+}
+.datetime-input-edit-wrapper{
+    margin-left: 20px;
+}
+.formInputRow textarea{
+   resize: none; 
+   border-radius: 10px;
+   border: 1px solid rgba(153, 153, 153, 1);
+   background-color: #f6f6f6;
+   padding: 5px;
+   color: #999999;
 }

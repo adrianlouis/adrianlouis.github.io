@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="css/cadastro.css">
+    <script src="https://kit.fontawesome.com/47637081ef.js" crossorigin="anonymous"></script>
+    <!-- <script type="text/javascript" src="js/home.js" defer></script> -->
+
+    <title>Extintores</title>
+</head>
+
+<body>
+
+    <header>
+
+        <div class="headerUsuario">
+            <div class="headerAvatar">
+                <img src="img/femalePic.svg">
+            </div>
+
+            <div class="headerName">
+                <span>Boa tarde</span>
+                <h2 class="headerNomeUsuario">Vanessa</h2>
+            </div>
+
+            <i class="fas fa-moon-stars"></i>
+        </div>
+
+        <div class="historico">
+
+            <div class="headerNovoExt">
+                <span>Novo Extintor</span>
+                <i class="fas fa-save"></i>
+            </div>
+
+
+            <div class="historicoFiltro">
+                <a href="#">AP</a>
+                <a href="#">PQS</a>
+                <a href="#">CO²</a>
+            </div>
+
+        </div>
+
+    </header>
+
+    <main>
+
+        <form>
+
+            <div class="formInputRow">
+                <label for="number">Número do extintor</label>
+                <input type="text" id="number">
+            </div>
+
+            <div class="formInputRow">
+                <label for="local">Local</label>
+
+                <div class="select">
+                    <img src="img/chevron-circle-down.svg">
+                    <select id="local">
+                        <option disabled selected>Selecione</option>
+                        <option>Subsolo</option>
+                        <option>Térreo</option>
+                        <option>2º Pavimento</option>
+                        <option>3º Pavimento</option>
+                        <option>4º Pavimento</option>
+                        <option>CMI</option>
+                        <option>Reservas</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="formInputRow">
+                <label for="ala">Ala</label>
+
+                <div class="select">
+                    <img src="img/chevron-circle-down.svg">
+                    <select id="ala" name="ala">
+                        <option disabled selected>Selecione</option>
+                        <option>Ala A</option>
+                        <option>Ala B</option>
+                        <option>N/A</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="formInputRow">
+
+                <div class="datas">
+
+                    <div class="recarga">
+                        <label for="ultRec">Última recarga</label>
+                        <input id="ultRec" type="date">
+                    </div>
+
+                    <div class="reteste">
+                        <label form="proxRet" for="number">Próximo reteste</label>
+                        <input id="proxRet" type="date">
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="formInputRow">
+                <label for="avarias">Avarias</label>
+                <textarea id="avarias" rows="3" cols="50"></textarea>
+            </div>
+
+        </form>
+
+    </main>
+    <footer>
+
+       <div class="footerDot">
+           <a href="home.html"><i class="fas fa-home-lg-alt"></i></a>
+           <div class="footerDotFill"></div>
+           
+        </div>
+
+        <div class="footerDot">
+            <i class="fas fa-fire-extinguisher footerActive"></i>
+            <div class="footerDotFill footerDotFillActive"></div>
+        </div>
+
+        <div class="footerDot">
+            <i class="fas fa-history"></i>
+            <div class="footerDotFill"></div>
+
+        </div>
+
+        <div class="footerDot">
+            <i class="fas fa-user"></i>
+            <div class="footerDotFill"></div>
+
+        </div>
+    </footer>
+
+</body>
+<!-- <script src="service/ext-service.js"></script> -->
+
+</html>

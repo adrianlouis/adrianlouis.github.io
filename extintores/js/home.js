@@ -10,17 +10,36 @@ const homeCard = (numero, tipo, proximaRecarga, proximoReteste, sinalizacao) => 
     var nextRet = new Date (proximaRecarga).toLocaleDateString('pt-PT')
     nextRet.split('T')[0]
 
+
+
     const template = `
+  
+
+    <div id="front" onclick="rodar(this, '180deg', this , '360deg')" class="smCard front">
+
     <div class="extType">
-        <span class="extTipo">${tipo}</span>
+        <span>${tipo}</span>
     </div>
+
     <div class="extNumber">
         <h3>${numero}</h3>
-        <span id="homeDatas">${nextRec} • ${nextRet}</span>
+        <span>${nextRec} • ${nextRet}</span>
     </div>
+
     <div class="extSinalizacao">
         ${sinalizacao}
     </div>
+</div>
+
+<div onclick="voltar(this)" id="back" class="smCard back">
+<h3>${numero}</h3>
+   <a href="cadastro.html"> <i class="far fa-edit footerActive"></i></a>
+    <i class="fas fa-trash-alt footerActive"></i>
+
+    <i  class="fas fa-undo-alt footerActive"></i>
+
+
+</div>
  `
 
     container.innerHTML = template
@@ -38,9 +57,9 @@ http.onload = () => {
     const data = JSON.parse(http.response)
     console.log(data)
     data.forEach(elem => {
-        var proximaRecargaData = elem.proximaRecarga
+        // var proximaRecargaData = elem.proximaRecarga
         containerHomeCards.appendChild(homeCard(elem.numero, elem.tipo, elem.proximaRecarga, elem.proximoReteste, elem.sinalizacao))
-        console.log(proximaRecargaData)
+        // console.log(proximaRecargaData)
     })
 
     var extTipo = document.querySelectorAll('.extType')
@@ -80,4 +99,39 @@ function footerChoice(n, p) {
     dot.style.left = p;
 }
 
+function mousePos(e, elem){
+    //clicar me da a posição X do mouse
+    var posX = e.clientX
+    console.log("POSICAO X: "+posX)
 
+    elem.addEventListener('mousemove', (ev) => {
+        console.log(ev.movementX)
+        document.querySelector('.teste').style.left = ""+(e.clientX - ev.clientX / 10)+"px";
+        // var posXFinal = e.clientX - ev.clientX;
+        if (elem.mouseover == true){
+            console.log('cancel')
+            return
+        }  
+    })
+}
+
+function testeScroll(e){
+console.log(e.clientX)
+}
+
+function rodar(elem, deg, elemS, degS){
+    elemS = elemS.nextElementSibling; 
+    elem.style.transform = "perspective(500px) rotateY("+deg+")"
+    elemS.style.transform = "perspective(500px) rotateY("+degS+")"
+}
+
+function teste(){
+    console.log('back event')
+}
+
+function voltar(elem){
+    let elemPrev = elem.previousElementSibling;
+
+    elem.style.transform = "perspective(500px) rotateY(180deg)"
+    elemPrev.style.transform = "perspective(500px) rotateY(0deg)"
+}
