@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="css/cadastro.css">
+    <script src="https://kit.fontawesome.com/47637081ef.js" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="js/historico.js" defer></script>
+
+    <title>Histórico</title>
+</head>
+
+<body>
+
+    <header>
+
+        <div class="headerUsuario">
+            <div class="headerAvatar">
+                <img src="img/femalePic.svg">
+            </div>
+
+            <div class="headerName">
+                <span>Boa tarde</span>
+                <h2 class="headerNomeUsuario">Adrian</h2>
+            </div>
+
+            <i class="fas fa-moon-stars"></i>
+        </div>
+
+        <div class="historico">
+
+            <div class="headerNovoExt">
+                <span id="newOrEdit">Histórico</span>
+            </div>
+
+            <div class="formInputRow">
+                <input type="search" placeholder="Número do extintor" id="findIt"> <i id="iconFindIt" onclick="loadHist()" class="fas fa-search"></i>
+            </div>
+
+        </div>
+
+    </header>
+
+    <main>
+
+        <div class="histNotFound">
+            <span>Extintor não encontrado!</span>
+        </div>
+
+        <div class="histDeleted">
+            <span>Extintor excluído!</span>
+        </div>
+
+        <div class="histShow">
+
+            <div>
+
+                <div>
+                    <span class="histLabel">Cadastrado em</span>
+                    <span id="cadastro"></span>
+                </div>
+                <div>
+                    <span id="alteracaoLabel" class="histLabel">Alterado em</span>
+                    <span id="alteracao"></span>
+                </div>
+            </div>
+
+
+            <span class="histLabel">Localização</span>
+            <span id="local"></span>
+
+            <span class="histLabel">Usuário responsável</span>
+            <span id="userName"></span>
+
+            <span class="histLabel">Tipo e classe</span>
+            <span id="classType"></span>
+
+            <span class="histLabel">Última e próxima recargas</span>
+            <span id="recargasDatas"></span>
+
+            <span class="histLabel">Último e próximo retestes</span>
+            <span id="retestesDatas"></span>
+
+            <span class="histLabel">Sinalização</span>
+            <span id="sinalizacao"></span>
+
+            <span class="histLabel">Avarias</span>
+            <span id="avarias"></span>
+
+
+        </div>
+
+    </main>
+
+    <footer>
+
+        <div class="footerDot">
+            <a href="home.html"><i class="fas fa-home-lg-alt"></i></a>
+            <div class="footerDotFill"></div>
+
+        </div>
+
+        <div class="footerDot">
+            <i class="fas fa-fire-extinguisher "></i>
+            <div id="dotExtintor" class="footerDotFill "></div>
+        </div>
+
+        <div class="footerDot">
+            <i class="fas fa-history footerActive"></i>
+            <div class="footerDotFill footerDotFillActive"></div>
+
+        </div>
+
+        <div class="footerDot">
+            <i class="fas fa-user"></i>
+            <div class="footerDotFill"></div>
+
+        </div>
+    </footer>
+
+</body>
+<!-- <script src="service/ext-service.js"></script> -->
+
+</html>

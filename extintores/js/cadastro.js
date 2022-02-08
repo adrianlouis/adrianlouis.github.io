@@ -12,7 +12,6 @@ function loadEdit(){
     http.send();
     http.onload = () => {
         const resp = JSON.parse(http.response)
-        console.log(resp.subLocal.descricao)
 
         document.querySelector('#newOrEdit').innerHTML = "Editar Extintor"
         document.querySelector('#number').value = resp.numero
