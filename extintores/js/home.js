@@ -1,4 +1,5 @@
 var http = new XMLHttpRequest();
+var url = "https://apiextintores.azurewebsites.net/"
 
 const homeCard = (numero, tipo, proximaRecarga, proximoReteste, sinalizacao) => {
     const container = document.createElement('div')
@@ -33,7 +34,7 @@ const homeCard = (numero, tipo, proximaRecarga, proximoReteste, sinalizacao) => 
 
 <div onclick="voltar(this)" id="back" class="smCard back">
 <h3>${numero}</h3>
-   <a href="cadastro.html"> <i class="far fa-edit footerActive"></i></a>
+   <a href="cadastro.html?extN=${numero}" <i class="far fa-edit footerActive"></i></a>
     <i class="fas fa-trash-alt footerActive"></i>
 
     <i  class="fas fa-undo-alt footerActive"></i>
@@ -49,7 +50,7 @@ const homeCard = (numero, tipo, proximaRecarga, proximoReteste, sinalizacao) => 
 
 const containerHomeCards = document.querySelector('main')
 
-http.open("GET", "https://controleextintores.azurewebsites.net/extintor")
+http.open("GET", url+"extintor")
 
 http.send()
 

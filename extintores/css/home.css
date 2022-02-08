@@ -143,6 +143,9 @@ font-size: 1.5rem;
 #back h3{
     font-size: 1.2rem;
 }
+#back a{
+    text-decoration: none;
+}
 
 /* .smallCard:hover .smCard.back{
 transform: perspective(500px) rotateY(360deg);

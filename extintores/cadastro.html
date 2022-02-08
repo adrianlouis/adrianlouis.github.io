@@ -7,12 +7,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="css/cadastro.css">
     <script src="https://kit.fontawesome.com/47637081ef.js" crossorigin="anonymous"></script>
-    <!-- <script type="text/javascript" src="js/home.js" defer></script> -->
+    <script type="text/javascript" src="js/cadastro.js" defer></script>
 
     <title>Extintores</title>
 </head>
 
-<body>
+<body onload="loadEdit()">
 
     <header>
 
@@ -32,15 +32,15 @@
         <div class="historico">
 
             <div class="headerNovoExt">
-                <span>Novo Extintor</span>
+                <span id="newOrEdit">Novo Extintor</span>
                 <i class="fas fa-save"></i>
             </div>
 
 
             <div class="historicoFiltro">
-                <a href="#">AP</a>
-                <a href="#">PQS</a>
-                <a href="#">CO²</a>
+                <a id="tipoA" onclick="tipoExt(this)" class="tipoExtintor" href="#">AP</a>
+                <a id="tipoB" onclick="tipoExt(this)" class="tipoExtintor" href="#">PQS</a>
+                <a id="tipoC" onclick="tipoExt(this)" class="tipoExtintor" href="#">CO²</a>
             </div>
 
         </div>
@@ -63,13 +63,13 @@
                     <img src="img/chevron-circle-down.svg">
                     <select id="local">
                         <option disabled selected>Selecione</option>
-                        <option>Subsolo</option>
-                        <option>Térreo</option>
-                        <option>2º Pavimento</option>
-                        <option>3º Pavimento</option>
-                        <option>4º Pavimento</option>
-                        <option>CMI</option>
-                        <option>Reservas</option>
+                        <option value="3">Subsolo</option>
+                        <option value="4">Térreo</option>
+                        <option value="5">2º Pavimento</option>
+                        <option value="6">3º Pavimento</option>
+                        <option value="7">4º Pavimento</option>
+                        <option value="9">CMI</option>
+                        <option value="1">Reservas</option>
                     </select>
                 </div>
             </div>
@@ -81,9 +81,10 @@
                     <img src="img/chevron-circle-down.svg">
                     <select id="ala" name="ala">
                         <option disabled selected>Selecione</option>
-                        <option>Ala A</option>
-                        <option>Ala B</option>
-                        <option>N/A</option>
+                        <option value="1">Ala A</option>
+                        <option value="2">Ala B</option>
+                        <option value="3">Escada</option>
+                        <option value="4">N/A</option>
                     </select>
                 </div>
             </div>
@@ -124,7 +125,7 @@
 
         <div class="footerDot">
             <i class="fas fa-fire-extinguisher footerActive"></i>
-            <div class="footerDotFill footerDotFillActive"></div>
+            <div id="dotExtintor" class="footerDotFill footerDotFillActive"></div>
         </div>
 
         <div class="footerDot">
