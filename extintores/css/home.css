@@ -125,6 +125,34 @@ header, main, footer{
     background-color: black;
 }
 
+#deletar, .back{
+    display: none;
+    font-size: 1.3rem;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    
+}
+
+#deletar button{
+    margin: 0 15px;
+    padding: 0 20px;
+    font-size: 1rem;
+    font-weight: 700;
+    border-radius: 10px;
+    background-color: #E9E7FC;
+    border: none;
+    height: 30px;
+}
+#confirmsDel{
+    color: red;
+}
+
+#deletar span{
+    font-size: 1rem;
+    font-weight: 700;
+}
+
 /* .smallCard:hover .smCard.front{
 transform: perspective(500px) rotateY(180deg);
 } */

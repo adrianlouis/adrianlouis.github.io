@@ -90,7 +90,7 @@ header .formInputRow i{
     right: 15px;
     color: rgba(136, 119, 241, 1);
 }
-.histNotFound, .histDeleted, .histShow{
+.histNotFound, .histDeleted, .histShow, .histShowTemplate{
     width: 90%;
     margin-bottom: 20px;
     background-color: #FFFFFF;
@@ -103,22 +103,22 @@ header .formInputRow i{
     font-weight: 700;
     padding-left: 20px;
 }
-.histNotFound, .histDeleted, #alteracaoLabel, #alteracao{
+  #alteracaoLabel, #alteracao, .histShow{
     display: none;
 }
 .histDeleted{
     color: rgba(225, 78, 78, 1);
 }
-.histShow{
-    display: flex;
+.histShow, .histShowTemplate{
+    /* display: flex; */
     justify-content: flex-end;
     width: 90%;
-    border: 1px solid purple;
+    /* border: 1px solid purple; */
     flex-direction: column;
     height: unset;
     align-items: flex-start;
 }
-.histShow div{
+.histShow div, .histShowTemplate div{
     /* border: 1px solid gray; */
     display: flex;
     width: 100%;
@@ -126,7 +126,7 @@ header .formInputRow i{
     flex-direction: row;
     justify-content: space-evenly;
 }
-.histShow div div{
+.histShow div div, .histShowTemplate div div {
     width: 50%;
     display: flex;
     flex-direction: column;
@@ -137,9 +137,13 @@ header .formInputRow i{
     font-weight: 400;
 }
 
-.histShow span:nth-last-of-type(2n+1){
+.histShow span:nth-last-of-type(2n+1), .histShowTemplate span:nth-last-of-type(2n+1) {
     margin-bottom: 15px;
     /* background-color: red; */
+}
+
+.histShowTemplate{
+    display: flex;
 }
 
 

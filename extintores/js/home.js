@@ -5,10 +5,10 @@ const homeCard = (numero, tipo, proximaRecarga, proximoReteste, sinalizacao) => 
     const container = document.createElement('div')
     container.classList.add('smallCard')
 
-    var nextRec = new Date (proximaRecarga).toLocaleDateString('pt-PT')
+    var nextRec = new Date(proximaRecarga).toLocaleDateString('pt-PT')
     nextRec = nextRec.split('T')[0]
 
-    var nextRet = new Date (proximaRecarga).toLocaleDateString('pt-PT')
+    var nextRet = new Date(proximaRecarga).toLocaleDateString('pt-PT')
     nextRet.split('T')[0]
 
 
@@ -30,27 +30,33 @@ const homeCard = (numero, tipo, proximaRecarga, proximoReteste, sinalizacao) => 
     <div class="extSinalizacao">
         ${sinalizacao}
     </div>
+
+    
 </div>
 
-<div onclick="voltar(this)" id="back" class="smCard back">
+<div  id="back" class="smCard back">
 <h3>${numero}</h3>
-   <a href="cadastro.html?extN=${numero}" <i class="far fa-edit footerActive"></i></a>
-    <i class="fas fa-trash-alt footerActive"></i>
+    <a href="cadastro.html?extN=${numero}" <i class="far fa-edit footerActive"></i></a>
+    <i onclick="deletarExtintor(this)" class="fas fa-trash-alt footerActive"></i>
+    <i onclick="voltar(this.parentNode)" class="fas fa-undo-alt footerActive"></i>
 
-    <i  class="fas fa-undo-alt footerActive"></i>
-
+    <div id="deletar">
+        <span>Deseja excluir o extintor ${numero}?</span>
+        <button id="confirmsDel" type="button">Sim
+        <button onclick="cancelDelete(this)" type="button">Não 
+    </div>
 
 </div>
  `
 
     container.innerHTML = template
     return container
-    
+
 }
 
 const containerHomeCards = document.querySelector('main')
 
-http.open("GET", url+"extintor")
+http.open("GET", url + "extintor")
 
 http.send()
 
@@ -64,29 +70,29 @@ http.onload = () => {
     })
 
     var extTipo = document.querySelectorAll('.extType')
-    for (i=0; i<extTipo.length; i++){
+    for (i = 0; i < extTipo.length; i++) {
         console.log(extTipo[i].innerText)
-        if (extTipo[i].innerText == 0){
+        if (extTipo[i].innerText == 0) {
             extTipo[i].innerText = "AP"
             extTipo[i].style.backgroundColor = "rgba(250, 223, 223, 1)"
             extTipo[i].style.color = "rgba(225, 78, 78, 1)"
-        }else if (extTipo[i].innerText == "1") {
+        } else if (extTipo[i].innerText == "1") {
             extTipo[i].innerText = "PQS"
             extTipo[i].style.backgroundColor = "rgba(228, 246, 252, 1)"
             extTipo[i].style.color = "rgba(73, 173, 204, 1)"
-        }else {
+        } else {
             extTipo[i].innerHTML = "CO²"
         }
     }
 
     var extSinal = document.querySelectorAll('.extSinalizacao')
-    for (i=0; i < extSinal.length; i++){
-        if (extSinal[i].innerText == 0){
+    for (i = 0; i < extSinal.length; i++) {
+        if (extSinal[i].innerText == 0) {
             extSinal[i].innerText = "OK"
             extSinal[i].style.color = "rgba(73, 173, 204, 1)"
-        }else if(extSinal[i].innerText == 1){
+        } else if (extSinal[i].innerText == 1) {
             extSinal[i].innerText = "Placa quebrada"
-        }else{
+        } else {
             extSinal[i].innerText = "Sem placa"
         }
     }
@@ -100,39 +106,49 @@ function footerChoice(n, p) {
     dot.style.left = p;
 }
 
-function mousePos(e, elem){
+function mousePos(e, elem) {
     //clicar me da a posição X do mouse
     var posX = e.clientX
-    console.log("POSICAO X: "+posX)
+    console.log("POSICAO X: " + posX)
 
     elem.addEventListener('mousemove', (ev) => {
         console.log(ev.movementX)
-        document.querySelector('.teste').style.left = ""+(e.clientX - ev.clientX / 10)+"px";
+        document.querySelector('.teste').style.left = "" + (e.clientX - ev.clientX / 10) + "px";
         // var posXFinal = e.clientX - ev.clientX;
-        if (elem.mouseover == true){
+        if (elem.mouseover == true) {
             console.log('cancel')
             return
-        }  
+        }
     })
 }
 
-function testeScroll(e){
-console.log(e.clientX)
+function testeScroll(e) {
+    console.log(e.clientX)
 }
 
-function rodar(elem, deg, elemS, degS){
-    elemS = elemS.nextElementSibling; 
-    elem.style.transform = "perspective(500px) rotateY("+deg+")"
-    elemS.style.transform = "perspective(500px) rotateY("+degS+")"
+function rodar(elem, deg, elemS, degS) {
+    elemS = elemS.nextElementSibling;
+    elem.style.transform = "perspective(500px) rotateY(" + deg + ")"
+    elemS.style.transform = "perspective(500px) rotateY(" + degS + ")"
 }
 
-function teste(){
+function teste() {
     console.log('back event')
 }
 
-function voltar(elem){
+function voltar(elem) {
     let elemPrev = elem.previousElementSibling;
 
     elem.style.transform = "perspective(500px) rotateY(180deg)"
     elemPrev.style.transform = "perspective(500px) rotateY(0deg)"
+}
+
+function deletarExtintor(elem) {
+    for (i=0; i < 4; i++){elem.parentNode.children[i].style.display= "none"}
+    elem.parentNode.children[4].style.display= "flex"
+}
+
+function cancelDelete(elem){
+    for (i = 0; i <4; i++){elem.parentNode.parentNode.children[i].style.display = 'block'}
+    elem.parentNode.parentNode.children[4].style.display = 'none'
 }
