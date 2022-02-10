@@ -1,3 +1,20 @@
+//Ler cookie
+function getCookie(cNome){
+    let nome = cNome + '=';
+    let decodedCookie = decodeURIComponent(document.cookie);
+    let ca = decodedCookie.split(';');
+    for (i = 0; i < ca.length; i++){
+        let c = ca[i];
+        while (c.charAt(0) == ' '){
+            c = c.substring(1);
+        }
+        if (c.indexOf(nome) == 0){
+            return c.substring(nome.length, c.length);
+        }
+    }
+    return "";
+}
+
 function loadEdit(){
     const urlParams = new URLSearchParams(window.location.search)
     const urlextN = urlParams.get("extN")
@@ -9,6 +26,8 @@ function loadEdit(){
     var http = new XMLHttpRequest();
     var url = "https://apiextintores.azurewebsites.net/extintor"
     http.open("GET", url+"/numero/"+urlextN)
+    let token = getCookie('token')
+    http.setRequestHeader('Authorization', 'Bearer '+token)
     http.send();
     http.onload = () => {
         const resp = JSON.parse(http.response)

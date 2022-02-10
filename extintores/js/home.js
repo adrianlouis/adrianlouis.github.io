@@ -1,6 +1,24 @@
 var http = new XMLHttpRequest();
 var url = "https://apiextintores.azurewebsites.net/"
 
+//Ler cookie
+function getCookie(cNome){
+    let nome = cNome + '=';
+    let decodedCookie = decodeURIComponent(document.cookie);
+    let ca = decodedCookie.split(';');
+    for (i = 0; i < ca.length; i++){
+        let c = ca[i];
+        while (c.charAt(0) == ' '){
+            c = c.substring(1);
+        }
+        if (c.indexOf(nome) == 0){
+            return c.substring(nome.length, c.length);
+        }
+    }
+    return "";
+}
+
+
 const homeCard = (numero, tipo, proximaRecarga, proximoReteste, sinalizacao) => {
     const container = document.createElement('div')
     container.classList.add('smallCard')
@@ -58,11 +76,19 @@ const containerHomeCards = document.querySelector('main')
 
 http.open("GET", url + "extintor")
 
+let username = getCookie('user')
+let token = getCookie('token')
+document.querySelector('#headerNomeUsuario').innerHTML = username
+http.setRequestHeader('Authorization', 'Bearer '+token)
+
+
+
+
 http.send()
 
 http.onload = () => {
     const data = JSON.parse(http.response)
-    console.log(data)
+    // console.log(data)
     data.forEach(elem => {
         // var proximaRecargaData = elem.proximaRecarga
         containerHomeCards.appendChild(homeCard(elem.numero, elem.tipo, elem.proximaRecarga, elem.proximoReteste, elem.sinalizacao))
@@ -71,7 +97,7 @@ http.onload = () => {
 
     var extTipo = document.querySelectorAll('.extType')
     for (i = 0; i < extTipo.length; i++) {
-        console.log(extTipo[i].innerText)
+        // console.log(extTipo[i].innerText)
         if (extTipo[i].innerText == 0) {
             extTipo[i].innerText = "AP"
             extTipo[i].style.backgroundColor = "rgba(250, 223, 223, 1)"
@@ -109,21 +135,21 @@ function footerChoice(n, p) {
 function mousePos(e, elem) {
     //clicar me da a posição X do mouse
     var posX = e.clientX
-    console.log("POSICAO X: " + posX)
+    // console.log("POSICAO X: " + posX)
 
     elem.addEventListener('mousemove', (ev) => {
-        console.log(ev.movementX)
+        // console.log(ev.movementX)
         document.querySelector('.teste').style.left = "" + (e.clientX - ev.clientX / 10) + "px";
         // var posXFinal = e.clientX - ev.clientX;
         if (elem.mouseover == true) {
-            console.log('cancel')
+            // console.log('cancel')
             return
         }
     })
 }
 
 function testeScroll(e) {
-    console.log(e.clientX)
+    // console.log(e.clientX)
 }
 
 function rodar(elem, deg, elemS, degS) {
@@ -133,7 +159,7 @@ function rodar(elem, deg, elemS, degS) {
 }
 
 function teste() {
-    console.log('back event')
+    // console.log('back event')
 }
 
 function voltar(elem) {

@@ -1,33 +1,74 @@
-var emailLog = ''
-var senhaLog = ''
+// var emailLog = ''
+// var senhaLog = ''
 
-function logar() {
-    emailLog = document.querySelector('#email').value
-    senhaLog = document.querySelector('#senha').value
+// function logar() {
+//     var http = new XMLHttpRequest();
 
-    console.log("email: " + emailLog + " // senha: " + senhaLog)
+//     emailLog = document.querySelector('#email').value
+//     senhaLog = document.querySelector('#senha').value
 
-    logarXhr;
+//     console.log("email: " + emailLog + " // senha: " + senhaLog)
+
+//     http.open("POST", "https://apiextintores.azurewebsites.net/usuario", true)
+//     http.setRequestHeader("Content-Type", "application/json")
+//     const json = {
+//         "login": 'adrianolcsoares@gmail.com',
+//         "senha": '12345'
+//     }
+//     http.send(JSON.stringify(json))
+//     http.onload = () => {
+//         const res = JSON.parse(http.responseText)
+//         console.log(res)
+//     }
+
+// }
+
+function setCookie(cNome, cValor){
+document.cookie = cNome + "=" +cValor+';';
 }
 
-function logarXhr() {
+var token =''
+function logar(){
+    let email = document.querySelector('#email')
+    let senha = document.querySelector('#senha')
 
-    var http = new XMLHttpRequest();
-    http.open("POST", "https://controleextintores.azurewebsites.net/extintor/usuario/", true)
-    http.setRequestHeader('Content-type', 'application/json;charset=UTF-8')
-
-    emailLog = document.querySelector('#email').value
-    senhaLog = document.querySelector('#senha').value
-    http.send(JSON.stringify({ "login": emailLog, "senha": senhaLog }));
-    console.log("email: " + emailLog + " // senha: " + senhaLog)
-
-
-
-    http.onload = () => {
-        var resposta = JSON.parse(http.response)
-        console.log(resposta)
-        console.log("email: " + emailLog + " // senha: " + senhaLog)
-        console.log(resposta.nome)
-
+    //criar objeto json
+    const json = {
+        login: email.value,
+        senha: senha.value
     }
+
+    //request options
+    const options = {
+        method: 'POST',
+        body: JSON.stringify(json),
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    }
+
+    //mandar requisição de POST
+    fetch('https://apiextintores.azurewebsites.net/usuario', options)
+    .then(res => res.json())
+    .then(res => {
+
+        token = res.token;
+        // document.cookie = `user=${res.nome}; token=${res.token}`
+       
+
+        if(token !== undefined){
+
+            //set cookie
+            setCookie('user', res.nome)
+            setCookie('token', token)
+            let x = document.cookie
+
+            location.href = 'home.html'
+        }else{
+            email.value = ""
+            senha.value = ""
+        }
+    })
+
+    .catch(err => console.log('erro'))
 }

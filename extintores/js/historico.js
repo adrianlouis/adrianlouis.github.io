@@ -1,9 +1,28 @@
 
+//Ler cookie
+function getCookie(cNome){
+    let nome = cNome + '=';
+    let decodedCookie = decodeURIComponent(document.cookie);
+    let ca = decodedCookie.split(';');
+    for (i = 0; i < ca.length; i++){
+        let c = ca[i];
+        while (c.charAt(0) == ' '){
+            c = c.substring(1);
+        }
+        if (c.indexOf(nome) == 0){
+            return c.substring(nome.length, c.length);
+        }
+    }
+    return "";
+}
+
 function loadHist() {
     var inputValue = document.querySelector('#findIt').value
     var http = new XMLHttpRequest
     var url = "https://apiextintores.azurewebsites.net/extintor/numero/"
     http.open("GET", url + inputValue)
+    let token = getCookie('token')
+    http.setRequestHeader('Authorization', 'Bearer '+token)
     http.send()
 
     http.onload = () => {
@@ -11,6 +30,8 @@ function loadHist() {
 
         // BUSCAR NO HISTORICO DE ALTERAÇÃO/DELETE
         http.open("GET", "https://apiextintores.azurewebsites.net/historicoextintor/" + inputValue)
+        let token = getCookie('token')
+        http.setRequestHeader('Authorization', 'Bearer '+token)
         http.send()
         http.onload = () => {
             var answer = JSON.parse(http.response)
