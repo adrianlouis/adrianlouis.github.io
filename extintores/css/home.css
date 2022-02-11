@@ -125,13 +125,16 @@ header, main, footer{
     background-color: black;
 }
 
-#deletar, .back{
+#deletar, .back, #cancelarDeletando{
     display: none;
     font-size: 1.3rem;
     justify-content: center;
     align-items: center;
     text-align: center;
     
+}
+.cancelarDeletando{
+    transition: all 1.5s;
 }
 
 #deletar button{
@@ -152,6 +155,11 @@ header, main, footer{
     font-size: 1rem;
     font-weight: 700;
 }
+
+#deletar {
+    position: relative;
+}
+
 
 /* .smallCard:hover .smCard.front{
 transform: perspective(500px) rotateY(180deg);

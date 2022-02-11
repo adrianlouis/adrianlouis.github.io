@@ -1,23 +1,22 @@
-var http = new XMLHttpRequest();
-var url = "https://apiextintores.azurewebsites.net/"
 
 //Ler cookie
-function getCookie(cNome){
+function getCookie(cNome) {
     let nome = cNome + '=';
     let decodedCookie = decodeURIComponent(document.cookie);
     let ca = decodedCookie.split(';');
-    for (i = 0; i < ca.length; i++){
+    for (i = 0; i < ca.length; i++) {
         let c = ca[i];
-        while (c.charAt(0) == ' '){
+        while (c.charAt(0) == ' ') {
             c = c.substring(1);
         }
-        if (c.indexOf(nome) == 0){
+        if (c.indexOf(nome) == 0) {
             return c.substring(nome.length, c.length);
         }
     }
     return "";
 }
-
+var username = getCookie('user')
+var token = getCookie('token')
 
 const homeCard = (numero, tipo, proximaRecarga, proximoReteste, sinalizacao) => {
     const container = document.createElement('div')
@@ -29,11 +28,7 @@ const homeCard = (numero, tipo, proximaRecarga, proximoReteste, sinalizacao) => 
     var nextRet = new Date(proximaRecarga).toLocaleDateString('pt-PT')
     nextRet.split('T')[0]
 
-
-
     const template = `
-  
-
     <div id="front" onclick="rodar(this, '180deg', this , '360deg')" class="smCard front">
 
     <div class="extType">
@@ -49,7 +44,6 @@ const homeCard = (numero, tipo, proximaRecarga, proximoReteste, sinalizacao) => 
         ${sinalizacao}
     </div>
 
-    
 </div>
 
 <div  id="back" class="smCard back">
@@ -60,44 +54,34 @@ const homeCard = (numero, tipo, proximaRecarga, proximoReteste, sinalizacao) => 
 
     <div id="deletar">
         <span>Deseja excluir o extintor ${numero}?</span>
-        <button id="confirmsDel" type="button">Sim
-        <button onclick="cancelDelete(this)" type="button">Não 
+        <button id="confirmsDel" onclick="delMethod(this)" type="button">Sim
+        <button id="cancelDel" onclick="cancelDelete(this)" type="button">Não 
+        <button id="cancelarDeletando" type="button">Cancelar
     </div>
 
 </div>
  `
-
     container.innerHTML = template
     return container
-
 }
 
 const containerHomeCards = document.querySelector('main')
-
+var http = new XMLHttpRequest();
+var url = "https://apiextintores.azurewebsites.net/"
 http.open("GET", url + "extintor")
 
-let username = getCookie('user')
-let token = getCookie('token')
 document.querySelector('#headerNomeUsuario').innerHTML = username
-http.setRequestHeader('Authorization', 'Bearer '+token)
 
-
-
-
+http.setRequestHeader('Authorization', 'Bearer ' + token)
 http.send()
-
 http.onload = () => {
     const data = JSON.parse(http.response)
-    // console.log(data)
     data.forEach(elem => {
-        // var proximaRecargaData = elem.proximaRecarga
         containerHomeCards.appendChild(homeCard(elem.numero, elem.tipo, elem.proximaRecarga, elem.proximoReteste, elem.sinalizacao))
-        // console.log(proximaRecargaData)
     })
 
     var extTipo = document.querySelectorAll('.extType')
     for (i = 0; i < extTipo.length; i++) {
-        // console.log(extTipo[i].innerText)
         if (extTipo[i].innerText == 0) {
             extTipo[i].innerText = "AP"
             extTipo[i].style.backgroundColor = "rgba(250, 223, 223, 1)"
@@ -124,42 +108,10 @@ http.onload = () => {
     }
 }
 
-function footerChoice(n, p) {
-    let atualAtivo = document.querySelector('.footerActive')
-    let dot = document.querySelector('.footerDot')
-    atualAtivo.classList.remove('footerActive')
-    n.classList.add('footerActive')
-    dot.style.left = p;
-}
-
-function mousePos(e, elem) {
-    //clicar me da a posição X do mouse
-    var posX = e.clientX
-    // console.log("POSICAO X: " + posX)
-
-    elem.addEventListener('mousemove', (ev) => {
-        // console.log(ev.movementX)
-        document.querySelector('.teste').style.left = "" + (e.clientX - ev.clientX / 10) + "px";
-        // var posXFinal = e.clientX - ev.clientX;
-        if (elem.mouseover == true) {
-            // console.log('cancel')
-            return
-        }
-    })
-}
-
-function testeScroll(e) {
-    // console.log(e.clientX)
-}
-
 function rodar(elem, deg, elemS, degS) {
     elemS = elemS.nextElementSibling;
     elem.style.transform = "perspective(500px) rotateY(" + deg + ")"
     elemS.style.transform = "perspective(500px) rotateY(" + degS + ")"
-}
-
-function teste() {
-    // console.log('back event')
 }
 
 function voltar(elem) {
@@ -170,11 +122,77 @@ function voltar(elem) {
 }
 
 function deletarExtintor(elem) {
-    for (i=0; i < 4; i++){elem.parentNode.children[i].style.display= "none"}
-    elem.parentNode.children[4].style.display= "flex"
+    for (i = 0; i < 4; i++) { elem.parentNode.children[i].style.display = "none" }
+    elem.parentNode.children[4].style.display = "flex"
 }
 
-function cancelDelete(elem){
-    for (i = 0; i <4; i++){elem.parentNode.parentNode.children[i].style.display = 'block'}
+function cancelDelete(elem) {
+    for (i = 0; i < 4; i++) { elem.parentNode.parentNode.children[i].style.display = 'block' }
     elem.parentNode.parentNode.children[4].style.display = 'none'
 }
+
+function delMethod(elem) {
+    let numExtDel = elem.parentNode.parentNode.children[0].innerHTML
+    let textoOriginal = elem.previousElementSibling.innerHTML
+    let texto = elem.previousElementSibling
+    elem.nextElementSibling.style.display = "none"
+    elem.style.display = "none"
+    elem.nextElementSibling.nextElementSibling.style.display = "flex"
+
+    var i = 5
+    texto.innerHTML = `Extintor ${numExtDel} será excluído em ${i} segundos.`
+
+    const intervalo = setInterval(deletando, 1000)
+
+    function deletando() {
+        i--
+        if (i >= 1) {
+            texto.innerHTML = `Extintor ${numExtDel} será excluído em ${i} segundos.`
+            elem.nextElementSibling.nextElementSibling.onclick = (event) => {
+                texto.innerHTML = "Exclusão cancelada."
+
+                elem.previousElementSibling.classList.add('cancelarDeletando')
+                elem.previousElementSibling.style.transform = "scale(1.3)"
+                elem.previousElementSibling.style.opacity = 0
+
+                elem.nextElementSibling.nextElementSibling.style.display = "none"
+
+                clearInterval(intervalo)
+
+                setTimeout(() => {
+                    texto.innerHTML = textoOriginal
+
+                    elem.previousElementSibling.classList.remove('cancelarDeletando')
+                    elem.previousElementSibling.style.transform = "scale(1)"
+                    elem.previousElementSibling.style.opacity = 1
+
+                    elem.nextElementSibling.style.display = "flex"
+                    elem.style.display = "flex"
+                    elem.nextElementSibling.nextElementSibling.style.display = "none"
+                    for (i = 0; i < 4; i++) { event.target.parentNode.parentNode.children[i].style.display = 'block' }
+                    event.target.parentNode.parentNode.children[4].style.display = 'none'
+                }, 1500);
+            }
+        } else {
+            elem.previousElementSibling.style.color = "red"
+            texto.innerHTML = "Extintor "+numExtDel+" excluído."
+            clearInterval(intervalo)
+            elem.nextElementSibling.nextElementSibling.style.display = "none"
+            elem.previousElementSibling.classList.add('cancelarDeletando')
+            elem.previousElementSibling.style.transform = "scale(1.3)"
+            elem.previousElementSibling.style.opacity = 0
+
+            setTimeout(() => {
+                let http = new XMLHttpRequest();
+                let url = "https://apiextintores.azurewebsites.net/extintor/"
+                http.open("DELETE", url+numExtDel)
+                http.setRequestHeader('Authorization', 'Bearer '+token)
+                http.send()
+                http.onload = () => {
+                    document.location.reload(true);
+                }
+            }, 1500);
+        }
+    }
+}
+
