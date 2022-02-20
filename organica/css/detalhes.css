@@ -1,0 +1,120 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+*{
+    padding: 0;
+    margin: 0;
+}
+
+body{
+    background-color: rgba(255, 255, 255, 1);
+    max-width: 390px;
+    min-height: 100vh;
+    margin: 0 auto;
+    /* border: 1px solid red; */
+    font-family: 'Open Sans', sans-serif;
+}
+
+header{
+    width: 100%;
+    /* background-color: #333; */
+    font-size: 2rem;
+    /* border: 1px solid red; */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 20px;
+
+}
+
+.headerMenu, .headerIcons {
+    height: 100%;
+    /* border: 1px solid black; */
+    background-color: transparent;
+    font-size: 1.4rem;
+    margin: 15px 10px;
+ 
+}
+.headerIcons{
+    display: flex;
+    flex-direction: row;
+
+}
+.headerMenu, .headerFind, .headerCart{
+    height: 40px;
+    width: 40px;
+    background-color: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+main{
+    width: 95%;
+    /* border: 1px solid black; */
+    margin: 0 auto;
+
+    display: flex;
+    flex-direction: column;
+}
+.detalheImg{
+    width: 100%;
+    /* border: 1px solid yellow; */
+    overflow: hidden;
+    margin-bottom: 5px;
+}
+.detalheImg img{
+    width: 100%;
+}
+
+.detQtdBtn{
+    font-size: 1.5rem;
+    margin-bottom: 30px;
+    color: rgba(28, 16, 48, 1);
+}
+
+.detQtdBtn span > i {
+    border: 2px solid rgba(28, 16, 48, 1);
+    border-radius: 50%;
+    height: 25px;
+    width: 25px;
+    margin: 0 10px;
+
+  text-align: center;
+}
+
+.detPrecoProd{
+    margin-bottom: 30px;
+    color: rgba(157, 151, 162, 1);
+}
+.detDescProd{
+    margin-bottom: 25px;
+    color: rgba(157, 151, 162, 1);
+
+}
+
+.addBtnCont{
+    width: 100%;
+    /* border: 1px solid red; */
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    position: relative;
+    margin: 10px 0;
+}
+
+.addBtnCont button{
+    width: 75%;
+    height: 50px;
+    font-size: 1rem;
+    background-color: rgba(253, 149, 187, 1);
+    border: none;
+    border-radius: 10px;
+    color: #fff;
+    font-weight: 700;
+}
+.addBtnCont i {
+ width: 25%;
+ text-align: center;
+ font-size: 1.5rem;
+}

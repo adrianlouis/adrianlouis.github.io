@@ -1,0 +1,125 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+*{
+    padding: 0;
+    margin: 0;
+}
+
+body{
+    background-color: rgba(255, 255, 255, 1);
+    max-width: 390px;
+    min-height: 100vh;
+    margin: 0 auto;
+    border: 1px solid red;
+    font-family: 'Open Sans', sans-serif;
+
+}
+
+header{
+    width: 100%;
+    background-color: rgba(253, 149, 187, 1);
+    font-size: 1.5rem;
+    /* border: 1px solid red; */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    /* flex-direction: column; */
+    margin-bottom: 20px;
+
+    height: 160px;
+    position: relative;
+    color: #ffffff;
+
+}
+.headerSpan{
+    position: absolute;
+    bottom: 30px;
+    left: 20px;
+}
+
+.headerMenu, .headerIcons {
+    height: 100%;
+    /* border: 1px solid black; */
+    background-color: transparent;
+    font-size: 1.4rem;
+    margin: 30px 15px;
+ 
+}
+.headerIcons{
+    display: flex;
+    flex-direction: row;
+
+}
+.headerBars, .headerFind, .headerCart{
+    height: 40px;
+    width: 40px;
+    background-color: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.mainFind{
+    width: 100%;
+    margin: 0 auto;
+    /* border: 1px solid red; */
+    margin: 0 auto;
+
+    display: flex;
+    justify-content: center;
+    position: relative;
+}
+
+.mainFind input{
+    width: 90%;
+    min-width: 350px;
+    height: 50px;
+    border-radius: 8px;
+    border: 1px solid rgba(218, 214, 221, 1);
+    font-size: 1rem;
+    padding-left: 20px;
+}
+.mainFind i{
+    position: absolute;
+    right: 30px;
+    top: 18px;
+    color: rgba(28, 16, 48, 1);
+}
+.mainFind input::placeholder{
+    color: rgba(157, 151, 162, 1);
+}
+
+.contCategoria{
+    /* border: 1px solid blue; */
+    width: 90%;
+    margin: 0 auto;
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+    /* display: grid; */
+    /* grid-template-rows: auto auto; */
+
+}
+.cardCategoria{
+    display: flex;
+    flex-direction: column;
+    width: 45%;
+    /* border: 1px solid green; */
+    margin: 15px 0;
+    font-size: 1rem;
+    overflow: hidden;
+}
+
+.imgControl{
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+}
+.imgControl img{
+  width: 100%;
+}
+.catPreco{
+    color: rgba(157, 151, 162, 1);
+}
