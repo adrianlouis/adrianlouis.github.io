@@ -22,8 +22,60 @@ header{
     justify-content: space-between;
     align-items: center;
     text-align: center;
-    margin-bottom: 20px;
+    height: 80px;
+    margin-bottom: 39px;
 
+}
+
+.menuModal{
+    width: 70%;
+    background-color: rgba(255, 255, 255, .8);
+    backdrop-filter: blur(10px);
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: -100vw;
+    z-index: 3;
+    padding: 19px 19px;
+    transition: all 1s ease-in-out;
+}
+
+.basketQtd{
+    width: 20px;
+    height: 20px;
+    color: #fff;
+    background-color: #f00;
+    border-radius: 50%;
+    font-size: 15px;
+    position: absolute;
+    right: 5px;
+    top: 10px;
+    display: none;
+}
+
+a{
+    text-decoration: none;
+    color: #000;
+}
+
+.menuModal ul{
+    list-style-type: none;
+    margin: 70px 0;
+    font-size: 1rem;
+    font-weight: 500;
+}
+.menuModal ul li{
+    margin: 19px 0;
+}
+.menuModal > i, .menuModal ul li, .menuModal span{
+    cursor: pointer;
+}
+.menuModal span{
+    font-size: 1rem;
+}
+.menuModal i{
+    font-size: 1.5rem;
+    margin-top: 8px;
 }
 
 .headerMenu, .headerIcons {
@@ -37,6 +89,7 @@ header{
 .headerIcons{
     display: flex;
     flex-direction: row;
+    align-items: center;
 
 }
 .headerMenu, .headerFind, .headerCart{
@@ -48,20 +101,38 @@ header{
     align-items: center;
 }
 
+.headerCart{
+    position: relative;
+}
+
+.basketQtd{
+    width: 20px;
+    height: 20px;
+    color: #fff;
+    background-color: #f00;
+    border-radius: 50%;
+    font-size: 15px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    display: none;
+}
+
+
+
 
 main{
     width: 95%;
-    /* border: 1px solid black; */
     margin: 0 auto;
-
     display: flex;
     flex-direction: column;
 }
 .detalheImg{
     width: 100%;
-    /* border: 1px solid yellow; */
+    border-radius: 10px;
     overflow: hidden;
     margin-bottom: 5px;
+    object-fit: contain;
 }
 .detalheImg img{
     width: 100%;
@@ -74,13 +145,7 @@ main{
 }
 
 .detQtdBtn span > i {
-    border: 2px solid rgba(28, 16, 48, 1);
-    border-radius: 50%;
-    height: 25px;
-    width: 25px;
     margin: 0 10px;
-
-  text-align: center;
 }
 
 .detPrecoProd{
@@ -94,27 +159,47 @@ main{
 }
 
 .addBtnCont{
-    width: 100%;
-    /* border: 1px solid red; */
     display: flex;
-    justify-content: flex-start;
+    justify-content: space-between;
     align-items: center;
-    position: relative;
-    margin: 10px 0;
+    position: absolute;
+    bottom: 19px;
+    left: 0px;
+    width: 100%;
 }
 
 .addBtnCont button{
-    width: 75%;
-    height: 50px;
+    width: 292px;
+    height: 48px;
     font-size: 1rem;
     background-color: rgba(253, 149, 187, 1);
     border: none;
     border-radius: 10px;
     color: #fff;
     font-weight: 700;
+    margin-left: 19px;
 }
 .addBtnCont i {
- width: 25%;
+ width: 52px;
+ height: 48px;
+ margin-right: 19px;
  text-align: center;
  font-size: 1.5rem;
+ display: flex;
+ justify-content: center;
+ align-items: center;
+}
+
+.inativo{
+    display: none;
+    /* color: red; */
+}
+
+i{
+    cursor: pointer;
+}
+
+a{
+    color: #000000;
+    text-decoration: none;
 }

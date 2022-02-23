@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="css/cart.css">
     <script src="https://kit.fontawesome.com/47637081ef.js" crossorigin="anonymous"></script>
-    <script type="text/javascript" src="js/index.js" defer></script>
+    <script type="text/javascript" src="js/cart.js" defer></script>
     <title>Orgânica</title>
 </head>
 
@@ -15,7 +15,7 @@
     <header>
 
         <div class="headerMenu">
-            <i class="fa-light fa-arrow-left-long"></i>
+            <a href="index.html"> <i class="fa-light fa-arrow-left-long"></i> </a>
         </div>
 
         <span class="minhaCesta">Minha cesta</span>
@@ -40,45 +40,17 @@
 
         <div class="mainContent">
 
-            <div class="cardCartItem">
 
-                <img src="img/pitaya.jpg">
-
-                <div class="cardEscritas">
-
-                    <span>Pitaya</span>
-                    <span class="cartPriceItem">R$ 16 / unidade</span>
-                    <div class="detQtdBtn">
-                        <span><i class="fa-light fa-plus"></i></span>
-                        <span id="detNumQtd">0</span>
-                        <span><i class="fa-light fa-minus"></i></span>
-                    </div>
-
-                </div>
-            </div>
-
-            <div class="cardCartItem">
-
-                <img src="img/maracuja.jpg">
-
-                <div class="cardEscritas">
-
-                    <span>Pitaya</span>
-                    <span class="cartPriceItem">R$ 16 / unidade</span>
-                    <div class="detQtdBtn">
-                        <span><i class="fa-light fa-plus"></i></span>
-                        <span id="detNumQtd">0</span>
-                        <span><i class="fa-light fa-minus"></i></span>
-                    </div>
-
-                </div>
-            </div>
-
-
-            <span class="cartTotalPrice">Total: R$ 54</span>
         </div>
-        
-        <button type="button" class="buyNow">Finalizar compra</button>
+
+        <span class="cartTotalPrice"></span>
+
+        <div class="contFinalizar">
+            
+            <button type="button" class="buyNow">Finalizar compra</button>
+
+        </div>
+
 
 
     </main>

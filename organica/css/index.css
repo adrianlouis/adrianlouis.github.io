@@ -21,6 +21,7 @@ body{
     font-family: 'Open Sans', sans-serif;
 }
 
+
 header{
     width: 100%;
     font-size: 2rem;
@@ -28,7 +29,10 @@ header{
     justify-content: space-between;
     align-items: center;
     text-align: center;
-    margin-bottom: 20px;
+    /* margin-bottom: 20px; */
+    height: 80px;
+    /* border: 1px solid red; */
+    margin-bottom: 39px;
 
 }
 
@@ -36,16 +40,26 @@ header{
     width: 70%;
     background-color: rgba(255, 255, 255, .8);
     backdrop-filter: blur(10px);
-    /* -webkit-backdrop-filter: blur(100px); */
     height: 100vh;
     position: fixed;
     top: 0;
     left: -100vw;
     z-index: 3;
-
-    padding: 20px 20px;
-    font-size: 1.5rem;
+    padding: 19px 19px;
     transition: all 1s ease-in-out;
+}
+
+.basketQtd{
+    width: 20px;
+    height: 20px;
+    color: #fff;
+    background-color: #f00;
+    border-radius: 50%;
+    font-size: 15px;
+    position: absolute;
+    right: 5px;
+    top: 10px;
+    display: none;
 }
 
 a{
@@ -60,23 +74,29 @@ a{
     font-weight: 500;
 }
 .menuModal ul li{
-    margin: 15px;
+    margin: 19px 0;
 }
 .menuModal > i, .menuModal ul li, .menuModal span{
     cursor: pointer;
+}
+.menuModal span{
+    font-size: 1rem;
+}
+.menuModal i{
+    font-size: 1.5rem;
+    margin-top: 8px;
 }
 
 .headerMenu, .headerIcons {
     height: 100%;
     background-color: transparent;
     font-size: 1.4rem;
-    margin: 15px 10px;
-    transition: all .5s;
- 
+    margin: 15px 10px; 
 }
 .headerIcons{
     display: flex;
     flex-direction: row;
+    align-items: center;
 
 }
 .headerMenu, .headerFind, .headerCart{
@@ -113,9 +133,8 @@ a{
 }
 .cardEpoca{
     height: 160px;
-    width: 292px;
     overflow: hidden;
-    margin-right: 20px;
+    margin-right: 8px;
     border-radius: 5px;
     position: relative
 }
@@ -130,16 +149,27 @@ z-index: 2;
 }
 
 .season{
-    width: 95%;
+    width: 90%;
     margin: auto;
+    /* position: relative; */
+    margin-bottom: 39px;
+}
+.seasonText{
+  margin-bottom: 8px;
+  height: 33px;
+
 }
 
-.season span, .categoria > span{
+.season span, .categoriaText{
 font-size: 1.3rem;
+}
+.categoriaText{
+    margin-bottom: 8px;
+    height: 33px;
 }
 
 .categoria{
-    width: 95%;
+    width: 90%;
     margin: 20px auto;
     
 }
@@ -151,7 +181,7 @@ font-size: 1.3rem;
     width: 100%;
     display: grid;
     grid-template-columns: auto auto;
-    gap: 5px;
+    gap: 8px;
     margin-top: 10px;
 
 }

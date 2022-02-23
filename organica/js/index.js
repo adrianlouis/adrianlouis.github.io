@@ -1,13 +1,15 @@
-function indexMenu() {
+
+
+function Menu() {
     document.querySelector('.headerMenu').style.opacity = 0;
     document.querySelector('.menuModal').style.left = 0;
 }
-function indexMenuClose() {
+function MenuClose() {
     document.querySelector('.headerMenu').style.opacity = 1;
     document.querySelector('.menuModal').style.left = '-101vh';
 }
 
-const requisicao = fetch('https://apiorganica.azurewebsites.net/categoria').then(response => {
+const requisicao = fetch('https://apiorganica.azurewebsites.net/categorias').then(response => {
     return response.json()
 }).then(jsonBody => {
 
@@ -16,7 +18,7 @@ const requisicao = fetch('https://apiorganica.azurewebsites.net/categoria').then
     template = ''
     for (i = 0; i < jsonBody.length; i++) {
         template = `
-        <div class="cardCategoria">
+        <a href="categoria.html?id=${jsonBody[i].ordem}&title=${jsonBody[i].titulo}"<div class="cardCategoria">
                         ${jsonBody[i].icone}
                         <span class="contCatSpan">${jsonBody[i].titulo}</span>
                     </div>`
@@ -25,13 +27,13 @@ const requisicao = fetch('https://apiorganica.azurewebsites.net/categoria').then
 })
 
 async function fetchSeason() {
-    const response = await fetch('https://apiorganica.azurewebsites.net/produto/tanaepoca')
+    const response = await fetch('https://apiorganica.azurewebsites.net/produtos/tanaepoca')
     const jsonBody = await response.json()
     return jsonBody
 }
 
 async function fetchImg(id) {
-    const response = await fetch('https://apiorganica.azurewebsites.net/imagem/' + id)
+    const response = await fetch('https://apiorganica.azurewebsites.net/imagens/' + id)
     const jsonBody = await response.json()
     return jsonBody
 }
@@ -53,5 +55,7 @@ async function loadSeason() {
     });
 
 }
+
+
 
 

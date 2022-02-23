@@ -15,7 +15,7 @@
     <header>
 
         <div class="headerMenu">
-            <i class="fa-light fa-bars" onclick="indexMenu()"></i>
+            <i class="fa-light fa-bars" onclick="Menu()"></i>
         </div>
 
         <div class="headerIcons">
@@ -23,15 +23,20 @@
                 <i class="fa-light fa-magnifying-glass"></i>
             </div>
             <div class="headerCart">
-                <i class="fa-light fa-basket-shopping"></i>
+             <a href="cart.html">  <i class="fa-light fa-basket-shopping"></i></a>
             </div>
+
+            <div class="basketQtd">
+                    
+            </div>
+
         </div>
 
     </header>
 
     <main>
-        <div class="menuModal" onmouseleave="indexMenuClose()">
-            <i class="fa-regular fa-xmark" onclick="indexMenuClose()"></i>
+        <div class="menuModal" onmouseleave="MenuClose()">
+            <i class="fa-regular fa-xmark" onclick="MenuClose()"></i>
 
             <ul>
                 <li>Meu perfil</li>
@@ -42,38 +47,31 @@
                 <li>Newsletter</li>
                 <li>Configurações</li>
             </ul>
-            <span onclick="indexMenuClose()">Sair</span>
+            <span onclick="MenuClose()">Sair</span>
         </div>
 
         <div class="season">
-            <span>Tá na época</span>
+            <div class="seasonText">
+                <span>Tá na época</span>
+
+            </div>
             <div class="containerEpoca">
                 <div class="containerInner">
 
                     <!-- <div class="cardEpoca">
                         <img src="img/rabanete.jpg">
                         <span>Rabanetes</span>
-                    </div>
+                    </div> -->
 
-                    <div class="cardEpoca">
-                        <img src="img/pitaya.jpg">
-                        <span>Pitaya</span>
-                    </div>
-
-                    <div class="cardEpoca">a</div>
-                    <div class="cardEpoca">a</div>
-                    <div class="cardEpoca">a</div>
-                    <div class="cardEpoca">a</div>
-                    <div class="cardEpoca">a</div>
-                    <div class="cardEpoca">a</div>
-                    <div class="cardEpoca">a</div>
-                    <div class="cardEpoca">a</div> -->
                 </div>
             </div>
         </div>
 
         <div class="categoria">
-            <span>Categorias</span>
+            <div class="categoriaText">
+                <span>Categorias</span>
+            </div>
+
             <div class="containerCategoria">
 
                 <!-- <a href="categoria.html">
@@ -81,23 +79,7 @@
                         <i class="fa-light fa-strawberry"></i>
                         <span class="contCatSpan">frutas</span>
                     </div>
-                </a>
-
-                <div class="cardCategoria">
-                    <i class="fa-light fa-leafy-green"></i>
-                    <span class="contCatSpan">verduras</span>
-                </div>
-
-                <div class="cardCategoria">
-                    <i class="fa-light fa-pepper"></i>
-                    <span class="contCatSpan">legumes</span>
-                </div>
-
-                <div class="cardCategoria">
-                    <i class="fa-light fa-egg-fried"></i>
-                    <span class="contCatSpan">ovos</span>
-                </div> -->
-
+                </a> -->
 
             </div>
         </div>
