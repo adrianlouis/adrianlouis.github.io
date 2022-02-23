@@ -122,10 +122,9 @@ a{
 
 
 main{
-    width: 95%;
-    margin: 0 auto;
     display: flex;
     flex-direction: column;
+    margin: 0 19px;
 }
 .detalheImg{
     width: 100%;
@@ -158,14 +157,24 @@ main{
 
 }
 
+/* .addBtnCont{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin: 0 auto;
+    max-width: 390px;
+    margin-bottom: 19px;
+} */
+
 .addBtnCont{
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin: 0 auto 19px;
     position: absolute;
-    bottom: 19px;
-    left: 0px;
-    width: 100%;
+    bottom: 0;
+    max-width: calc(100% - 38px);
 }
 
 .addBtnCont button{
@@ -177,22 +186,21 @@ main{
     border-radius: 10px;
     color: #fff;
     font-weight: 700;
-    margin-left: 19px;
 }
 .addBtnCont i {
  width: 52px;
  height: 48px;
- margin-right: 19px;
  text-align: center;
  font-size: 1.5rem;
  display: flex;
  justify-content: center;
  align-items: center;
+ /* border: 1px solid red; */
+ margin-left: 8px;
 }
 
 .inativo{
     display: none;
-    /* color: red; */
 }
 
 i{
