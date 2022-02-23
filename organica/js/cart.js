@@ -14,7 +14,6 @@ async function getCart() {
     Promise.all(jsonBody.itens.map(item => {
         precoFinalTotal += (item.produto.valor * item.quantidade)
         document.querySelector('.cartTotalPrice').innerHTML = 'Total: R$ ' + precoFinalTotal.toFixed(2)
-        console.log(precoFinalTotal)
         let idImagem = item.imagens[0].codigo
         idImagem = idImagem.toString().padStart(4, 0)
         let extensao = item.imagens[0].extensao
@@ -41,6 +40,12 @@ async function getCart() {
 }
 
 function addQtd(el, price) {
+
+    if (el.previousElementSibling.innerHTML == 0){
+        el.parentNode.parentNode.parentNode.style.transition = 'all 1s' 
+        el.parentNode.parentNode.parentNode.style.opacity = 1 
+    }
+    
     let qtd = el.previousElementSibling.innerHTML
     qtd = parseInt(qtd)
     qtd++
@@ -51,13 +56,32 @@ function addQtd(el, price) {
     total = total.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })
     el.parentNode.previousElementSibling.innerHTML = total
 }
+
 function lessQtd(el, price) {
     let qtd = el.nextElementSibling.innerHTML
     qtd = parseInt(qtd)
+    
+    if (qtd == 1) {
+        qtd = 0
+        el.nextElementSibling.innerHTML = qtd
+        let total = parseFloat(qtd) * price
+        total = total.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })
+        el.parentNode.previousElementSibling.innerHTML = total
+        precoFinalTotal -= price
+        document.querySelector('.cartTotalPrice').innerHTML = "Total: " + precoFinalTotal.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })
+        el.parentNode.parentNode.parentNode.style.transition = 'all 3s' 
+        el.parentNode.parentNode.parentNode.style.opacity = 0
 
-    if (qtd == 0) {
+        function removerCard(el){
+            el.parentNode.parentNode.parentNode.style.display = 'none'
+        }
+  
+        el.nextElementSibling.nextElementSibling.addEventListener('click', ()=>{clearInterval(myTime)})
+       
+        var myTime = setTimeout(() => {removerCard(el)}, 4000);
+    } else if (qtd <= 0){
         return
-    } else {
+    }else{
         qtd--
         el.nextElementSibling.innerHTML = qtd
         let total = parseFloat(qtd) * price
@@ -66,14 +90,6 @@ function lessQtd(el, price) {
         precoFinalTotal -= price
         document.querySelector('.cartTotalPrice').innerHTML = "Total: " + precoFinalTotal.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })
     }
-}
-
-function precoFinal() {
-    let precos = document.querySelectorAll('.cartPriceItem')
-    let thisprice = 0
-    precos.forEach(el => {
-        console.log(thisprice + parseInt(el.innerHTML))
-    })
 }
 
 async function fetchImg(idImagem) {

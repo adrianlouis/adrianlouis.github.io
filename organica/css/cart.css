@@ -19,6 +19,8 @@ body{
     min-height: 100vh;
     margin: 0 auto;
     font-family: 'Open Sans', sans-serif;
+
+    min-height: 100vh;
 }
 
 header{
@@ -135,7 +137,6 @@ z-index: 2;
 
 .cardCartItem{
     width: 100%;
-    /* border: 1px solid green; */
     display: flex;
     flex-direction: row;
     margin-bottom: 30px;
@@ -160,7 +161,7 @@ z-index: 2;
     margin-bottom: 30px;
     color: rgba(28, 16, 48, 1);
     display: flex;
-    /* margin-left: 20px; */
+  
     justify-content: flex-start;
 }
 #detNumQtd{
@@ -173,17 +174,19 @@ a{
 }
 
 .contFinalizar{
-    /* border: 1px solid blue; */
-    width: 352px;
     position: absolute;
-    bottom: 19px;
-    left: 50%;
-    transform: translate(-50%);
+    bottom: 0px;
+    margin: 0 auto 19px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 390px;
 }
 
 .buyNow{
-    /* max-width: 352px; */
-    width: 100%;
+    width: calc( 100% - 38px);
+    margin: 0 auto;
     height: 50px;
     font-size: 1rem;
     background-color: rgba(253, 149, 187, 1);
@@ -194,6 +197,7 @@ a{
 }
 .cartTotalPrice{
     margin-left: 19px;
+    margin-bottom: 200px;
 }
 
 
