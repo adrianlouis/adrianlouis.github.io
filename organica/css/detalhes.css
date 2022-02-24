@@ -141,11 +141,9 @@ main{
     font-size: 1.5rem;
     margin-bottom: 30px;
     color: rgba(28, 16, 48, 1);
+    margin-right: 16px;
 }
 
-.detQtdBtn span > i {
-    margin: 0 10px;
-}
 
 .detPrecoProd{
     margin-bottom: 30px;
@@ -197,6 +195,14 @@ main{
  align-items: center;
  /* border: 1px solid red; */
  margin-left: 8px;
+ color: rgb(253, 149, 187);
+}
+
+.minusBtn{
+    margin-right: 16px;
+}
+.plusBtn{
+    margin-left: 16px;
 }
 
 .inativo{

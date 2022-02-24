@@ -4,7 +4,7 @@ var precoUnitario = 0
 var precoFinalTotal = 0
 
 async function getCart() {
-    const response = await fetch('http://apiorganica.azurewebsites.net/Carrinho/' + id)
+    const response = await fetch('https://apiorganica.azurewebsites.net/Carrinho/' + id)
     const jsonBody = await response.json()
     const container = document.querySelector('.mainContent')
     let template = ''

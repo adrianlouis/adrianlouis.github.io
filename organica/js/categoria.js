@@ -13,7 +13,7 @@ async function carregarProdutos(){
     let id = params.get('id')
     let title = params.get('title')
     document.querySelector('.headerSpan').innerHTML = title.charAt(0).toUpperCase()+title.slice(1)
-    const response = await fetch('http://apiorganica.azurewebsites.net/produtos/porcategoria/'+id)
+    const response = await fetch('https://apiorganica.azurewebsites.net/produtos/porcategoria/'+id)
     const jsonBody = await response.json()
     let template = ''
     let container = document.querySelector('.contCategoria')

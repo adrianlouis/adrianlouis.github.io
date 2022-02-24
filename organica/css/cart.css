@@ -84,7 +84,7 @@ header{
 
 .minhaCesta{
     font-size: 1.4rem;
-    margin:20px 10px;
+    margin:20px 19px;
 }
 
 
@@ -144,7 +144,7 @@ z-index: 2;
 .cardCartItem img{
     width: 122px;
     height: 122px;
-    object-fit: contain;
+    object-fit: cover;
     object-position: center;
 }
 .cardEscritas{
