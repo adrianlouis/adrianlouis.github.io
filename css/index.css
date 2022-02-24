@@ -1,0 +1,215 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+
+@supports ((-webkit-backdrop-filter: blur(2em)) or (backdrop-filter: blur(2em))) {
+    .menuModal {
+      background-color: rgba(255, 255, 255, .5);
+      -webkit-backdrop-filter: blur(2em);
+      backdrop-filter: blur(2em);
+    }
+}
+
+*{
+    padding: 0;
+    margin: 0;
+}
+
+body{
+    background-color: rgba(255, 255, 255, 1);
+    max-width: 390px;
+    min-height: 100vh;
+    margin: 0 auto;
+    font-family: 'Open Sans', sans-serif;
+}
+
+
+header{
+    width: 100%;
+    font-size: 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    /* margin-bottom: 20px; */
+    height: 80px;
+    /* border: 1px solid red; */
+    margin-bottom: 39px;
+
+}
+
+.menuModal{
+    width: 70%;
+    background-color: rgba(255, 255, 255, .8);
+    backdrop-filter: blur(10px);
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: -100vw;
+    z-index: 3;
+    padding: 19px 19px;
+    transition: all 1s ease-in-out;
+}
+
+.basketQtd{
+    width: 20px;
+    height: 20px;
+    color: #fff;
+    background-color: #f00;
+    border-radius: 50%;
+    font-size: 15px;
+    position: absolute;
+    right: 5px;
+    top: 10px;
+    display: none;
+}
+
+a{
+    text-decoration: none;
+    color: #000;
+}
+
+.menuModal ul{
+    list-style-type: none;
+    margin: 70px 0;
+    font-size: 1rem;
+    font-weight: 500;
+}
+.menuModal ul li{
+    margin: 19px 0;
+}
+.menuModal > i, .menuModal ul li, .menuModal span{
+    cursor: pointer;
+}
+.menuModal span{
+    font-size: 1rem;
+}
+.menuModal i{
+    font-size: 1.5rem;
+    margin-top: 8px;
+}
+
+.headerMenu, .headerIcons {
+    height: 100%;
+    background-color: transparent;
+    font-size: 1.4rem;
+    margin: 15px 10px; 
+}
+.headerIcons{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+}
+.headerMenu, .headerFind, .headerCart{
+    height: 40px;
+    width: 40px;
+    background-color: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.containerEpoca{
+    width: 100%;
+    background-color: white;
+    overflow: scroll;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    margin: auto;
+    margin-top: 10px;
+    
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+
+}
+.containerEpoca::-webkit-scrollbar{
+    display: none;
+}
+
+.containerInner{
+    display: flex;
+    flex-direction: row;
+}
+.cardEpoca{
+    height: 160px;
+    overflow: hidden;
+    margin-right: 8px;
+    border-radius: 5px;
+    position: relative
+}
+.cardEpoca span{
+position: absolute;
+bottom: 10px;
+left: 10px;
+z-index: 2;
+}
+.cardEpoca img{
+    height: 100%;
+}
+
+.season{
+    width: 90%;
+    margin: auto;
+    /* position: relative; */
+    margin-bottom: 39px;
+}
+.seasonText{
+  margin-bottom: 8px;
+  height: 33px;
+
+}
+
+.season span, .categoriaText{
+font-size: 1.3rem;
+}
+.categoriaText{
+    margin-bottom: 8px;
+    height: 33px;
+}
+
+.categoria{
+    width: 90%;
+    margin: 20px auto;
+    
+}
+.categoria a{
+    text-decoration: none;
+    color: #000;
+}
+.containerCategoria{
+    width: 100%;
+    display: grid;
+    grid-template-columns: auto auto;
+    gap: 8px;
+    margin-top: 10px;
+
+}
+.cardCategoria{
+    height: 180px;
+    background-color: rgba(254, 244, 248, 1);
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+
+    position: relative;
+}
+.cardCategoria i{
+    font-size: 2rem;    
+
+}
+
+.contCatIcon{
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    text-align: center;
+}
+.contCatSpan{
+    font-size: 1rem;
+    position: absolute;
+    bottom: 20px;
+}

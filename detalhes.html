@@ -5,13 +5,13 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="css/index.css">
+    <link rel="stylesheet" type="text/css" href="css/detalhes.css">
     <script src="https://kit.fontawesome.com/47637081ef.js" crossorigin="anonymous"></script>
-    <script type="text/javascript" src="js/index.js" defer></script>
+    <script type="text/javascript" src="js/details.js" defer></script>
     <title>Orgânica</title>
 </head>
 
-<body onload="loadSeason()">
+<body onload="season()">
     <header>
 
         <div class="headerMenu">
@@ -23,13 +23,12 @@
                 <i class="fa-light fa-magnifying-glass"></i>
             </div>
             <div class="headerCart">
-             <a href="cart.html">  <i class="fa-light fa-basket-shopping"></i></a>
-            </div>
+                <a href="cart.html"><i class="fa-light fa-basket-shopping"></i></a> 
 
-            <div class="basketQtd">
+                <div class="basketQtd">
                     
+                </div>
             </div>
-
         </div>
 
     </header>
@@ -50,39 +49,33 @@
             <span onclick="MenuClose()">Sair</span>
         </div>
 
-        <div class="season">
-            <div class="seasonText">
-                <span>Tá na época</span>
-
-            </div>
-            <div class="containerEpoca">
-                <div class="containerInner">
-
-                    <!-- <div class="cardEpoca">
-                        <img src="img/rabanete.jpg">
-                        <span>Rabanetes</span>
-                    </div> -->
-
-                </div>
-            </div>
+        <div class="detalheImg">
+            <img id="detalheImg" src="" alt="">
         </div>
 
-        <div class="categoria">
-            <div class="categoriaText">
-                <span>Categorias</span>
-            </div>
+        <span class="detNomeProd">
+            
+        </span>
 
-            <div class="containerCategoria">
+        <span class="detPrecoProd">
+            
+        </span>
 
-                <!-- <a href="categoria.html">
-                    <div class="cardCategoria">
-                        <i class="fa-light fa-strawberry"></i>
-                        <span class="contCatSpan">frutas</span>
-                    </div>
-                </a> -->
+        <span class="detDescProd">
+        </span>
 
-            </div>
+        <div class="detQtdBtn">
+            <span onclick="lessQtd()"><i class="fa-light fa-circle-minus"></i></span>
+            <span id="detNumQtd">0</span>
+            <span onclick="addQtd()"><i class="fa-light fa-circle-plus"></i></span>
         </div>
+
+        <div class="addBtnCont">
+            <button type="button" onclick="addLocalStorage()" >Adicionar</button>
+            <i id="itemLike" class="fa-light fa-heart" onclick="itemLike(this, 0)"></i>
+            <i class="fa-solid fa-heart" style="display: none; color: rgba(253, 149, 187, 1);" onclick="itemLike(this, 1)"></i>
+        </div>
+
     </main>
 
 </body>
