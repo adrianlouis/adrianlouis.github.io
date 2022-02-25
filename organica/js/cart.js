@@ -99,3 +99,26 @@ async function fetchImg(idImagem) {
 }
 
 getCart()
+
+class ValorReal {
+    constructor (inteiro){
+        this._inteiro = inteiro
+    }
+
+    set inteiro(int){
+        this._inteiro = `${int.toLocaleString('pt-BR', {style:'currency', currency: 'BRL'})}`
+    }
+
+    get inteiro(){
+        return this._inteiro
+    }
+
+    // realBr(){
+
+    // }
+}
+
+var cinquenta = new ValorReal()
+cinquenta.inteiro = 20
+
+console.log(cinquenta.inteiro)

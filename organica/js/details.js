@@ -22,7 +22,24 @@ async function season() {
     document.querySelector('.detDescProd').innerHTML = jsonBody[codProd - 1].descricao
     imgFourNumber = jsonBody[codProd - 1].codigo.toString().padStart(4, 0)
     document.querySelector('#detalheImg').src = 'https://white-hill-0b791be10.1.azurestaticapps.net/img/' + imgCodigo + imgFetching[0].extensao
-}
+    document.querySelector('.desconto').innerHTML = jsonBody[codProd - 1].desconto + '%'
+    // console.log(jsonBody[codProd - 1].desconto)
+
+    if (jsonBody[codProd - 1].desconto != 0){
+        console.log('diferente de zero')
+
+        document.querySelector('.desconto').style.display= 'flex'
+        document.querySelector('.detPrecoDesc').innerHTML = jsonBody[codProd - 1].valor - ((jsonBody[codProd -1].valor / 100 ) * jsonBody[codProd -1].desconto)
+        document.querySelector('.detPrecoDesc').innerHTML = parseFloat(document.querySelector('.detPrecoDesc').innerHTML).toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'}) + '<span style="color: rgba(157, 151, 162, 1); font-weight: 400;"> / unidade</span>'
+        document.querySelector('.detPrecoDesc').classList.add('precoComDesconto')
+        document.querySelector('.detPrecoProd').style.margin= 0
+        document.querySelector('.detPrecoProd').style.textDecoration = 'line-through'
+    }else{
+        console.log('igual a zero')
+        document.querySelector('.desconto').style.display = 'none'
+    }
+
+}   
 
 async function fetchImg(id) {
     const response = await fetch('https://apiorganica.azurewebsites.net/imagens/' + id)
