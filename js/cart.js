@@ -1,101 +1,79 @@
-const container = document.querySelector('.mainContent')
-let id = 1
-var precoUnitario = 0
-var precoFinalTotal = 0
+descontoCupom = document.querySelector('#valorDesconto')
+spanDesconto = document.querySelector('#spanValorDesconto')
+document.getElementById('txtCupom').value = ""
 
-async function getCart() {
-    const response = await fetch('https://apiorganica.azurewebsites.net/Carrinho/' + id)
-    const jsonBody = await response.json()
-    const container = document.querySelector('.mainContent')
-    let template = ''
 
-    precoTotalCru = jsonBody.valorSubtotal
 
-    Promise.all(jsonBody.itens.map(item => {
-        precoFinalTotal += (item.produto.valor * item.quantidade)
-        document.querySelector('.cartTotalPrice').innerHTML = 'Total: R$ ' + precoFinalTotal.toFixed(2)
-        let idImagem = item.imagens[0].codigo
-        idImagem = idImagem.toString().padStart(4, 0)
-        let extensao = item.imagens[0].extensao
-
-        let itemQuantidade = item.quantidade
-        precoUnitario = item.produto.valor
-
-        let valorBRL = item.produto.valor.toFixed(2)
-
-        template = ` <div class="cardCartItem">
-        <img src="https://white-hill-0b791be10.1.azurestaticapps.net/img/${idImagem}${extensao}">
-        <div class="cardEscritas">
-            <span>${item.produto.titulo}</span>
-            <span class="cartPriceItem">R$ ${valorBRL}</span>
-            <div class="detQtdBtn">
-            <span onclick="lessQtd(this, ${valorBRL})"><i class="fa-light fa-circle-minus"></i></span>
-            <span id="detNumQtd">${itemQuantidade}</span>
-            <span  onclick="addQtd(this, ${valorBRL})">  <i class="fa-light fa-circle-plus"></i></span>
-            </div>
-        </div>
-    </div>`
-        container.innerHTML += template
-    }))
+function remove(i) {
+    document.getElementById('tabProdutos').deleteRow(i)
+    subtotal()
 }
 
-function addQtd(el, price) {
+document.getElementById('txtCupom').addEventListener('keydown', function (event) {
+    if (event.keyCode !== 13) return;
+    aplicarCupom()
+})
 
-    if (el.previousElementSibling.innerHTML == 0){
-        el.parentNode.parentNode.parentNode.style.transition = 'all 1s' 
-        el.parentNode.parentNode.parentNode.style.opacity = 1 
-    }
-    
-    let qtd = el.previousElementSibling.innerHTML
-    qtd = parseInt(qtd)
-    qtd++
-    precoFinalTotal += price
-    document.querySelector('.cartTotalPrice').innerHTML = "Total: " + precoFinalTotal.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })
-    el.previousElementSibling.innerHTML = qtd
-    let total = parseFloat(qtd) * price
-    total = total.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })
-    el.parentNode.previousElementSibling.innerHTML = total
-}
+function aplicarCupom(){
+    let cupom = document.getElementById('txtCupom').value
+    cupomMaius = cupom.toUpperCase()
 
-function lessQtd(el, price) {
-    let qtd = el.nextElementSibling.innerHTML
-    qtd = parseInt(qtd)
-    
-    if (qtd == 1) {
-        qtd = 0
-        el.nextElementSibling.innerHTML = qtd
-        let total = parseFloat(qtd) * price
-        total = total.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })
-        el.parentNode.previousElementSibling.innerHTML = total
-        precoFinalTotal -= price
-        document.querySelector('.cartTotalPrice').innerHTML = "Total: " + precoFinalTotal.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })
-        el.parentNode.parentNode.parentNode.style.transition = 'all 3s' 
-        el.parentNode.parentNode.parentNode.style.opacity = 0
+    if (cupomMaius != "PROFESSORES"){
+        document.getElementById('txtCupom').value = ""
 
-        function removerCard(el){
-            el.parentNode.parentNode.parentNode.style.display = 'none'
-        }
-  
-        el.nextElementSibling.nextElementSibling.addEventListener('click', ()=>{clearInterval(myTime)})
-       
-        var myTime = setTimeout(() => {removerCard(el)}, 4000);
-    } else if (qtd <= 0){
-        return
     }else{
-        qtd--
-        el.nextElementSibling.innerHTML = qtd
-        let total = parseFloat(qtd) * price
-        total = total.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })
-        el.parentNode.previousElementSibling.innerHTML = total
-        precoFinalTotal -= price
-        document.querySelector('.cartTotalPrice').innerHTML = "Total: " + precoFinalTotal.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })
+        alert('Olá Professor! Você ganhou um desconto de R$ 200,00 na sua compra!')
+        spanDesconto.innerHTML = '200,00'
+        document.querySelector('#spanCupomDigitado').innerHTML = spanDesconto.innerHTML
     }
+    subtotal()
+    console.log(cupom)
+    cupom.value = ''
 }
 
-async function fetchImg(idImagem) {
-    const response = await fetch('https://apiorganica.azurewebsites.net/imagens/' + idImagem)
-    const jsonBd = await response.json()
-    return jsonBd
+function removerDesc(){
+    spanCupomDigitado.innerHTML = "0,00"
+    spanDesconto.innerHTML = "0,00"
+    subtotal()
 }
 
-getCart()
+function subtotal() {
+    precos = document.querySelectorAll('#price')
+    soma = 0
+    
+    for (var i = 0; i < precos.length; i++) {
+
+        var kola = parseFloat(precos[i].innerHTML.replace(',', '.'))
+        soma += kola
+        console.log(soma.toFixed(2))
+    }
+
+    valorSubtotal.innerHTML = soma.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' })  
+    numeroDoDesconto = parseFloat(spanDesconto.innerHTML)
+    valTot = soma - numeroDoDesconto
+    console.log(numeroDoDesconto)
+    valorTotal.innerHTML = valTot.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' })
+}
+
+// AREA DE TESTES 
+function testeQtd(id){
+numDeProdutos = id.value
+precoDoItem = id.parentNode.previousElementSibling.firstElementChild.innerHTML
+spanPrecoTotal = id.parentNode.nextElementSibling.firstElementChild.innerHTML
+// resultado = id.parentNode.nextElementSibling.firstElementChild.innerHTML
+
+
+teste = parseFloat(precoDoItem.replace(',', '.')) * parseFloat(numDeProdutos.replace(',', '.'))
+// teste = teste.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' })
+id.parentNode.nextElementSibling.firstElementChild.innerHTML = teste.toFixed(2)
+subtotal()
+
+console.log(teste)
+
+
+
+
+
+
+}
+
