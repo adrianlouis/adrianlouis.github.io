@@ -720,6 +720,7 @@ flex-direction: column;
 
 .mySlidesG{
     display: none;
+    /* max-height: 595px; */
 }
 
 .cursor{
