@@ -1,0 +1,98 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
+body{
+    background-color: rgb(146, 114, 139);
+
+}
+
+header{
+    width: 100vw;
+    height: 70px;
+    background-color: rgb(94, 71, 89);
+    /* border: 1px solid red; */
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    color: #eee;
+}
+
+main{
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+header span{
+    font-size: 1.5rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all .3s;
+}
+
+header span:hover{
+    font-size: 1.7rem;
+}
+
+table{
+    background-color: #eef;
+    margin: 10px;
+    width: 80vw;
+}
+
+.botoes {
+    display: none;
+}
+table button{
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    border: none;
+}
+
+.botoes button{
+    margin: 10px 20px;
+    width: 100px;
+    height: 30px;
+    
+}
+
+#btnUpdate, #btnSave{
+    display: none;
+}
+
+table input{
+    text-align: center;
+}
+
+
+table th{
+    font-size: 1.2rem;
+}
+
+table tr:hover td{
+    background-color: #eee;
+}
+
+table td{
+    background-color: #ccc;
+    text-align: center;
+    padding: 5px;
+
+}
+
+
+@media only screen and (max-width: 320px) {
+
+  td:nth-child(5), td:nth-child(4), th:nth-child(5), th:nth-child(4), td:nth-child(2), th:nth-child(2){
+    display: none;
+  }
+    
+  td:nth-child(2){
+      color: red;
+  }
+}
