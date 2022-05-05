@@ -1,52 +1,128 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="control.css">
-    <script type="text/javascript" src="control.js" defer></script>
+    <script type="text/javascript" src="controle.js" defer></script>
     <script src="https://kit.fontawesome.com/e12642acd8.js" crossorigin="anonymous"></script>
 
     <title>Controle</title>
 </head>
+
 <body onload="listar()">
     <header>
-        <span onclick="criar()">Novo Registro</span>
-        <!-- <span>Atualizar</span> -->
-        <!-- <span>Deletar</span> -->
-        
+
+        <i class="fas fa-bars headerMenu" onclick="abrirMenu()"></i>
     </header>
 
     <main>
-        
-        <table>
-            <thead>
+        <div class="headerContainerMenu">
 
-                <tr>
-                    <th>Data</th>
-                    <th>Hora</th>
-                    <th>Empresa</th>
-                    <th>Prestador</th>
-                    <th>Matrícula</th>
-                    <th>Funcionário</th>
-                    <th id="thAcoes">Ações</th>
-                </tr>
-            </thead>
-
-            <tbody>
-                
-
-            </tbody>
-        </table>
-
-        <div class="botoes">
-
-            <!-- <button type="submit" id="btnSave" onclick="save()">SALVAR</button> -->
-            <!-- <button type="submit" id="btnUpdate">ATUALIZAR</button> -->
-            <!-- <button type="submit" onclick="cancel()">CANCELAR</button> -->
+            <i class="fas fa-window-close headerMenuFechar" onclick="fecharMenu()"></i>
+            <ul>
+                <li onclick="fecharMenu()">Controle de Prestadores</li>
+                <li>Controle de Carros</li>
+                <li>Medidores de Gás</li>
+            </ul>
         </div>
+
+        <div id="mainContainer">
+
+            <!-- <div class="undPrestador flexCenter">
+
+                <div class="undPrestRows flexCenter">
+
+                    <div class="flexCenter undPrestRowsDivs">
+                        <span>Data</span>
+                        <span>12-04-2022</span>
+                    </div>
+
+                    <div class="flexCenter undPrestRowsDivs">
+                        <span>Hora</span>
+                        <span>12:50</span>
+                    </div>
+
+                </div>
+
+                <div class="flexCenter undPrestRows">
+
+                    <div class="flexCenter undPrestRowsDivs">
+
+                        <span>Empresa</span>
+                        <span>Light</span>
+
+                    </div>
+
+                    <div class="flexCenter undPrestRowsDivs">
+
+                        <span>Serviço</span>
+                        <span>Corte</span>
+
+                    </div>
+
+                </div>
+
+                <div class="flexCenter undPrestRows">
+
+                    <div class="flexCenter undPrestRowsDivs">
+
+                        <span>Colaborador</span>
+                        <span>Edward Kenway Moreira</span>
+
+                    </div>
+
+                    <div class="flexCenter undPrestRowsDivs">
+
+                        <span>Matrícula</span>
+                        <span>2305509-5</span>
+
+                    </div>
+
+                </div>
+
+                <div class="flexCenter undPrestRows">
+
+                    <div class="flexCenter undPrestRowsDivs">
+
+                        <span>Função</span>
+                        <span>Bombeiro Civil</span>
+
+                    </div>
+
+                    <div class="flexCenter undPrestRowsDivs">
+
+                        <span>Funcionário</span>
+                        <span>Adriano Soares</span>
+
+                    </div>
+
+                </div>
+
+                <div class="flexCenter undPrestRows undAnotacoes">
+                    <div class="flexCenter undPrestRowsDivs">
+                        <span>Anotações</span>
+                        <textarea name="" id="" cols="30" rows="10"></textarea>
+                    </div>
+                </div>
+
+                <div class="undPrestadorAcoes flexCenter">
+                    <i id="amostrarUndAnotacao" class="fas fa-eye" onclick="amostrarUndAnotacoes()"></i>
+                    <i id="amostrarVoltar" class="fas fa-arrow-left" onclick="fecharAnotacao()"></i>
+                    <i class="fas fa-pen"></i>
+                </div>
+
+
+            </div> -->
+
+        </div>
+
+
+
 
     </main>
 </body>
+
 </html>

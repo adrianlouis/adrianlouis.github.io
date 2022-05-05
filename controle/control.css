@@ -6,16 +6,76 @@
 body{
     background-color: rgb(146, 114, 139);
 
+
+}
+
+.flexCenter{
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 header{
     width: 100vw;
-    height: 70px;
+    height: 50px;
     background-color: rgb(94, 71, 89);
     /* border: 1px solid red; */
     display: flex;
     justify-content: space-evenly;
     align-items: center;
+    color: #eee;
+    font-size: 1rem;
+}
+
+header .headerMenu{
+    position: absolute;
+    left: 20px;
+    transition: all .5s ease-in-out;
+}
+
+
+
+.headerContainerMenu{
+    width: 100vw;
+    height: 100vh;
+    background-color: rgb(173, 147, 161);
+    position: absolute;
+    left: -100vw;
+    top: 0;
+    transition: all .5s ease-in-out;
+    opacity: 0;
+    font-size: 1.3rem;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.headerContainerMenu li{
+    text-decoration: none;
+    list-style-type: none;
+    color: #eee;
+    cursor: pointer;
+    /* margin: 20px; */
+    height: 40px;
+    width: 100vw;
+    text-align: center;
+    transition: all .3s ease-in-out;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.headerContainerMenu li:hover{
+    background-color: #777;
+}
+
+.headerMenuFechar{
+    position: absolute;
+    left: 12px;
+    top: 9px;
+    font-size: 2rem;
     color: #eee;
 }
 
@@ -27,72 +87,56 @@ main{
     flex-direction: column;
 }
 
-header span{
-    font-size: 1.5rem;
-    font-weight: 700;
-    cursor: pointer;
-    transition: all .3s;
-}
-
-header span:hover{
-    font-size: 1.7rem;
-}
-
-table{
-    background-color: #eef;
-    margin: 10px;
-    width: 80vw;
-}
-
-.botoes {
-    display: none;
-}
-table button{
-    border-radius: 50%;
-    width: 30px;
-    height: 30px;
-    border: none;
-}
-
-.botoes button{
-    margin: 10px 20px;
-    width: 100px;
-    height: 30px;
-    
-}
-
-#btnUpdate, #btnSave{
-    display: none;
-}
-
-table input{
-    text-align: center;
+.mainContainer{
+    width: 100vw;
+    height: 100vh;
 }
 
 
-table th{
+.undPrestador{
+    /* border: 1px solid red; */
+    width: 90vw;
+    background-color: rgb(207, 160, 212);
+    flex-direction: column;
+    border-radius: 10px;
+    padding: 10px 0 ;
+    margin: 15px 0;
+}
+
+.undPrestador span:nth-child(2n+0){
+    /* margin-bottom: 10px; */
+    margin-top: 5px;
     font-size: 1.2rem;
-}
-
-table tr:hover td{
-    background-color: #eee;
-}
-
-table td{
-    background-color: #ccc;
     text-align: center;
-    padding: 5px;
+}
+
+.undPrestRows{
+    width: 95%;
+    justify-content: space-evenly;
+    /* border: 1px solid black; */
+    margin: 5px 0;
+    border-radius: 10px;
+    padding: 5px 0;
+    background-color: rgb(195, 154, 199);
 
 }
 
+.undPrestRowsDivs{
+    flex-direction: column;
+    width: 50%;
+}
 
-@media only screen and (max-width: 320px) {
+.undPrestadorAcoes{
+    font-size: 1.5rem;
+    justify-content: space-evenly;
+    width: 100%;
+    margin: 15px 0;
+}
 
-  td:nth-child(5), td:nth-child(4), th:nth-child(5), th:nth-child(4), td:nth-child(2), th:nth-child(2){
+.undAnotacoes, .amostrarVoltar{
     display: none;
-  }
-    
-  td:nth-child(2){
-      color: red;
-  }
+}
+
+textarea{
+    margin: 10px 0;
 }
