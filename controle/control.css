@@ -4,7 +4,8 @@
 }
 
 body{
-    background-color: rgb(146, 114, 139);
+    /* background-color: rgb(146, 114, 139); */
+    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 50%, rgba(83,0,184,1) 100%);
 
 
 }
@@ -15,10 +16,23 @@ body{
     align-items: center;
 }
 
+.invisible, #addRegPrestUndo{
+    display: none;
+}
+
+#addRegPrestUndo{
+    opacity: 0;
+    transition: all .5s ease-in-out;
+}
+
+#addRegPrestNew{
+    transition: all .5s ease-in-out;
+}
+
 header{
     width: 100vw;
     height: 50px;
-    background-color: rgb(94, 71, 89);
+    background-color: #00003b;
     /* border: 1px solid red; */
     display: flex;
     justify-content: space-evenly;
@@ -33,12 +47,17 @@ header .headerMenu{
     transition: all .5s ease-in-out;
 }
 
-
+.headerControlePrest{
+    width: 100vw;
+    /* border: 1px solid red; */
+    justify-content: flex-end;
+    margin: 0 20px;
+}
 
 .headerContainerMenu{
     width: 100vw;
     height: 100vh;
-    background-color: rgb(173, 147, 161);
+    background-color: #00003b;
     position: absolute;
     left: -100vw;
     top: 0;
@@ -96,7 +115,9 @@ main{
 .undPrestador{
     /* border: 1px solid red; */
     width: 90vw;
-    background-color: rgb(207, 160, 212);
+    /* background-color: rgb(207, 160, 212); */
+    background: linear-gradient(90deg, rgba(83,0,184,1) 0%, rgba(9,9,121,1) 50%, rgba(2,0,36,1) 100%);
+    color: #ddd;
     flex-direction: column;
     border-radius: 10px;
     padding: 10px 0 ;
@@ -117,7 +138,8 @@ main{
     margin: 5px 0;
     border-radius: 10px;
     padding: 5px 0;
-    background-color: rgb(195, 154, 199);
+    /* background-color: rgb(195, 154, 199); */
+    background-color:  rgba(12, 0, 148, 0.18);
 
 }
 
@@ -139,4 +161,34 @@ main{
 
 textarea{
     margin: 10px 0;
+}
+
+
+
+
+.prestadorAddTitulo{
+    font-size: 1.3rem;
+    margin-bottom: 20px;
+}
+
+.undPrestador label{
+    font-size: 1.1rem;
+    margin-top: 10px;
+}
+
+.undPrestador input, .undPrestador select{
+    margin: 10px 0 20px 0;
+    width: 75%;
+    text-align: center;
+    border-radius: 10px;
+    font-size: 1.2rem;
+}
+
+.undPrestador button{
+    height: 25px;
+    width: 90px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    text-align: center;
+    margin: 20px 10px;
 }

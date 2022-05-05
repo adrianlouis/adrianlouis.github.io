@@ -12,10 +12,17 @@
     <title>Controle</title>
 </head>
 
-<body onload="listar()">
+<body >
+<!-- <body onload="listar()"> -->
     <header>
 
         <i class="fas fa-bars headerMenu" onclick="abrirMenu()"></i>
+
+        <div class="headerControlePrest flexCenter">
+            <i id="addRegPrestNew" class="fas fa-plus" onclick="novoRegPrest()"></i>
+            <i id="addRegPrestUndo" class="fas fa-undo" onclick="addCancel()"></i>
+           
+        </div>
     </header>
 
     <main>
@@ -23,99 +30,17 @@
 
             <i class="fas fa-window-close headerMenuFechar" onclick="fecharMenu()"></i>
             <ul>
-                <li onclick="fecharMenu()">Controle de Prestadores</li>
+                <li onclick="fecharMenu(); listar()">Controle de Prestadores</li>
                 <li>Controle de Carros</li>
                 <li>Medidores de Gás</li>
             </ul>
         </div>
 
+       
+
         <div id="mainContainer">
 
-            <!-- <div class="undPrestador flexCenter">
-
-                <div class="undPrestRows flexCenter">
-
-                    <div class="flexCenter undPrestRowsDivs">
-                        <span>Data</span>
-                        <span>12-04-2022</span>
-                    </div>
-
-                    <div class="flexCenter undPrestRowsDivs">
-                        <span>Hora</span>
-                        <span>12:50</span>
-                    </div>
-
-                </div>
-
-                <div class="flexCenter undPrestRows">
-
-                    <div class="flexCenter undPrestRowsDivs">
-
-                        <span>Empresa</span>
-                        <span>Light</span>
-
-                    </div>
-
-                    <div class="flexCenter undPrestRowsDivs">
-
-                        <span>Serviço</span>
-                        <span>Corte</span>
-
-                    </div>
-
-                </div>
-
-                <div class="flexCenter undPrestRows">
-
-                    <div class="flexCenter undPrestRowsDivs">
-
-                        <span>Colaborador</span>
-                        <span>Edward Kenway Moreira</span>
-
-                    </div>
-
-                    <div class="flexCenter undPrestRowsDivs">
-
-                        <span>Matrícula</span>
-                        <span>2305509-5</span>
-
-                    </div>
-
-                </div>
-
-                <div class="flexCenter undPrestRows">
-
-                    <div class="flexCenter undPrestRowsDivs">
-
-                        <span>Função</span>
-                        <span>Bombeiro Civil</span>
-
-                    </div>
-
-                    <div class="flexCenter undPrestRowsDivs">
-
-                        <span>Funcionário</span>
-                        <span>Adriano Soares</span>
-
-                    </div>
-
-                </div>
-
-                <div class="flexCenter undPrestRows undAnotacoes">
-                    <div class="flexCenter undPrestRowsDivs">
-                        <span>Anotações</span>
-                        <textarea name="" id="" cols="30" rows="10"></textarea>
-                    </div>
-                </div>
-
-                <div class="undPrestadorAcoes flexCenter">
-                    <i id="amostrarUndAnotacao" class="fas fa-eye" onclick="amostrarUndAnotacoes()"></i>
-                    <i id="amostrarVoltar" class="fas fa-arrow-left" onclick="fecharAnotacao()"></i>
-                    <i class="fas fa-pen"></i>
-                </div>
-
-
-            </div> -->
+     
 
         </div>
 

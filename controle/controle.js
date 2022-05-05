@@ -150,3 +150,136 @@ async function listar() {
         i += 1
     })
 }
+
+//criar novo registro em Controle de Prestadores
+function novoRegPrest(){
+    container = document.querySelector('#mainContainer')
+    container.innerHTML = ''
+    iconUndo = document.querySelector('#addRegPrestUndo')
+    iconAdd = document.querySelector('#addRegPrestNew')
+
+    iconAdd.style.opacity = '0'
+    setTimeout(() => {
+        iconAdd.style.display = 'none'
+        iconUndo.style.display = 'block'
+        setTimeout(() => {
+            iconUndo.style.opacity = '1'
+        }, 10);
+    }, 500);
+
+    container.innerHTML = `
+    <div class="undPrestador flexCenter">
+                <span class="prestadorAddTitulo">Novo Registro</span>
+                
+                <label for="data">Data</label>
+                <input id="data" type="date">
+                
+                <label for="hora">Hora</label>
+                <input id="hora" type="time" >
+                
+                <label for="empresa">Empresa</label>
+                <input id="empresa" placeholder="Ex.: Light..." type="text">
+                
+                <label for="servico">Serviço</label>
+                <input id="servico" placeholder="Ex.: Religação..."type="text">
+
+                <label for="colaborador">Colaborador</label>
+                <input id="colaborador" type="text">
+
+                <label for="matricula">Matrícula</label>
+                <input id="matricula" placeholder="Matrícula/documento..." type="text">
+
+                <label for="funcao">Função</label>
+                <select name="funcao" id="funcao">
+                    <option value="Bombeiro Civil">Bombeiro Civil</option>
+                    <option value="Manutenção">Manutenção</option>
+                </select>
+
+                <label for="funcionario">Funcionário</label>
+                <input type="text" placeholder="Quem acompanhou..." id="funcionario">
+
+                <label for='anotacao'>Anotações</label>
+                <textarea name="anotacao" id="anotacao" cols="30" rows="10" placeholder="Opcional..."></textarea>
+
+
+
+               <div>
+                   <button type="button" onclick="save()">Salvar</button>
+                   <button type="button" onclick="addCancel()">Cancelar</button>
+               </div>
+
+            </div>
+
+    `
+}
+
+//SALVAR o registro de Controle de Prestadores
+function save() {
+
+    data = document.querySelector('#data').value
+
+    hora = document.querySelector('#hora').value
+    empresa = document.querySelector('#empresa').value
+    servico = document.querySelector('#servico').value
+    colaborador = document.querySelector('#colaborador').value
+    matricula = document.querySelector('#matricula').value
+    funcao = document.querySelector('#funcao').value
+    funcionario = document.querySelector('#funcionario').value
+    anotacao = document.querySelector('#anotacao').value
+
+    if (data == 'Invalid Date' || hora == '' || empresa == '' || servico == '' || colaborador == '' || funcao == '' || funcionario == '' ||
+        matricula == '' || funcionario == '') {
+        alert('Com exceção do campo de Anotações, não pode haver campos em branco.')
+    } else {
+        async function postando() {
+
+            // console.log('salvar nova data: '+ data)
+
+            const obj = {
+                dia: String(data),
+                hora: String(hora),
+                empresa: String(empresa),
+                servico: String(servico),
+                colaborador: String(colaborador),
+                matricula: String(matricula),
+                funcao: String(funcao),
+                funcionario: String(funcionario),
+                anotacao: String(anotacao)
+            }
+
+            console.log(obj.dia)
+
+            const response = await fetch("https://patiocgcontrole.azurewebsites.net/api/visitante", {
+                method: "POST",
+                body: JSON.stringify(obj),
+                headers: { 'Content-Type': 'application/json' }
+            })
+
+        }
+
+        postando()
+
+        setTimeout(() => {
+            addCancel()
+        }, 1000);
+    }
+}
+
+function addCancel(){
+    container = document.querySelector('#mainContainer')
+    container.innerHTML = ''
+
+    iconUndo = document.querySelector('#addRegPrestUndo')
+    iconAdd = document.querySelector('#addRegPrestNew')
+
+    iconUndo.style.opacity = '0'
+    setTimeout(() => {
+        iconUndo.style.display = 'none'
+        iconAdd.style.display = 'block'
+        setTimeout(() => {
+            iconAdd.style.opacity = '1'
+        }, 10);
+    }, 500);
+
+    listar()
+}
