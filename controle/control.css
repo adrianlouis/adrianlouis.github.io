@@ -1,12 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+
 *{
     padding: 0;
     margin: 0;
-}
-
-body{
-    background-color: rgb(0, 1, 46);
-
-
+    max-width: 320px;
+    margin: 0 auto;
 }
 
 .flexCenter{
@@ -14,6 +12,18 @@ body{
     justify-content: center;
     align-items: center;
 }
+
+body{
+    background-color: #1d1d1d;
+    font-family: 'Open Sans', sans-serif;
+    max-width: 320px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+
+}
+
+
 
 .invisible, #addRegPrestUndo{
     display: none;
@@ -39,19 +49,38 @@ header{
     color: #eee;
     font-size: 1rem;
     box-shadow: #002 0 3px 3px 2px;
+    position: static;
+    top: 0;
+    left: 0;
 }
 
-header .headerMenu{
+.headerIcons{
+    width: 50%;
+    justify-content: space-evenly;
+}
+
+/* header .headerMenu{
     position: absolute;
     left: 20px;
     transition: all .5s ease-in-out;
-}
+} */
 
 .headerControlePrest{
     width: 100vw;
     /* border: 1px solid red; */
-    justify-content: flex-end;
-    margin: 0 20px;
+    justify-content: space-evenly;
+    /* cursor: pointer; */
+    /* margin: 0 20px; */
+}
+
+.headerControlePrest i{
+    color: #f5f7f9;
+    width: 33%;
+}
+
+.headerControlePrest i{
+    cursor: pointer;
+    transition: all .5s ease-in-out;
 }
 
 .headerContainerMenu{
@@ -92,9 +121,9 @@ header .headerMenu{
 
 .headerMenuFechar{
     position: absolute;
-    left: 12px;
-    top: 9px;
-    font-size: 2rem;
+    left: 43px;
+    top: 17px;
+    /* font-size: 1rem; */
     color: #eee;
 }
 
@@ -109,44 +138,62 @@ main{
 .mainContainer{
     width: 100vw;
     height: 100vh;
+    transition: all .5s ease-in-out;
 }
 
 
 .undPrestador{
     /* border: 1px solid red; */
     width: 90vw;
-    /* background-color: rgb(207, 160, 212); */
-    background: linear-gradient(90deg, rgb(18, 0, 40) 0%, rgb(9, 9, 80) 50%, rgb(18, 0, 40) 100%);
+    background-color: #242424;
+    /* background: linear-gradient(90deg, #120028 0%, #090950 50%, #120028 100%); */
     color: #ddd;
     flex-direction: column;
     border-radius: 10px;
     padding: 10px 0 ;
     margin: 15px 0;
-    box-shadow: #002a 0 0 3px 3px;
+    box-shadow: inset #aaa3 1px 1px 3px 0px,  #0003 4px 4px 7px 3px;
 }
 
-.undPrestador span:nth-child(2n+0){
-    /* margin-bottom: 10px; */
+/* .undPrestador span:nth-child(2n+0){
     margin-top: 5px;
     font-size: 1.2rem;
-    text-align: center;
-}
+} */
 
 .undPrestRows{
-    width: 95%;
-    justify-content: space-evenly;
+    width: 100%;
+    justify-content: space-around;
+    /* align-items: flex-end; */
     /* border: 1px solid black; */
     margin: 5px 0;
     border-radius: 10px;
     padding: 5px 0;
     /* background-color: rgb(195, 154, 199); */
-    background-color:  rgba(0, 0, 0, 0.2);
+    /* background-color:  rgba(0, 0, 0, 0.2); */
+
 
 }
+
+
 
 .undPrestRowsDivs{
     flex-direction: column;
     width: 50%;
+    /* border: 1px solid white; */
+    align-items: flex-start;
+    padding: 0 10px;
+    
+    
+}
+.undPrestRowsDivs span:nth-child(2n+1){
+    /* color: red; */
+    font-size: 1rem;
+    font-weight: 700;
+    margin: 0;
+}
+.undPrestRowsDivs span:nth-child(2n+0){
+    font-size: .8rem;
+    margin: 0;
 }
 
 .undPrestadorAcoes{
@@ -154,6 +201,21 @@ main{
     justify-content: space-evenly;
     width: 100%;
     margin: 15px 0;
+}
+.undPrestadorAcoes i{
+    cursor: pointer;
+}
+
+.headerControlePrest i{
+    /* color: red; */
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.iconVoltar{
+    color: red;
 }
 
 .undAnotacoes, .amostrarVoltar{
@@ -167,7 +229,7 @@ textarea{
 
 
 
-.prestadorAddTitulo{
+.prestadorTitulo{
     font-size: 1.3rem;
     margin-bottom: 20px;
 }
@@ -179,10 +241,10 @@ textarea{
 
 .undPrestador input, .undPrestador select{
     margin: 10px 0 20px 0;
-    width: 75%;
+    width: 85%;
     text-align: center;
     border-radius: 10px;
-    font-size: 1.2rem;
+    font-size: .8rem;
 }
 
 .undPrestador button{

@@ -44,8 +44,9 @@ async function listar() {
     const jsonBody = await response.json()
 
     container = document.querySelector('#mainContainer')
-    container.innerHTML = ''
+    container.innerHTML = "CARREGANDO..."
     let i = 0
+    let res = ''
 
     jsonBody.forEach(async elemento => {
         let dataDia = new Date(elemento.dia).getUTCDate()
@@ -56,97 +57,125 @@ async function listar() {
 
         let dataAno = new Date(elemento.dia).getUTCFullYear()
 
-        container.innerHTML += `
+        let horario = elemento.hora.slice(0,5)
+        console.log(elemento.hora)
 
+        res += `
         <div id='undPrest${i}' class="undPrestador flexCenter">
 
                 <div class="undPrestRows flexCenter">
 
                     <div class="flexCenter undPrestRowsDivs">
-                        <span>Data</span>
                         <span>${dataDia}-${dataMes}-${dataAno}</span>
+                        <span>${horario}</span>
                     </div>
 
                     <div class="flexCenter undPrestRowsDivs">
-                        <span>Hora</span>
-                        <span>${elemento.hora}</span>
-                    </div>
-
-                </div>
-
-                <div class="flexCenter undPrestRows">
-
-                    <div class="flexCenter undPrestRowsDivs">
-
-                        <span>Empresa</span>
+                        <span>${elemento.colaborador}</span>
                         <span>${elemento.empresa}</span>
 
                     </div>
 
-                    <div class="flexCenter undPrestRowsDivs">
-
-                        <span>Serviço</span>
-                        <span>${elemento.servico}</span>
-
-                    </div>
-
                 </div>
-
-                <div class="flexCenter undPrestRows">
-
-                    <div class="flexCenter undPrestRowsDivs">
-
-                        <span>Colaborador</span>
-                        <span>${elemento.colaborador}</span>
-
-                    </div>
-
-                    <div class="flexCenter undPrestRowsDivs">
-
-                        <span>Matrícula</span>
-                        <span>${elemento.matricula}</span>
-
-                    </div>
-
-                </div>
-
-                <div class="flexCenter undPrestRows">
-
-                    <div class="flexCenter undPrestRowsDivs">
-
-                        <span>Função</span>
-                        <span>${elemento.funcao}</span>
-
-                    </div>
-
-                    <div class="flexCenter undPrestRowsDivs">
-
-                        <span>Funcionário</span>
-                        <span>${elemento.funcionario}</span>
-
-                    </div>
-
-                </div>
-
-                <div class="flexCenter undPrestRows undAnotacoes undAnotacoes${elemento.id}">
-                    <div class="flexCenter undPrestRowsDivs">
-                        <span>Anotações</span>
-                        <textarea name="" id="" cols="30" rows="10">${elemento.anotacao}</textarea>
-                    </div>
-                </div>
-
-                <div class="undPrestadorAcoes flexCenter">
-                    <i id="amostrarUndAnotacao${elemento.id}" class="fas fa-eye amostrarUndAnotacao" onclick="amostrarUndAnotacoes(${elemento.id})"></i>
-                    <i id="amostrarVoltar${elemento.id}" class="fas fa-arrow-left" onclick="fecharAnotacao(${elemento.id})"></i>
-                    <i class="fas fa-pen"></i>
-                </div>
-
 
             </div>
+        
+        `
+
+       
+        //  res += `
+
+        // <div id='undPrest${i}' class="undPrestador flexCenter">
+
+        //         <div class="undPrestRows flexCenter">
+
+        //             <div class="flexCenter undPrestRowsDivs">
+        //                 <span>Data</span>
+        //                 <span>${dataDia}-${dataMes}-${dataAno}</span>
+        //             </div>
+
+        //             <div class="flexCenter undPrestRowsDivs">
+        //                 <span>Hora</span>
+        //                 <span>${elemento.hora}</span>
+        //             </div>
+
+        //         </div>
+
+        //         <div class="flexCenter undPrestRows">
+
+        //             <div class="flexCenter undPrestRowsDivs">
+
+        //                 <span>Empresa</span>
+        //                 <span>${elemento.empresa}</span>
+
+        //             </div>
+
+        //             <div class="flexCenter undPrestRowsDivs">
+
+        //                 <span>Serviço</span>
+        //                 <span>${elemento.servico}</span>
+
+        //             </div>
+
+        //         </div>
+
+        //         <div class="flexCenter undPrestRows">
+
+        //             <div class="flexCenter undPrestRowsDivs">
+
+        //                 <span>Colaborador</span>
+        //                 <span>${elemento.colaborador}</span>
+
+        //             </div>
+
+        //             <div class="flexCenter undPrestRowsDivs">
+
+        //                 <span>Matrícula</span>
+        //                 <span>${elemento.matricula}</span>
+
+        //             </div>
+
+        //         </div>
+
+        //         <div class="flexCenter undPrestRows">
+
+        //             <div class="flexCenter undPrestRowsDivs">
+
+        //                 <span>Função</span>
+        //                 <span>${elemento.funcao}</span>
+
+        //             </div>
+
+        //             <div class="flexCenter undPrestRowsDivs">
+
+        //                 <span>Funcionário</span>
+        //                 <span>${elemento.funcionario}</span>
+
+        //             </div>
+
+        //         </div>
+
+        //         <div class="flexCenter undPrestRows undAnotacoes undAnotacoes${elemento.id}">
+        //             <div class="flexCenter undPrestRowsDivs">
+        //                 <span>Anotações</span>
+        //                 <textarea name="" id="" cols="30" rows="10">${elemento.anotacao}</textarea>
+        //             </div>
+        //         </div>
+
+        //         <div class="undPrestadorAcoes flexCenter">
+        //             <i id="amostrarUndAnotacao${elemento.id}" class="fas fa-eye amostrarUndAnotacao" onclick="amostrarUndAnotacoes(${elemento.id})"></i>
+        //             <span class=iconVoltar"><i id="amostrarVoltar${elemento.id}" class="amostrarVoltar fas fa-arrow-left" onclick="fecharAnotacao(${elemento.id})"></i>
+        //             <i class="fas fa-pen" onclick="editar(${elemento.id})"></i>
+        //         </div>
 
 
-            `
-            document.querySelector('#amostrarVoltar'+elemento.id).style.display = 'none'
+        //     </div>
+
+
+        //     `
+
+            container.innerHTML = res
+            // document.querySelector('#amostrarVoltar'+elemento.id).style.display = 'none'
         i += 1
     })
 }
@@ -169,7 +198,7 @@ function novoRegPrest(){
 
     container.innerHTML = `
     <div class="undPrestador flexCenter">
-                <span class="prestadorAddTitulo">Novo Registro</span>
+                <span class="prestadorTitulo">Novo Registro</span>
                 
                 <label for="data">Data</label>
                 <input id="data" type="date">
@@ -282,4 +311,109 @@ function addCancel(){
     }, 500);
 
     listar()
+}
+
+async function editar(id){
+    container = document.querySelector('#mainContainer')
+    container.innerHTML = ''
+
+    const response = await fetch('https://patiocgcontrole.azurewebsites.net/api/visitante/' + id)
+    const jsonBody = await response.json()
+
+    console.log(jsonBody)
+
+    container.innerHTML = `
+    <div class="undPrestador flexCenter">
+
+                <span class="prestadorTitulo">Editar Registro</span>
+
+                <div class="undPrestRows flexCenter">
+
+
+                    <div class="flexCenter undPrestRowsDivs">
+                        <label for="data">Data</label>
+                        <input id="data" type="date" value="${jsonBody.dia}" >
+                    </div>
+
+                    <div class="flexCenter undPrestRowsDivs">
+                        <label for="hora">Hora</label>
+                        <input type="time" id="hora" value='${jsonBody.hora}'>
+                    </div>
+
+                </div>
+
+                <div class="flexCenter undPrestRows">
+
+                    <div class="flexCenter undPrestRowsDivs">
+
+                        <label for="empresa">Empresa</label>
+                        <input type="text" id="empresa" value="${jsonBody.empresa}">
+
+                    </div>
+
+                    <div class="flexCenter undPrestRowsDivs">
+
+                        <label for="servico">Serviço</label>
+                        <input type="text" id="servico" value= '${jsonBody.servico}'>
+
+                    </div>
+
+                </div>
+
+                <div class="flexCenter undPrestRows">
+
+                    <div class="flexCenter undPrestRowsDivs">
+
+                        <label for="colaborador">Colaborador</label>
+                        <input type="text" id="colaborador" value='${jsonBody.colaborador}'>
+
+                    </div>
+
+                    <div class="flexCenter undPrestRowsDivs">
+
+                        <label for="matricula">Matrícula</label>
+                        <input type="text" id="matricula" value='${jsonBody.matricula}'>
+
+                    </div>
+
+                </div>
+
+                <div class="flexCenter undPrestRows">
+
+                    <div class="flexCenter undPrestRowsDivs">
+
+                    <label for="funcao">Função</label>
+                    <select name="funcao" id="funcao">
+                        <option value="Bombeiro Civil">Bombeiro Civil</option>
+                        <option value="Manutenção">Manutenção</option>
+                    </select>
+
+                    </div>
+
+                    <div class="flexCenter undPrestRowsDivs">
+
+                        <label for="funcionario">Funcionário</label>
+                        <input type="text" id="funcionario" value ='${jsonBody.funcionario}'>
+
+                    </div>
+
+                </div>
+
+                <div class="flexCenter undPrestRows undAnotacoes undAnotacoes">
+                    <div class="flexCenter undPrestRowsDivs">
+                        <span>Anotações</span>
+                        <textarea name="" id="" cols="30" rows="10" value='${jsonBody.anotacao}'></textarea>
+                    </div>
+                </div>
+
+                
+
+
+            </div>
+    `
+
+
+
+
+
 }

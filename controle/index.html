@@ -12,21 +12,27 @@
     <title>Controle</title>
 </head>
 
-<body >
-<!-- <body onload="listar()"> -->
+<body>
+    <!-- <body onload="listar()"> -->
     <header>
 
-        <i class="fas fa-bars headerMenu" onclick="abrirMenu()"></i>
 
         <div class="headerControlePrest flexCenter">
-            <i id="addRegPrestNew" class="fas fa-plus" onclick="novoRegPrest()"></i>
+            <!-- <i class="fas fa-bars headerMenu" onclick="abrirMenu()"></i> -->
+            <!-- <i id="addRegPrestNew" class="fas fa-plus" onclick="novoRegPrest()"></i> -->
             <i id="addRegPrestUndo" class="fas fa-undo" onclick="addCancel()"></i>
-           
+
+            <!-- <div class="headerIcons flexCenter"> -->
+            <i class="fas fa-tools" onclick="listar()">prestadores</i>
+            <i class="fas fa-car-alt">garagem</i>
+            <i class="fas fa-tachometer-alt">gás</i>
+            <!-- </div> -->
         </div>
+
     </header>
 
     <main>
-        <div class="headerContainerMenu">
+        <!-- <div class="headerContainerMenu">
 
             <i class="fas fa-window-close headerMenuFechar" onclick="fecharMenu()"></i>
             <ul>
@@ -34,13 +40,34 @@
                 <li>Controle de Carros</li>
                 <li>Medidores de Gás</li>
             </ul>
-        </div>
+        </div> -->
 
-       
+
+
+
 
         <div id="mainContainer">
 
-     
+<!-- 
+            <div id='undPrest${i}' class="undPrestador flexCenter">
+
+                <div class="undPrestRows flexCenter">
+
+                    <div class="flexCenter undPrestRowsDivs">
+                        <span>09-12-2021</span>
+                        <span>23:15</span>
+                    </div>
+
+                    <div class="flexCenter undPrestRowsDivs">
+                        <span>Anderson</span>
+                        <span>Light</span>
+
+                    </div>
+
+                </div>
+
+            </div> -->
+
 
         </div>
 
