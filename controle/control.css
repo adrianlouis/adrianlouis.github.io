@@ -141,10 +141,15 @@ main{
     transition: all .5s ease-in-out;
 }
 
+#iconeEditar{
+    font-size: 1.3rem;
+    padding: 15px;
+}
 
 .undPrestador{
     /* border: 1px solid red; */
     width: 90vw;
+    /* height: 80px; */
     background-color: #242424;
     /* background: linear-gradient(90deg, #120028 0%, #090950 50%, #120028 100%); */
     color: #ddd;
@@ -153,7 +158,20 @@ main{
     padding: 10px 0 ;
     margin: 15px 0;
     box-shadow: inset #aaa3 1px 1px 3px 0px,  #0003 4px 4px 7px 3px;
+    transition: all .5s ease-in-out;
+    justify-content: flex-start;
+    overflow: hidden;
+    flex-wrap: nowrap;
+    cursor: pointer;
 }
+
+.cardLinha{
+    width: 100%;
+    justify-content: space-evenly;
+    /* border: 1px solid red; */
+}
+
+
 
 /* .undPrestador span:nth-child(2n+0){
     margin-top: 5px;
@@ -161,6 +179,8 @@ main{
 } */
 
 .undPrestRows{
+    flex-direction: column;
+
     width: 100%;
     justify-content: space-around;
     /* align-items: flex-end; */
@@ -168,22 +188,37 @@ main{
     margin: 5px 0;
     border-radius: 10px;
     padding: 5px 0;
+    transition: all .5s ease-in-out;
     /* background-color: rgb(195, 154, 199); */
     /* background-color:  rgba(0, 0, 0, 0.2); */
 
 
 }
 
+.undPrestRowselem{
+    display: none;
+}
 
+.undPrestRows textarea{
+    color: #000;
+    border-radius: 5px;
+    font-size: 1rem;
+    width: 90%;
+}
+
+.btnEdit{
+    width: 90%;
+    padding: 10px;
+    font-size: 1.3rem;
+}
 
 .undPrestRowsDivs{
     flex-direction: column;
     width: 50%;
     /* border: 1px solid white; */
     align-items: flex-start;
-    padding: 0 10px;
-    
-    
+    padding: 10px 10px;
+
 }
 .undPrestRowsDivs span:nth-child(2n+1){
     /* color: red; */
