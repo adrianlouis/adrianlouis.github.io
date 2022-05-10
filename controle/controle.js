@@ -59,7 +59,7 @@ function detalhesCard(id, elem) {
     // }
 
     let detalhes = document.querySelector('#card' + id)
-    let textArea = document.querySelector('#textArea'+id)
+    let textArea = document.querySelector('#textArea' + id)
 
     if (detalhes.style.display == 'flex') {
         detalhes.style.display = 'none'
@@ -448,7 +448,7 @@ function atualizar(id) {
     anotacao = document.querySelector('#anotacao').value
 
     if (data == 'Invalid Date' || hora == '' || empresa == '' || servico == '' || colaborador == '' || documento == '' || protocolo == '' || local == '' || funcao == '' || funcionario == '' ||
-    matricula == '' || funcionario == '') {
+        matricula == '' || funcionario == '') {
         alert('Com exceção do campo de Anotações, não pode haver campos em branco.')
     } else {
         async function postando() {
@@ -492,4 +492,156 @@ function deletar(id) {
     setTimeout(() => {
         listar()
     }, 500);
+}
+
+function buscar() {
+    const buscarIcone = document.querySelector('footer')
+
+    buscarIcone.style.height = '100px'
+    console.log(buscarIcone)
+}
+
+function hideFooter(elem) {
+    elem.style.height = '50px'
+}
+
+async function pesquisar() {
+    const select = document.querySelector('#selectItens')
+    let valor = document.querySelector('#valorPesquisado')
+    valor = valor.value.toLowerCase()
+    campoPesquisado = select.value
+    container = document.querySelector('#mainContainer')
+    container.innerHTML = ''
+    let res = ''
+
+    
+    
+    const response = await fetch('https://patiocgcontrole.azurewebsites.net/api/visitante')
+    const jsonBody = await response.json()
+    
+    jsonBody.forEach(elemento => {
+ 
+        // let itemBD = elemento.empresa
+
+
+        if (campoPesquisado == 'empresa') {
+            let itemBD = elemento.empresa
+            itemBD = itemBD.toLowerCase();
+
+            if (itemBD.includes(valor)) {
+                template(elemento)
+            }
+
+        } else if (campoPesquisado == 'colaborador'){
+            let itemBD = elemento.colaborador
+            itemBD = itemBD.toLowerCase();
+
+            if (itemBD.includes(valor)) {
+                template(elemento)
+            }
+        } else if (campoPesquisado == 'funcionario'){
+            let itemBD = elemento.funcionario
+            itemBD = itemBD.toLowerCase();
+
+            if (itemBD.includes(valor)){
+                template(elemento)
+            }
+        } else if (campoPesquisado == 'dia'){
+            let itemBD = elemento.dia
+            itemBD = itemBD.toLowerCase();
+
+            if (itemBD.includes(valor)){
+                template(elemento)
+            }
+        }
+    })
+
+}
+
+
+
+
+
+
+function template(elemento){
+    let res = ''
+    let container = document.querySelector('#mainContainer')
+
+    let dataDia = new Date(elemento.dia).getUTCDate()
+                dataDia < 10 ? dataDia = `0${dataDia}` : dataDia = dataDia
+
+                let dataMes = new Date(elemento.dia).getUTCMonth() + 1
+                dataMes < 10 ? dataMes = `0${dataMes}` : dataMes = dataMes
+
+                let dataAno = new Date(elemento.dia).getUTCFullYear()
+
+                let horario = elemento.hora.slice(0, 5)
+
+                res += `
+        <div id='undPrest${elemento.id}' onclick="detalhesCard(${elemento.id}, this)" class="undPrestador flexCenter">
+
+            <div class="undPrestRows flexCenter">
+
+                <div class="cardLinha flexCenter">
+
+                    <div class="flexCenter undPrestRowsDivs">
+                        <span>${dataDia}-${dataMes}-${dataAno}</span>
+                        <span>${horario}</span>
+                    </div>
+
+                    <div class="flexCenter undPrestRowsDivs">
+                        <span>${elemento.colaborador}</span>
+                        <span>${elemento.empresa} - ${elemento.servico}</span>
+                    </div>
+
+                </div>
+
+                <div id='card${elemento.id}' class='hide flexCenter'>
+
+                    <div class="cardLinha flexCenter">
+
+                        <div class="flexCenter undPrestRowsDivs">
+                            <span>${elemento.matricula}</span>
+                            <span>${elemento.documento}</span>
+                        </div>
+
+                        <div class="flexCenter undPrestRowsDivs">
+                            <span>${elemento.protocolo}</span>
+                            <span>Ordem de Serviço</span>
+                        </div>
+
+                    </div>
+
+                    <div class="cardLinha flexCenter">
+
+                        <div class="flexCenter undPrestRowsDivs">
+                            <span>${elemento.funcionario}</span>
+                            <span>${elemento.funcao}</span>
+                        </div>
+
+                        <div class="flexCenter undPrestRowsDivs">
+                            <span>Local</span>
+                            <span>${elemento.localidade}</span>
+                        </div>
+
+                    </div>
+                
+                    <div class="undPrestRows flexCenter">
+                        <textarea rows=6' cols='40' id="textArea${elemento.id}">${elemento.anotacao}</textarea>
+                        <div class='btnEdit flexCenter'>
+                            <i id='iconeEditar' onclick="editar(${elemento.id})" class="fas fa-pen"></i>
+                            <i onclick='deletar(${elemento.id})' class="fas fa-trash"></i>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+            `
+
+                container.innerHTML += res
+
+
+    
 }

@@ -66,11 +66,33 @@ footer{
     border-top-right-radius: 20px;
     border-bottom-left-radius: unset;
     border-bottom-right-radius: unset;
+    flex-direction: column;
+    transition: all .5s;
+    padding-top: 10px;
+    justify-content: flex-start;
     
 }
 
 footer i{
     cursor: pointer;
+}
+
+.footerIcones{
+    width: 100%;
+    font-size: 1.2rem;
+    /* margin-top: 30px; */
+    padding: 15px 0;
+    /* border: 1px solid red; */
+
+}
+.footerInputBuscar{
+    width: 100%;
+    /* border: 1px solid white; */
+    align-items: baseline;
+}
+.footerInputBuscar input{
+    width: 50%;
+    margin-top: 10px;
 }
 
 .headerIcons{

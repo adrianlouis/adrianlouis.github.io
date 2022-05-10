@@ -18,13 +18,13 @@
 
 
         <div class="headerControlePrest flexCenter">
-         
+
             <i class="fas fa-tools" onclick="listar()">Prestadores</i>
             <i class="fas fa-car-alt">Garagem</i>
             <i class="fas fa-tachometer-alt">Gás</i>
 
             <!-- <i class="fas fa-plus"></i> -->
-           
+
         </div>
 
     </header>
@@ -47,9 +47,9 @@
         <div id="mainContainer">
 
 
-            
 
-          
+
+
 
             <!-- <div id='undPrest' class="undPrestador flexCenter">
 
@@ -102,7 +102,7 @@
 
             </div> -->
 
-            
+
         </div>
 
 
@@ -110,10 +110,25 @@
 
     </main>
 
-    <footer>
-        <i onclick="listar()" class="fas fa-list-ol"></i>
-    <i onclick="novoRegistro()" class="fas fa-plus"></i>
-    <i onclick="listar()" id='iconVoltar' class="fas fa-undo"></i>
+    <footer onmouseleave="hideFooter(this)">
+        <div class="footerIcones flexCenter">
+
+            <i onclick="listar()" class="fas fa-list-ol"></i>
+            <i onclick="novoRegistro()" class="fas fa-plus"></i>
+            <i onclick="buscar()" class="fas fa-search"></i>
+        </div>
+        <div class="footerInputBuscar flexCenter">
+            <select name="selectItens" id="selectItens">
+                <option value="dia">Data</option>
+                <option value="empresa">Empresa</option>
+                <option value="funcionario">Funcionário</option>
+                <option value="colaborador">Prestador</option>
+            </select>
+
+            <input id="valorPesquisado" type="search" value="">
+            <button onclick="pesquisar()">Buscar</button>
+            <!-- <button onclick="testando()">Buscar</button> -->
+        </div>
     </footer>
 </body>
 
