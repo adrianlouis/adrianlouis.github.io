@@ -34,30 +34,45 @@ function fecharAnotacao(id) {
 }
 
 function detalhesCard(id, elem) {
-    let anot = document.querySelector('#undPrest' + id).lastElementChild
-    let textarea = document.querySelector('#anot' + id)
-    let elemento = document.querySelector('#undPrest' + id).firstElementChild.firstElementChild.nextElementSibling
+    // let anot = document.querySelector('#undPrest' + id).lastElementChild
+    // let textarea = document.querySelector('#anot' + id)
+    // let elemento = document.querySelector('#undPrest' + id).firstElementChild.firstElementChild.nextElementSibling
 
-    if (anot.style.display == 'flex') {
+    // if (anot.style.display == 'flex') {
 
-        elem.style.height = 'unset'
-        anot.style.display = 'none'
-        elemento.style.display = 'none'
+    //     elem.style.height = 'unset'
+    //     anot.style.display = 'none'
+    //     elemento.style.display = 'none'
 
+    // } else {
+    //     anot.style.opacity = 1
+    //     elemento.style.opacity = 1
+    //     anot.style.display = 'flex'
+
+    //     if (textarea.value !== '') {
+    //         textarea.style.display = 'flex'
+    //     }else{
+    //         textarea.style.display = 'none'
+    //     }
+
+    //     elemento.style.display = 'flex'
+    // }
+
+    let detalhes = document.querySelector('#card' + id)
+    let textArea = document.querySelector('#textArea'+id)
+
+    if (detalhes.style.display == 'flex') {
+        detalhes.style.display = 'none'
     } else {
-        anot.style.opacity = 1
-        elemento.style.opacity = 1
-        anot.style.display = 'flex'
+        detalhes.style.display = 'flex'
 
-        if (textarea.value !== '') {
-            textarea.style.display = 'flex'
-        }else{
-            textarea.style.display = 'none'
+        if (textArea.value !== '') {
+            textArea.style.display = 'flex'
+        } else {
+            textArea.style.display = 'none'
         }
-
-        elemento.style.display = 'flex'
     }
-    
+
 }
 
 //GET para listar dados de Controle de Prestadores
@@ -84,56 +99,69 @@ async function listar() {
         res += `
         <div id='undPrest${elemento.id}' onclick="detalhesCard(${elemento.id}, this)" class="undPrestador flexCenter">
 
-                <div class="undPrestRows flexCenter">
+            <div class="undPrestRows flexCenter">
+
+                <div class="cardLinha flexCenter">
+
+                    <div class="flexCenter undPrestRowsDivs">
+                        <span>${dataDia}-${dataMes}-${dataAno}</span>
+                        <span>${horario}</span>
+                    </div>
+
+                    <div class="flexCenter undPrestRowsDivs">
+                        <span>${elemento.colaborador}</span>
+                        <span>${elemento.empresa} - ${elemento.servico}</span>
+                    </div>
+
+                </div>
+
+                <div id='card${elemento.id}' class='hide flexCenter'>
 
                     <div class="cardLinha flexCenter">
 
                         <div class="flexCenter undPrestRowsDivs">
-                            <span>${dataDia}-${dataMes}-${dataAno}</span>
-                            <span>${horario}</span>
+                            <span>${elemento.matricula}</span>
+                            <span>${elemento.documento}</span>
                         </div>
 
                         <div class="flexCenter undPrestRowsDivs">
-                            <span>${elemento.colaborador}</span>
-                            <span>${elemento.empresa} - ${elemento.servico}</span>
-
+                            <span>${elemento.protocolo}</span>
+                            <span>Ordem de Serviço</span>
                         </div>
 
                     </div>
 
-                    <div style="display: none" class="cardLinha flexCenter">
+                    <div class="cardLinha flexCenter">
 
                         <div class="flexCenter undPrestRowsDivs">
                             <span>${elemento.funcionario}</span>
                             <span>${elemento.funcao}</span>
-
                         </div>
 
                         <div class="flexCenter undPrestRowsDivs">
-                            <span>Sala/Loja</span>
-                            <span>340</span>
-
+                            <span>Local</span>
+                            <span>${elemento.localidade}</span>
                         </div>
 
                     </div>
-                   
-                </div>
                 
-                <div style="display: none" class="undPrestRows flexCenter">
-                    <textarea rows=6' cols='40' id="anot${elemento.id}">${elemento.anotacao}</textarea>
-                    <div class='btnEdit flexCenter'>
-                    <i id='iconeEditar' onclick="editar(${elemento.id})" class="fas fa-pen"></i>
-                    <i onclick='deletar(${elemento.id})' class="fas fa-trash"></i>
-                    </div>
+                    <div class="undPrestRows flexCenter">
+                        <textarea rows=6' cols='40' id="textArea${elemento.id}">${elemento.anotacao}</textarea>
+                        <div class='btnEdit flexCenter'>
+                            <i id='iconeEditar' onclick="editar(${elemento.id})" class="fas fa-pen"></i>
+                            <i onclick='deletar(${elemento.id})' class="fas fa-trash"></i>
+                        </div>
 
                     </div>
-
+                </div>
             </div>
+
+        </div>
             `
 
-        
 
-       
+
+
 
 
         container.innerHTML = res
@@ -146,91 +174,86 @@ async function listar() {
 function novoRegistro() {
     container = document.querySelector('#mainContainer')
     container.innerHTML = ''
-   
 
     container.innerHTML = `
     <div class="undPrestador flexCenter">
 
-                <div class="undPrestRows flexCenter">
+        <div class="undPrestRows flexCenter">
 
-                    <div class="cardLinha flexCenter">
+            <div class="cardLinha flexCenter">
 
-                        <div class="flexCenter undPrestRowsDivs">
-                        <label for='data'>Data</label>
-                            <input id='data' type='date' '>
+                <div class="flexCenter undPrestRowsDivs align">
+                    <label for='data'>Data</label>
+                    <input id='data' type='date' '>
 
-                            <label for='colaborador'>Colaborador</label>
-                        <input id='colaborador' type='text' >
-                        </div>
+                    <label for='colaborador'>Colaborador</label>
+                    <input id='colaborador' type='text' >
+                </div>
 
-                        <div class="flexCenter undPrestRowsDivs">
-                        <label for='hora'>Hora</label>
-                            <input id='hora' type='time' >
+                <div class="flexCenter undPrestRowsDivs align">
+                    <label for='hora'>Hora</label>
+                    <input id='hora' type='time' >
                         
-                        <label for='empresa'>Empresa</label>
-                        <input id='empresa' type='text' >
-
-                        </div>
-
-                    </div>
-
-                    <div class="cardLinha flexCenter">
-
-                        <div class="flexCenter undPrestRowsDivs">
-
-                        <label for='doc'>Documento</label>
-                        <select name="doc" id="doc">
-                        <option value="CPF">CPF</option>
-                        <option value="RG">RG</option>
-                        <option value="Matrícula">Matrícula</option>
-                        </select>
-
-                        <label for='servico'>Serviço</label>
-                        <input id='servico' type='text' >
-
-                            <label for='funcionario'>Funcionário</label>
-                            <input type='text' id='funcionario' >
-
-                            
-
-                        </div>
-
-                        <div class="flexCenter undPrestRowsDivs">
-
-                        <label for='matricula'>Matrícula</label>
-                        <input id='matricula' type='text' >
-
-                            
-                        <label for='local'>Local</label>
-                        <input id='local' type='text' value='sala 209' >
-                            <label for='funcao'>Função</label>
-                            <input type='text' id='funcao' >
-
-                        </div>
-
-                    </div>
-                   
-
-
-
+                    <label for='empresa'>Empresa</label>
+                    <input id='empresa' type='text' >
 
                 </div>
 
-                
+            </div>
 
-                <div class="undPrestRows flexCenter">
-                    <textarea rows=6' cols='40' id="anotacao">
-                    </textarea>
+            <div class="cardLinha flexCenter">
 
-                    <div class='btnEdit flexCenter'>
-                    <i onclick='salvar()' class="fas fa-save"></i>
-                    <i onclick='listar()' class="fas fa-undo"></i>
-                    </div>
-                    </div>
-                    
+                <div class="flexCenter undPrestRowsDivs align">
 
+                    <label for='doc'>Documento</label>
+                    <select name="doc" id="doc">
+                        <option value="CPF">CPF</option>
+                        <option value="RG">RG</option>
+                        <option value="Matrícula">Matrícula</option>
+                    </select>
+
+                    <label for='servico'>Serviço</label>
+                    <input id='servico' type='text' >
+
+                    <label for='funcionario'>Funcionário</label>
+                    <input type='text' id='funcionario' >
+
+                </div>
+
+                <div class="flexCenter undPrestRowsDivs align">
+
+                    <label for='matricula'>Nº Documento</label>
+                    <input id='matricula' type='text' >
+
+                    <label for='local'>Local</label>
+                    <input id='local' type='text' value='sala 209' >
+
+                    <label for='funcao'>Função</label>
+                    <input type='text' id='funcao' >
+
+                </div>
 
             </div>
+
+            <div class='flexCenter undPrestRowsDivs os'>
+                <label for='os'>Ordem de Serviço</label>
+                <input id='os' type='text'>
+            </div>
+
+        </div>
+
+        <div class="undPrestRows flexCenter">
+            <label for='anotacao'>Anotações</label>
+            <textarea rows=6' cols='40' id="anotacao">
+            </textarea>
+
+            <div class='btnEdit flexCenter'>
+                <i onclick='salvar()' class="fas fa-save"></i>
+                <i onclick='listar()' class="fas fa-undo"></i>
+            </div>
+        </div>
+
+    </div>
     `
 }
 
@@ -243,12 +266,15 @@ function salvar() {
     empresa = document.querySelector('#empresa').value
     servico = document.querySelector('#servico').value
     colaborador = document.querySelector('#colaborador').value
+    documento = document.querySelector('#doc').value
+    protocolo = document.querySelector('#os').value
+    local = document.querySelector('#local').value
     matricula = document.querySelector('#matricula').value
     funcao = document.querySelector('#funcao').value
     funcionario = document.querySelector('#funcionario').value
     anotacao = document.querySelector('#anotacao').value
 
-    if (data == 'Invalid Date' || hora == '' || empresa == '' || servico == '' || colaborador == '' || funcao == '' || funcionario == '' ||
+    if (data == 'Invalid Date' || hora == '' || empresa == '' || servico == '' || colaborador == '' || documento == '' || protocolo == '' || local == '' || funcao == '' || funcionario == '' ||
         matricula == '' || funcionario == '') {
         alert('Com exceção do campo de Anotações, não pode haver campos em branco.')
     } else {
@@ -261,6 +287,9 @@ function salvar() {
                 empresa: String(empresa),
                 servico: String(servico),
                 colaborador: String(colaborador),
+                documento: String(documento),
+                protocolo: String(protocolo),
+                localidade: String(local),
                 matricula: String(matricula),
                 funcao: String(funcao),
                 funcionario: String(funcionario),
@@ -316,87 +345,85 @@ async function editar(id) {
     container.innerHTML = `
     <div id='undPrest${elemento.id}' class="undPrestador flexCenter">
 
-                <div class="undPrestRows flexCenter">
+        <div class="undPrestRows flexCenter">
 
-                    <div class="cardLinha flexCenter">
+            <div class="cardLinha flexCenter">
 
-                        <div class="flexCenter undPrestRowsDivs">
-                        <label for='data'>Data</label>
-                            <input id='data' type='date' value='${elemento.dia}'>
+                <div class="flexCenter undPrestRowsDivs align">
+                    <label for='data'>Data</label>
+                    <input id='data' type='date' value='${elemento.dia}'>
 
-                            <label for='colaborador'>Colaborador</label>
-                        <input id='colaborador' type='text' value='${elemento.colaborador}'>
-                        </div>
+                    <label for='colaborador'>Colaborador</label>
+                    <input id='colaborador' type='text' value='${elemento.colaborador}'>
+                </div>
 
-                        <div class="flexCenter undPrestRowsDivs">
-                        <label for='hora'>Hora</label>
-                            <input id='hora' type='time' value='${horario}'>
+                <div class="flexCenter undPrestRowsDivs align">
+                    <label for='hora'>Hora</label>
+                    <input id='hora' type='time' value='${horario}'>
                         
-                        <label for='empresa'>Empresa</label>
-                        <input id='empresa' type='text' value='${elemento.empresa}'>
+                    <label for='empresa'>Empresa</label>
+                    <input id='empresa' type='text' value='${elemento.empresa}'>
 
-                        </div>
+                </div>
 
-                    </div>
+            </div>
 
-                    <div class="cardLinha flexCenter">
+            <div class="cardLinha flexCenter">
 
-                        <div class="flexCenter undPrestRowsDivs">
+                <div class="flexCenter undPrestRowsDivs align">
 
-                        <label for='doc'>Documento</label>
-                        <select name="doc" id="doc">
+                    <label for='doc'>Documento</label>
+
+                    <select name="doc" id="doc">
                         <option value="CPF">CPF</option>
                         <option value="RG">RG</option>
                         <option value="Matrícula">Matrícula</option>
-                        </select>
+                    </select>
 
-                        <label for='servico'>Serviço</label>
-                        <input id='servico' type='text' value='${elemento.servico}'>
+                    <label for='servico'>Serviço</label>
+                    <input id='servico' type='text' value='${elemento.servico}'>
 
-                            <label for='funcionario'>Funcionário</label>
-                            <input type='text' id='funcionario' value='${elemento.funcionario}'>
-
-                            
-
-                        </div>
-
-                        <div class="flexCenter undPrestRowsDivs">
-
-                        <label for='matricula'>Matrícula</label>
-                        <input id='matricula' type='text' value='${elemento.matricula}'>
+                    <label for='funcionario'>Funcionário</label>
+                    <input type='text' id='funcionario' value='${elemento.funcionario}'>
 
                             
-                        <label for='local'>Local</label>
-                        <input id='local' type='text' value='sala 209' >
-                            <label for='funcao'>Função</label>
-                            <input type='text' id='funcao' value='${elemento.funcao}'>
 
-                        </div>
+                </div>
 
-                    </div>
-                   
+                <div class="flexCenter undPrestRowsDivs align">
 
+                    <label for='matricula'>Nº Documento</label>
+                    <input id='matricula' type='text' value='${elemento.matricula}'>
 
+                            
+                    <label for='local'>Local</label>
+                    <input id='local' type='text' value='sala 209' >
 
+                    <label for='funcao'>Função</label>
+                    <input type='text' id='funcao' value='${elemento.funcao}'>
 
                 </div>
 
                 
+                </div>
+                <div class='flexCenter undPrestRowsDivs os'>
+                    <label for='os'>Ordem de Serviço</label>
+                    <input id='os' type='text' value='${elemento.protocolo}'>
+                </div>
 
-                <div class="undPrestRows flexCenter">
-                    <textarea rows=6' cols='40' id="anotacao">  ${elemento.anotacao}
-                    </textarea>
+        </div>
 
-                    <div class='btnEdit flexCenter'>
-                    <i onclick='atualizar(${id})' class="fas fa-save"></i>
-                    <i onclick='listar()' class="fas fa-undo"></i>
-                    </div>
-                    </div>
-                    
+        <div class="undPrestRows flexCenter">
+            <textarea rows=6' cols='40' id="anotacao">${elemento.anotacao}</textarea>
 
-
+            <div class='btnEdit flexCenter'>
+                <i onclick='atualizar(${id})' class="fas fa-save"></i>
+                <i onclick='listar()' class="fas fa-undo"></i>
             </div>
-            `
+        </div>
+     
+    </div>
+    `
 
 
 
@@ -412,13 +439,16 @@ function atualizar(id) {
     empresa = document.querySelector('#empresa').value
     servico = document.querySelector('#servico').value
     colaborador = document.querySelector('#colaborador').value
+    documento = document.querySelector('#doc').value
+    protocolo = document.querySelector('#os').value
+    local = document.querySelector('#local').value
     matricula = document.querySelector('#matricula').value
     funcao = document.querySelector('#funcao').value
     funcionario = document.querySelector('#funcionario').value
     anotacao = document.querySelector('#anotacao').value
 
-    if (data == 'Invalid Date' || hora == '' || empresa == '' || servico == '' || colaborador == '' || funcao == '' || funcionario == '' ||
-        matricula == '' || funcionario == '') {
+    if (data == 'Invalid Date' || hora == '' || empresa == '' || servico == '' || colaborador == '' || documento == '' || protocolo == '' || local == '' || funcao == '' || funcionario == '' ||
+    matricula == '' || funcionario == '') {
         alert('Com exceção do campo de Anotações, não pode haver campos em branco.')
     } else {
         async function postando() {
@@ -430,6 +460,9 @@ function atualizar(id) {
                 empresa: String(empresa),
                 servico: String(servico),
                 colaborador: String(colaborador),
+                documento: String(documento),
+                protocolo: String(protocolo),
+                localidade: String(local),
                 matricula: String(matricula),
                 funcao: String(funcao),
                 funcionario: String(funcionario),
@@ -437,7 +470,7 @@ function atualizar(id) {
             }
 
 
-            const response = await fetch("https://patiocgcontrole.azurewebsites.net/api/visitante/"+id, {
+            const response = await fetch("https://patiocgcontrole.azurewebsites.net/api/visitante/" + id, {
                 method: "PUT",
                 body: JSON.stringify(obj),
                 headers: { 'Content-Type': 'application/json' }
@@ -453,26 +486,9 @@ function atualizar(id) {
     }
 }
 
-function headerPrestadores(){
-    let headerICons = document.querySelector('.headerControlePrest')
-    headerICons.innerHTML = `
-    <i class="fas fa-tools" onclick="listar()">Prestadores</i>
-    <i onclick="novoRegistro()" class="fas fa-plus">Novo</i>
-    <i id='iconVoltar' class="fas fa-undo">Voltar</i>
-    `
+function deletar(id) {
 
-    document.querySelector('#iconVoltar').addEventListener('click', () => {
-        headerICons.innerHTML = `
-        <i class="fas fa-tools" onclick="listar(); headerPrestadores()">Prestadores</i>
-        <i class="fas fa-car-alt">Garagem</i>
-        <i class="fas fa-tachometer-alt">Gás</i>
-        `
-    })
-}
-
-function deletar(id){
-    
-fetch('https://patiocgcontrole.azurewebsites.net/api/visitante/'+id, { method: 'DELETE' })
+    fetch('https://patiocgcontrole.azurewebsites.net/api/visitante/' + id, { method: 'DELETE' })
     setTimeout(() => {
         listar()
     }, 500);

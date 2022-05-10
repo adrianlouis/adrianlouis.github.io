@@ -38,7 +38,7 @@ body{
     transition: all .5s ease-in-out;
 }
 
-header{
+header, footer{
     width: 100vw;
     height: 50px;
     background-color: #00003d;
@@ -52,6 +52,25 @@ header{
     position: static;
     top: 0;
     left: 0;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+
+footer{
+    box-shadow: #002 0 -3px 3px 2px;
+    position: fixed;
+    bottom: 0;
+    top: unset;
+    left: unset;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    border-bottom-left-radius: unset;
+    border-bottom-right-radius: unset;
+    
+}
+
+footer i{
+    cursor: pointer;
 }
 
 .headerIcons{
@@ -173,6 +192,8 @@ main{
 
 
 
+
+
 /* .undPrestador span:nth-child(2n+0){
     margin-top: 5px;
     font-size: 1.2rem;
@@ -193,6 +214,10 @@ main{
     /* background-color:  rgba(0, 0, 0, 0.2); */
 
 
+}
+.undPrestador:last-child{
+    /* background-color: red; */
+    margin-bottom: 70px;
 }
 
 .undPrestRowselem{
@@ -289,4 +314,23 @@ textarea{
     font-weight: 700;
     text-align: center;
     margin: 20px 10px;
+}
+
+.hide{
+    display: none;
+    flex-direction: column;
+    width: 100%;
+}
+
+#os, .os{
+    width: 93%;
+    margin: 0 auto;
+}
+
+#os{
+    margin-top: 10px;
+}
+
+.align{
+    align-items: center;
 }
