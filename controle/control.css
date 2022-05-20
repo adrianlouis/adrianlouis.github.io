@@ -212,7 +212,27 @@ main{
     /* border: 1px solid red; */
 }
 
+.gases, .gasesTh{
+    display: grid;
+    grid-template-columns: auto auto;
+    padding: 10px 0;
+    border-bottom: 1px solid #333;
+}
+.gasesTh{
+    justify-content: space-evenly;
+    font-size: 1rem;
+    font-weight: 700;
+    align-items: center;
+}
 
+.gases:last-child{
+    border-bottom: unset;
+}
+
+.gases i{
+    font-size: 1.5rem;
+    margin-top: 10px;
+}
 
 
 
@@ -255,11 +275,11 @@ main{
 
 .btnEdit{
     width: 90%;
-    padding: 10px;
+    padding: 10px 0 0 0;
     font-size: 1.3rem;
 }
 
-.undPrestRowsDivs{
+.undPrestRowsDivs, .undGas{
     flex-direction: column;
     width: 50%;
     /* border: 1px solid white; */
@@ -325,9 +345,10 @@ textarea{
     margin: 10px 0 20px 0;
     width: 85%;
     text-align: center;
-    border-radius: 10px;
+    border-radius: 7px;
     font-size: .8rem;
 }
+
 
 .undPrestador button{
     height: 25px;
@@ -355,4 +376,31 @@ textarea{
 
 .align{
     align-items: center;
+}
+
+
+/* LOGIN */
+.loginContainer{
+    color: white;
+    display: flex;
+    /* background-color: #00003b; */
+    /* width: 100vw;
+    height: 50vh; */
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    /* border: 1px solid red; */
+    /* padding-bottom: 15px;
+    clip-path:
+    polygon(
+        0% 0%,
+        100% 0%,
+        100% calc(100% - 15px),
+        0% 100%
+    ); */
+}
+
+.loginContainer h2{
+    padding: 30px;
 }
