@@ -308,8 +308,22 @@ footer{
 .footerContUpper{
     display: flex;
     justify-content: space-between;
-    padding: 30px 45px;
+    height: 150px;
     align-items: center;
+}
+
+.footerContUpperLogo, .footerContUpperText{
+    width: 15%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.footerContUpperText{
+    width: 90%;
+    font-size: 2rem;
+    font-weight: 700;
 }
 
 .footerLogo{
@@ -350,11 +364,10 @@ footer a, footer h3, footer p, footer i {
     }
 
     .secUm{
-
         display: flex;
         justify-content: center;
         flex-direction: column  ;
-        background-position: 100% 100%;
+        background-position: 150% 100%;
         background-attachment: fixed;
         font-size: 1rem;
     }
@@ -373,7 +386,6 @@ footer a, footer h3, footer p, footer i {
         background-attachment: fixed;
         background-repeat: no-repeat;
         background-size: contain;
-
         width: 80%;
     }
 
@@ -382,9 +394,165 @@ footer a, footer h3, footer p, footer i {
     }
 
     .secQuatro{
-            background-attachment: fixed;
-
+        background-attachment: fixed;
     }
 
-    
 }
+
+
+@media only screen and (max-width: 880px) {
+    
+    .listContainer{
+        display: none;
+    }
+   
+    .secUm{
+
+        display: flex;
+        justify-content: space-between;
+        flex-direction: row  ;
+        background-position: center;
+        background-attachment: fixed;
+        font-size: 1rem;
+        padding: 0 30px;
+        background-size: cover;
+    }
+
+    .secDois{
+        color: rgb(247,233,222);
+        min-height: 80vh;
+    }
+    
+    .secDoisLeft{
+        width: 50%;
+        padding: 0 30px 0 30px;
+    }
+
+    .secDoisRight{
+        width: 50%;
+    }
+    
+    .imgsContainer{
+        height: 100%;
+        align-items: center;
+        flex-direction: column;
+    }
+    
+    .imgsContainer img{
+        height: 30%;
+        width: 90%;
+        object-position: top;
+    }
+
+    .imgsContainer img:nth-child(2){
+        object-position: center;
+    }
+    
+    .secTres{
+        min-height: 80vh;
+    }
+    .secTresLeft{
+        width: 65%;
+    }
+    
+    .secTresRight{
+        width: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        padding: 20px;
+        
+    }
+    
+    .secTresTextos{
+        height: 450px;
+    }
+    
+    .vetorLinhas{
+        display: none;
+    }
+
+
+    .secQuatro{
+        min-height: 80vh;
+    }
+    
+    .mask{
+        height: 80vh;
+    }
+    
+    .secQuatroTextos > *{
+        z-index: 1;
+        margin-bottom: 20px;
+    }
+    
+    .secCincoFlexDirection{
+        flex-direction: column;
+    }
+    
+    .secCincoLeft, .secCincoRight, .secCincoMid{
+        width: 100%;
+        padding: 5px;
+        margin-bottom: 50px;
+        text-align: center;
+    }
+    
+    .secCincoMid{
+        flex-direction: column-reverse;
+    }
+    
+    .secCincoImgPequena, .secCincoImgGrande{
+        width: 65%;
+        height: 300px;
+        object-position: center;
+    }
+    .secCincoImgPequena:nth-child(2){
+        object-position: top;
+    }
+
+
+    footer{
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+        padding-bottom: 20px;
+    }
+    
+    .footerContUpper{
+        height: 120px;
+        padding: 10px;
+    }
+    
+    .footerContUpperLogo, .footerContUpperText{
+        width: 20%;
+    }
+    
+    .footerContUpperText{
+        width: 90%;
+        font-size: 1.3rem;
+    }
+    
+    .footerContLower{
+        font-size: .9rem;
+        font-weight: 700;
+    }
+    
+    .footerLowerLeft, .footerLowerRight, .footerLowerMid{
+        width: 33%;
+        margin: 0;
+    }
+    
+    footer a, footer h3, footer p, footer i {
+        margin: 5px 0 5px 5px;
+    }
+
+}
+
+
+
+
+
+
+/* @media only screen and (max-width: 650px)  */
