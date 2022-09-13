@@ -29,6 +29,18 @@ form{
     /* filter: blur(30px); */
 }
 
+.login_form_btns{
+    width: 300px;
+    display: flex;
+    justify-content: space-evenly;
+    /* border: 1px solid red; */
+}
+
+.login_form_inputs{
+    display: flex;
+    flex-direction: column;
+}
+
 .title{
     font-size: 2rem;
 }

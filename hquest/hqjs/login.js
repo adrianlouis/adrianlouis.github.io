@@ -1,7 +1,10 @@
 const users = [
 
-    { nome: 'louis', senha: 'krad' },
-    { nome: 'alucard', senha: 'krad' }
+    { nome: 'louis', senha: 'orleons' },
+    { nome: 'alucard', senha: 'krad' },
+    { nome: 'trevor', senha: ''},
+    { nome: 'lucas', senha: 'lendinha'},
+    { nome: 'douglas', senha: 'ragabash'}
 
 ]
 const usersCad = [

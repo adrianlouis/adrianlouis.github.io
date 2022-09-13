@@ -23,6 +23,11 @@ body{
 
 }
 
+.header_titulo{
+    font-size: 2.5rem;
+    color: #f1f1f1;
+}
+
 .headerTop{
     display: flex;
     justify-content: space-between;
@@ -211,7 +216,9 @@ body{
     margin-top: 2px;
 }
 #iconLupa:hover{
-    transform: scale(1.5);
+    /* transform: scale(1.2); */
+    border-bottom: 1px solid cyan;
+    box-shadow: inset 1px cyan;
 }
 #iconUser{
     display: block;

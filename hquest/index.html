@@ -18,17 +18,21 @@
         <form >
             <span class="title">Login</span>
             <span >Entre com seu nome de usuário e senha</span>
-            
-            <label id="lbUser" for="user">Usuário</label>
-            <input id="user" onfocus="inputFocus('#lbUser')" onblur="inputBlur('#lbUser', '#user')" type="text">
-            <span id="spanReturn" class="spanReturn"></span>
-            
-            <label id="lbSenha" for="password">Senha</label>
-            <input id="password" type="password" onfocus="inputFocus('#lbSenha')"
-            onblur="inputBlur('#lbSenha', '#password')">
-            
-            <button type="button" onclick="log()">Entrar</button>
-            <button type="button" onclick="cad()">Cadastrar</button>
+            <div class="login_form_inputs">
+
+                <label id="lbUser" for="user">Usuário</label>
+                <input id="user" onfocus="inputFocus('#lbUser')" onblur="inputBlur('#lbUser', '#user')" type="text">
+                <span id="spanReturn" class="spanReturn"></span>
+                
+                <label id="lbSenha" for="password">Senha</label>
+                <input id="password" type="password" onfocus="inputFocus('#lbSenha')"
+                onblur="inputBlur('#lbSenha', '#password')">
+                
+            </div>
+            <div class="login_form_btns">
+                <button type="button" onclick="log()">Entrar</button>
+                <button type="button" onclick="cad()">Cadastrar</button>
+            </div>
         </form>
         
     </main>
