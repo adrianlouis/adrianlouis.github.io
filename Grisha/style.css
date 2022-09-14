@@ -569,11 +569,8 @@ footer a, footer h3, footer p, footer i {
     .secUm{
         background-image: none;
         padding-left: 0;
-        /* color: rgb(247,233,222); */
         flex-direction: column;
         justify-content: center;
-        /* height: 100px; */
-        /* border: 3px solid green; */
         height: 500px;
         min-height: auto;
         overflow: hidden;
@@ -581,34 +578,20 @@ footer a, footer h3, footer p, footer i {
     }
 
     .homeImg{
-        width: 300px;
+        width: 290px;
         object-fit: contain;
-        /* border: 1px solid red; */
         object-position: bottom;
         display: block;
-        
-
         position: absolute;
         bottom: 0;
         right: -70px;
     }
 
-    /* .secUmMask{
-        background-color: #000a;
-        z-index: -1;
-        height: 100%;
-        width: 100%;
-        position: absolute;
-    } */
-
     .secUmTextos{
         margin: 15px;
         font-size: .9rem;
         width: 50%;
-        /* border: 1px solid blue; */
     }
-
-
 
     .secDois{
         flex-direction: column;
@@ -624,11 +607,9 @@ footer a, footer h3, footer p, footer i {
         align-items: center;
         justify-content: center;
         height: unset;
-        
     }
 
     .secDoisLeftContainer{
-        /* border: 1px solid green; */
         width: 100%;
     }
 
@@ -636,7 +617,6 @@ footer a, footer h3, footer p, footer i {
         flex-direction: row;
         width: 100%;
         height: 35%;
-        /* border: 3px solid purple; */
     }
 
     .imgsContainer{
@@ -647,25 +627,31 @@ footer a, footer h3, footer p, footer i {
         width: 100px;
         height: 100px;
         border-radius: 50%;
-
     }
-    
 
     .secTres{
         min-height: unset;
     }
 
     .secTresLeft{
-        /* display: none; */
         background-image: none;
-
     }
 
     #secTresLeftImg{
         display: block;
-        border: 1px solid;
         object-position: right;
         width: 90%;
+        box-shadow: rgb(63, 30, 20) 0 0 3px 1px;
+    }
+
+    .secQuatroTextos{
+        width: 90%;
+    }
+
+    .secCincoImgGrande, .secCincoImgPequena{
+        width: 300px;
+        height: 300px;
+        border-radius: 50%;
     }
    
     .footerContUpper{
@@ -683,13 +669,16 @@ footer a, footer h3, footer p, footer i {
         width: 30%;
     }
 
+    .footerLogo{
+        box-shadow: rgb(63, 30, 20) 0 0 10px 1px;
+    }
+
     .footerContLower{
         flex-direction: column;
     }
 
     .footerLowerLeft, .footerLowerRight, .footerLowerMid{
         width: 100%;
-        /* border: 1px solid red; */
         margin-bottom: 40px;
         align-items: center;
     }
