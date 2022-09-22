@@ -1,0 +1,113 @@
+@import url('https://fonts.googleapis.com/css2?family=Varela+Round&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    background-color: #000;
+    font-family: 'Varela Round', sans-serif;
+}
+
+main, .containerInicial, .containerSecundario{
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    width: 100vw;
+    min-height: 100vh;
+    flex-direction: column;
+
+    transition: all .3s;
+}
+
+.containerSecundario{
+    transform: translateX(30px);
+    opacity: 0;
+    visibility: hidden;
+}
+
+.sumir{
+    transform: translateX(-30px);
+    opacity: 0;
+    visibility: hidden;
+}
+
+.aparecer{
+    display: flex;
+    transform: translateX(0px);
+    opacity: 1;
+    visibility: visible;
+}
+
+.card{
+    width: 300px;
+    min-height: 60px;
+    /* border: 1px solid red; */
+    border-radius: 10px;
+    background-color: #bbb;
+    color: black;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-direction: column;
+    margin-top: 20px;
+    transition: all .3s;
+    cursor: pointer;
+}
+
+.minorCard{
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+    align-items: center;
+    height: 60px;
+    font-size: 1.1rem;
+    font-weight: 700;
+}
+.cardDetails{
+    width: 100%;
+    /* border: 1px solid blue; */
+    height: 0px;
+    overflow: hidden;
+    transition: all .3s;
+
+}
+.detailsRow{
+    width: 100%;
+    height: 60px;
+    /* border: 1px solid red; */
+    display: flex;
+    font-size: .9rem;
+}
+
+label{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+input{
+    text-align: center;
+    width: 80%;
+    border-radius: 5px;
+    -moz-appearance: textfield;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.detailsBtns{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    height: 60px;
+    font-size: 1.2rem;
+}
+.detailsBtns i {
+    cursor: pointer;
+}
