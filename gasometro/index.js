@@ -7,6 +7,8 @@ const agora =  `${new Date().getUTCDate()} - ${mes < 10 ? '0'+mes : mes } - ${ne
 
 
 var info = []
+if (JSON.parse(localStorage.getItem('array'))){info = JSON.parse(localStorage.getItem('array'))}
+console.log(info)
 
 function ampliar(el){
     el.nextElementSibling.style.height = '242px'
@@ -196,4 +198,4 @@ function salvar() {
     console.log(info)
 }
 
-info = JSON.parse(localStorage.getItem('array'))
+// info = JSON.parse(localStorage.getItem('array'))

@@ -25,6 +25,7 @@ main, .containerInicial, .containerSecundario{
     transform: translateX(30px);
     opacity: 0;
     visibility: hidden;
+    display: none;
 }
 
 .sumir{
