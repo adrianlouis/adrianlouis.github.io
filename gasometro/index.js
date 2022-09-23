@@ -34,8 +34,6 @@ function consultar(){
     }, 500);
 }
 
-
-
 function voltar(){
     containerSec.classList.remove('aparecer')
     containerSec.classList.add('sumir')
@@ -50,8 +48,6 @@ function voltar(){
         }, 50);
 
     }, 500);
-    
-   
 }
 
 function listar() {
@@ -104,8 +100,8 @@ function listar() {
                 </label>
             </div>
             <div class="detailsBtns">
-                <i class="fa-solid fa-floppy-disk"></i>
-                <i class="fa-solid fa-trash"></i>
+                <i class="fa-solid fa-pen"></i>
+                <i class="fa-solid fa-trash" onclick="apagarRegistro(this, ${info.indexOf(item)})"></i>
                 <i class="fa-solid fa-xmark" onclick="fecharDetail(this)"></i>
             </div>
         </div>
@@ -133,7 +129,6 @@ function newReg(){
         registrar()
     }, 500);
 }
-
 
 function registrar() {
     
@@ -175,7 +170,6 @@ function registrar() {
         </div>
         <div class="detailsBtns">
             <i class="fa-solid fa-floppy-disk" onclick="salvar()"></i>
-            <i class="fa-solid fa-trash"></i>
             <i class="fa-solid fa-xmark" onclick="voltar()"></i>
         </div>
     </div>
@@ -186,6 +180,7 @@ function registrar() {
 
 function salvar() {
 
+    const id = (info.length)
     const l128 = document.querySelector('#l128').value
     const l132 = document.querySelector('#l132').value
     const l137 = document.querySelector('#l137').value
@@ -196,7 +191,24 @@ function salvar() {
     info.push({ data: agora, l128: l128, l132: l132, l137: l137, l152: l152, l154: l154, l157: l157})
     window.localStorage.setItem('array', JSON.stringify(info))
     console.log(info)
+    voltar()
 }
 
-// info = JSON.parse(localStorage.getItem('array'))
-// asdasd
+function apagarRegistro(elem, i){
+    elem.parentNode.innerHTML = `
+    <p style="font-size: 1rem; font-weight: 700">Excluir este item?</p>
+    <p onclick="del(${i})" style="color: #090;" ><i class="fa-solid fa-check"></i></p>
+    <p style="color: #900;" onclick="listar()"><i class="fa-solid fa-ban"></i></p>
+    `    
+}
+
+function del(i){
+    info.splice(i, 1)
+    window.localStorage.setItem('array', JSON.stringify(info))
+    listar()
+}
+
+function apagarTudo(){
+    window.localStorage.removeItem('array')
+    info = []
+}
