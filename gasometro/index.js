@@ -194,7 +194,7 @@ function salvar() {
     const l157 = document.querySelector('#l157').value
 
     info.push({ data: agora, l128: l128, l132: l132, l137: l137, l152: l152, l154: l154, l157: l157})
-    localStorage.setItem('array', JSON.stringify(info))
+    window.localStorage.setItem('array', JSON.stringify(info))
     console.log(info)
 }
 
