@@ -46,18 +46,23 @@ main, .containerInicial, .containerSecundario{
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
 }
 
 .textHome{
-    width: 80%;
+    width: 65%;
+    align-items: flex-start;
+}
+.textHome p{
+    font-size: .7rem;
+    margin-top: 5px;
 }
 
 .card{
     width: 300px;
-    min-height: 60px;
+    height: 60px;
     border-radius: 10px;
-    background-color: #bbb;
-    color: black;
+    color: #000;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -65,6 +70,12 @@ main, .containerInicial, .containerSecundario{
     margin-top: 20px;
     transition: all .3s;
     cursor: pointer;
+    box-shadow: #999 0px 0px 8px;
+    background-image: linear-gradient(to right bottom, #bbb, #555);
+}
+
+.card:hover{
+    box-shadow: #999 0px 0px 15px, inset #bbb 2px 4px 10px;
 }
 
 .minorCard{
@@ -75,6 +86,7 @@ main, .containerInicial, .containerSecundario{
     height: 60px;
     font-size: 1.1rem;
     font-weight: 700;
+
 }
 .cardDetails{
     width: 100%;
@@ -95,6 +107,7 @@ label{
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    font-size: 1rem;
 }
 
 input{
@@ -102,6 +115,11 @@ input{
     width: 80%;
     border-radius: 5px;
     -moz-appearance: textfield;
+
+    color: #000;
+    font-weight: 700;
+    margin: 5px;
+    font-size: 1.2rem;
 }
 
 input::-webkit-outer-spin-button,
@@ -113,19 +131,18 @@ input::-webkit-inner-spin-button {
 input:disabled{
     background-color: transparent;
     border: none;
-    color: #000;
-    font-weight: 700;
-    margin: 5px;
 }
 
 .detailsBtns{
     display: flex;
     align-items: center;
     justify-content: space-evenly;
-    height: 60px;
+    height: 70px;
     font-size: 1.2rem;
+    transition: all .3s;
 }
 
 .detailsBtns i {
     cursor: pointer;
+    font-size: 1.3rem;
 }
