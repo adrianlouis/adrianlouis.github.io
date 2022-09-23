@@ -11,7 +11,6 @@ var info = [];
 if (JSON.parse(localStorage.getItem("array"))) {
   info = JSON.parse(localStorage.getItem("array"));
 }
-console.log(info);
 
 function ampliar(el) {
   el.nextElementSibling.style.height = "260px";
@@ -214,7 +213,6 @@ function salvar() {
     l157: l157,
   });
   window.localStorage.setItem("array", JSON.stringify(info));
-  console.log(info);
   voltar();
 }
 
@@ -226,16 +224,15 @@ function apagarRegistro(elem, i) {
     icones.innerHTML = `
         <p style="font-size: 1rem; font-weight: 700">Excluir este item?</p>
         <p onclick="del(this, ${i})" style="color: #0d0;" ><i class="fa-solid fa-check"></i></p>
-        <p style="color: #900;" onclick="cancelarDel(${i})"><i class="fa-solid fa-ban"></i></p>
+        <p style="color: #900;" onclick="cancelarDel(this, ${i})"><i class="fa-solid fa-ban"></i></p>
         `;
     icones.classList.add("aparecer");
     icones.classList.remove("sumir");
   }, 300);
 }
 
-function cancelarDel(i) {
-
-  const icones = document.querySelector(".detailsBtns");
+function cancelarDel(elem, i) {
+  const icones = elem.parentNode;
   icones.classList.remove("aparecer");
   icones.classList.add("sumir");
   setTimeout(() => {
