@@ -199,3 +199,4 @@ function salvar() {
 }
 
 // info = JSON.parse(localStorage.getItem('array'))
+// asdasd
