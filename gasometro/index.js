@@ -3,9 +3,7 @@ const containerSec = document.querySelector(".containerSecundario");
 const main = document.querySelector("main");
 
 const mes = new Date().getUTCMonth() + 1;
-const agora = `${new Date().getUTCDate()} - ${
-  mes < 10 ? "0" + mes : mes
-} - ${new Date().getUTCFullYear()}`;
+const dataAtual = new Date().toLocaleDateString();
 
 var info = [];
 if (JSON.parse(localStorage.getItem("array"))) {
@@ -149,7 +147,7 @@ function registrar() {
         <i class="fa-solid fa-calendar-days"></i>
         </div>
         <div class="textHome">
-        <span>${agora}</span>
+        <span>${dataAtual}</span>
         </div>
     </div>
     <div class="cardDetails" style="height: 260px;">
@@ -203,7 +201,7 @@ function salvar() {
   const l157 = document.querySelector("#l157").value;
 
   info.push({
-    data: agora,
+    data: dataAtual,
     hora: hora,
     l128: l128,
     l132: l132,
@@ -262,6 +260,52 @@ function del(elem, i) {
 }
 
 function apagarTudo() {
-  window.localStorage.removeItem("array");
+  const animate = document.querySelector('#minorCard')
+
+  animate.classList.remove('aparecer')
+  animate.classList.add('sumir')
+
+  setTimeout(() => {
+    animate.innerHTML = `
+    <div id="minorCard" class="minorCard" style="flex-direction: column">
+      <p>Deletar todos os registros?</p>
+        <div class="deltreeIcons">
+          <p onclick="deltree()" style="color: #0d0;" ><i class="fa-solid fa-check"></i></p>
+          <p onclick="cancelDeltree()" style="color: #900;" ><i class="fa-solid fa-ban"></i></p>
+        </div>
+    </div>
+    `
+    animate.removeAttribute('onclick')
+    animate.classList.remove('sumir')
+    animate.classList.add('aparecer')
+  }, 300);
+
+}
+
+function cancelDeltree(){
+  const minor = document.querySelector('#minorCard')
+  minor.classList.remove('aparecer')
+  minor.classList.add('sumir')
+
+  setTimeout(() => {
+    minor.innerHTML = `
+    <div class="minorCard" onclick="apagarTudo()">
+                    <div class="iconeHome">
+                        <i class="fa-solid fa-trash"></i>
+                    </div>
+                    <div class="textHome">
+                        <span>Apagar Tudo</span>
+                    </div>
+                </div>
+    `
+    minor.classList.remove('sumir')
+    minor.classList.add('aparecer')
+  }, 300);
+}
+
+function deltree(){
+   window.localStorage.removeItem("array");
   info = [];
+
+  cancelDeltree()
 }
