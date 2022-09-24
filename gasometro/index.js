@@ -52,7 +52,6 @@ function voltar() {
 }
 
 function listar() {
-  const reverse = info.reverse();
   let template = `
     <div  class="card" onclick="voltar()" style="margin-bottom: 20px">
         <div class="minorCard">
@@ -75,10 +74,13 @@ function listar() {
             </div>
             <div class="textHome">
             <span>${item.data}</span>
+            <div class="horaEdit">
             <p>${item.hora}</p>
+            ${item.horaEdit? `<p style="color: #040"><i class="fa-solid fa-pen"  ></i> ${item.dataEdit} ${item.horaEdit}` : ``}</p>
+            </div>
             </div>
         </div>
-        <div class="cardDetails">
+        <div id="editCard${info.indexOf(item)}" class="cardDetails">
             <div class="detailsRow">
                 <label for="l128">
                     Loja 128
@@ -110,7 +112,7 @@ function listar() {
                 </label>
             </div>
             <div class="detailsBtns">
-                <i class="fa-solid fa-pen"></i>
+                <p><i class="fa-solid fa-pen" onclick="editar(this, ${info.indexOf(item)})" ></i></p>
                 <i class="fa-solid fa-trash" onclick="apagarRegistro(this, ${info.indexOf(
                   item
                 )})"></i>
@@ -120,8 +122,57 @@ function listar() {
     </div>
         `;
   });
-
   containerSec.innerHTML = template;
+}
+
+function editar(elem, i){
+  const ind = i
+  const card = document.querySelectorAll('#editCard'+i+' input')
+  card.forEach((item)=>{
+    item.removeAttribute('disabled')
+  })
+
+  // console.log(info[i])
+  elem.parentNode.classList.toggle('sumir')
+
+  
+  setTimeout(() => {
+    elem.parentNode.classList.toggle('sumir')
+    elem.parentNode.innerHTML = `
+    <i class="fa-solid fa-floppy-disk" onclick="salvarEdicao(this, ${ind})" ></i>
+    `
+  }, 300);
+
+}
+
+function salvarEdicao(item, i){
+
+  const editado = item.parentNode.parentNode.parentNode.querySelectorAll('input')
+  const card = document.querySelectorAll('#editCard'+i+' input')
+  
+
+  info[i].l128 = editado[0].value
+  info[i].l132 = editado[1].value
+  info[i].l137 = editado[2].value
+  info[i].l152 = editado[3].value
+  info[i].l154 = editado[4].value
+  info[i].l157 = editado[5].value
+  info[i].horaEdit = `${new Date().getHours()}h:${new Date().getMinutes()}m:${new Date().getSeconds()}s`;
+  info[i].dataEdit = new Date().toLocaleDateString()
+
+  window.localStorage.setItem("array", JSON.stringify(info));
+  console.log(info)
+
+  item.parentNode.classList.toggle('sumir')
+  setTimeout(() => {
+    item.parentNode.classList.toggle('sumir')
+    item.parentNode.innerHTML=`
+    <i class="fa-solid fa-pen" onclick="editar(this, ${i})" ></i>
+    `
+    card.forEach((item)=>{
+      item.setAttribute('disabled', true)
+    })
+  }, 300);
 }
 
 function newReg() {
@@ -200,7 +251,7 @@ function salvar() {
   const l154 = document.querySelector("#l154").value;
   const l157 = document.querySelector("#l157").value;
 
-  info.push({
+  info.unshift({
     data: dataAtual,
     hora: hora,
     l128: l128,

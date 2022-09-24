@@ -20,6 +20,18 @@ main, .containerInicial, .containerSecundario{
     transition: all .3s;
 }
 
+.horaEdit{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.detailsBtns p {
+    transition: all .3s;
+}
+
 .containerSecundario{
     transform: translateX(30px);
     opacity: 0;
@@ -70,7 +82,7 @@ main, .containerInicial, .containerSecundario{
     margin-top: 20px;
     transition: all .3s;
     cursor: pointer;
-    box-shadow: #999 0px 0px 8px;
+    box-shadow: #999 0px 0px 8px, inset #fff 2px 2px 10px;
     background-image: linear-gradient(to right bottom, #bbb, #555);
 }
 
