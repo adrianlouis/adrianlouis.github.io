@@ -6,8 +6,17 @@ const mes = new Date().getUTCMonth() + 1;
 const dataAtual = new Date().toLocaleDateString();
 
 var info = [];
+// var arrayTemporario = [];
 if (JSON.parse(localStorage.getItem("array"))) {
   info = JSON.parse(localStorage.getItem("array"));
+}
+
+function onInit(){
+  if (window.localStorage.getItem('temp')){
+    console.log('Tem algo no TEMP em LocalStorage')
+  }else{
+    console.log('Não tem dados em TEMP do LocalStorage')
+  }
 }
 
 function ampliar(el) {
@@ -205,31 +214,31 @@ function registrar() {
         <div class="detailsRow">
             <label for="l128">
                 Loja 128
-                <input type="number" id="l128">
+                <input type="number" id="l128" onchange="dadosTemporario()">
             </label>
             <label for="l132">
                 Loja 132
-                <input type="number" id="l132">
+                <input type="number" id="l132" onchange="dadosTemporario()">
             </label>
         </div>
         <div class="detailsRow">
             <label for="l137">
                 Loja 137
-                <input type="number" id="l137">
+                <input type="number" id="l137" onchange="dadosTemporario()">
             </label>
             <label for="l152">
                 Loja 152
-                <input type="number" id="l152">
+                <input type="number" id="l152" onchange="dadosTemporario()">
             </label>
         </div>
         <div class="detailsRow">
             <label for="l154">
                 Loja 154
-                <input type="number" id="l154">
+                <input type="number" id="l154" onchange="dadosTemporario()">
             </label>
             <label for="l157">
                 Loja 157
-                <input type="number" id="l157">
+                <input type="number" id="l157" onchange="dadosTemporario()">
             </label>
         </div>
         <div class="detailsBtns">
@@ -240,6 +249,31 @@ function registrar() {
 </div>`;
 
   containerSec.innerHTML = template;
+  carregarDadosTemp()
+}
+
+function carregarDadosTemp() {
+  const dadosTemporarios = JSON.parse(window.localStorage.getItem('temp'));
+    document.querySelector('#l128').value = dadosTemporarios[0].l128;
+    document.querySelector('#l132').value = dadosTemporarios[0].l132; 
+    document.querySelector('#l137').value = dadosTemporarios[0].l137; 
+    document.querySelector('#l152').value = dadosTemporarios[0].l152; 
+    document.querySelector('#l154').value = dadosTemporarios[0].l154; 
+    document.querySelector('#l157').value = dadosTemporarios[0].l157; 
+  }
+
+function dadosTemporario(){
+  const arrayTemporario = new Array({
+    l128: document.querySelector("#l128").value,
+    l132: document.querySelector("#l132").value,
+    l137: document.querySelector("#l137").value,
+    l152: document.querySelector("#l152").value,
+    l154: document.querySelector("#l154").value,
+    l157: document.querySelector("#l157").value
+  })
+
+  window.localStorage.setItem('temp', JSON.stringify(arrayTemporario))
+
 }
 
 function salvar() {
@@ -262,6 +296,7 @@ function salvar() {
     l157: l157,
   });
   window.localStorage.setItem("array", JSON.stringify(info));
+  window.localStorage.removeItem('temp')
   voltar();
 }
 
