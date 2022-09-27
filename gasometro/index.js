@@ -6,17 +6,13 @@ const mes = new Date().getUTCMonth() + 1;
 const dataAtual = new Date().toLocaleDateString();
 
 var info = [];
-// var arrayTemporario = [];
 if (JSON.parse(localStorage.getItem("array"))) {
   info = JSON.parse(localStorage.getItem("array"));
 }
 
-function onInit(){
-  if (window.localStorage.getItem('temp')){
-    console.log('Tem algo no TEMP em LocalStorage')
-  }else{
-    console.log('Não tem dados em TEMP do LocalStorage')
-  }
+var user = []
+if (JSON.parse(localStorage.getItem('users'))){
+  user = JSON.parse(localStorage.getItem('users'))
 }
 
 function ampliar(el) {
@@ -30,7 +26,7 @@ function fecharDetail(el) {
 }
 
 function consultar() {
-  container.classList.remove("aparecer");
+  // container.classList.remove("aparecer");
   container.classList.add("sumir");
 
   setTimeout(() => {
@@ -39,14 +35,14 @@ function consultar() {
 
     setTimeout(() => {
       containerSec.classList.remove("sumir");
-      containerSec.classList.add("aparecer");
+      // containerSec.classList.add("aparecer");
     }, 50);
     listar();
   }, 500);
 }
 
 function voltar() {
-  containerSec.classList.remove("aparecer");
+  // containerSec.classList.remove("aparecer");
   containerSec.classList.add("sumir");
 
   setTimeout(() => {
@@ -55,7 +51,7 @@ function voltar() {
 
     setTimeout(() => {
       container.classList.remove("sumir");
-      container.classList.add("aparecer");
+      // container.classList.add("aparecer");
     }, 50);
   }, 500);
 }
@@ -185,7 +181,7 @@ function salvarEdicao(item, i){
 }
 
 function newReg() {
-  container.classList.remove("aparecer");
+  // container.classList.remove("aparecer");
   container.classList.add("sumir");
 
   setTimeout(() => {
@@ -194,7 +190,7 @@ function newReg() {
 
     setTimeout(() => {
       containerSec.classList.remove("sumir");
-      containerSec.classList.add("aparecer");
+      // containerSec.classList.add("aparecer");
     }, 50);
     registrar();
   }, 500);
@@ -260,7 +256,7 @@ function carregarDadosTemp() {
     document.querySelector('#l152').value = dadosTemporarios[0].l152; 
     document.querySelector('#l154').value = dadosTemporarios[0].l154; 
     document.querySelector('#l157').value = dadosTemporarios[0].l157; 
-  }
+}
 
 function dadosTemporario(){
   const arrayTemporario = new Array({
@@ -302,7 +298,7 @@ function salvar() {
 
 function apagarRegistro(elem, i) {
   const icones = elem.parentNode;
-  icones.classList.remove("aparecer");
+  // icones.classList.remove("aparecer");
   icones.classList.add("sumir");
   setTimeout(() => {
     icones.innerHTML = `
@@ -310,14 +306,14 @@ function apagarRegistro(elem, i) {
         <p onclick="del(this, ${i})" style="color: #0d0;" ><i class="fa-solid fa-check"></i></p>
         <p style="color: #900;" onclick="cancelarDel(this, ${i})"><i class="fa-solid fa-ban"></i></p>
         `;
-    icones.classList.add("aparecer");
+    // icones.classList.add("aparecer");
     icones.classList.remove("sumir");
   }, 300);
 }
 
 function cancelarDel(elem, i) {
   const icones = elem.parentNode;
-  icones.classList.remove("aparecer");
+  // icones.classList.remove("aparecer");
   icones.classList.add("sumir");
   setTimeout(() => {
     icones.innerHTML = `
@@ -325,7 +321,7 @@ function cancelarDel(elem, i) {
             <i class="fa-solid fa-trash" onclick="apagarRegistro(this, ${i})"></i>
             <i class="fa-solid fa-xmark" onclick="fecharDetail(this)"></i>
             `;
-    icones.classList.add("aparecer");
+    // icones.classList.add("aparecer");
     icones.classList.remove("sumir");
   }, 300);
 }
@@ -348,7 +344,7 @@ function del(elem, i) {
 function apagarTudo() {
   const animate = document.querySelector('#minorCard')
 
-  animate.classList.remove('aparecer')
+  // animate.classList.remove('aparecer')
   animate.classList.add('sumir')
 
   setTimeout(() => {
@@ -363,14 +359,14 @@ function apagarTudo() {
     `
     animate.removeAttribute('onclick')
     animate.classList.remove('sumir')
-    animate.classList.add('aparecer')
+    // animate.classList.add('aparecer')
   }, 300);
 
 }
 
 function cancelDeltree(){
   const minor = document.querySelector('#minorCard')
-  minor.classList.remove('aparecer')
+  // minor.classList.remove('aparecer')
   minor.classList.add('sumir')
 
   setTimeout(() => {
@@ -385,7 +381,7 @@ function cancelDeltree(){
                 </div>
     `
     minor.classList.remove('sumir')
-    minor.classList.add('aparecer')
+    // minor.classList.add('aparecer')
   }, 300);
 }
 
@@ -395,3 +391,216 @@ function deltree(){
 
   cancelDeltree()
 }
+
+function uploadAvatar(){
+  container.classList.toggle('sumir')
+  containerSec.style.display = 'flex'
+
+  setTimeout(() => {
+    containerSec.innerHTML= `
+    
+    <img src="" id="img" class="editAvatar" />
+    
+    <div class="btnAvatar">
+    
+    <label id='labelFileInput' for='imgInput' >Buscar
+    <input id="imgInput" type="file" accept="image/jpeg, image/png, image/jpg" onchange="changeImg()">
+    </label>
+                <button onclick="mudarAvatar()">Aceitar</button>
+                <button onclick="cancelarMudancaAvatar()">Cancelar</button>
+                
+            </div>
+    `
+    container.style.display='none'
+    containerSec.classList.remove('sumir')
+  }, 300);
+}
+
+function pickImg() {
+
+  const reader = new FileReader();
+  reader.addEventListener('load', ()=>{
+    const uploadImagem = reader.result
+    document.querySelector('#imgEscolhida').style.backgroundImage = `url(${uploadImagem})`
+    reader.readAsDataUrl(this.files[0])
+
+  })
+
+  
+}
+
+function changeImg(){
+  var reader = new FileReader()
+  reader.onload = function(){
+    var imgContainer = document.querySelector('#img')
+    imgContainer.src = reader.result
+  }
+  reader.readAsDataURL(event.target.files[0])
+}
+
+function mudarAvatar(){
+  fotoNova = document.querySelector('#img')
+  console.log(fotoNova.src)
+  document.querySelector('#avatarAtual').src = fotoNova.src
+  var indice = ''
+
+  containerSec.classList.add('sumir')
+  setTimeout(() => {
+    container.style.display = 'flex'
+    containerSec.style.display='none'
+  }, 300);
+  setTimeout(() => {
+    container.classList.remove('sumir')
+  }, 400);
+  
+  const salvarImg = user.filter((filtro)=>{
+    return filtro.nome === document.querySelector('#nomeUser').innerHTML
+  })
+  user.map((item)=>{
+    if (item.nome === salvarImg[0].nome){
+      
+      indice = user.indexOf(item)
+    }
+  })
+
+  user[indice].imgSaved=fotoNova.src
+  window.localStorage.setItem('users', JSON.stringify(user))
+}
+
+function cancelarMudancaAvatar(){
+  // containerSec.classList.remove('aparecer')
+  containerSec.classList.add('sumir')
+  setTimeout(() => {
+    containerSec.style.display='none'
+    container.style.display = 'flex'
+  }, 300);
+  setTimeout(() => {
+    container.classList.remove('sumir')
+  }, 400);
+}
+
+function cadastrar(elem){
+  const container = document.querySelector('.inicial')
+  const title = document.querySelector('.inicial > span')
+  container.classList.toggle('sumir')
+  document.querySelector('#error').classList.add('sumir')
+
+  setTimeout(() => {
+    title.innerHTML = 'Cadastrar'
+    elem.parentNode.innerHTML = 'Já possui conta? <strong id="strong" onclick="logar(this)">Logue-se</strong>'
+    container.classList.toggle('sumir')
+    document.querySelector('.inicial button').innerHTML = "Cadastrar"
+    document.querySelector('.inicial button').setAttribute('onclick', 'criarConta()')
+  }, 300);
+}
+
+function criarConta(){
+  const nome = document.querySelector('#nome')
+  const senha = document.querySelector('#senha')
+  const erro = document.querySelector('#error')
+
+  console.log(localStorage.getItem('users'))
+
+  if (nome.value !== '' && senha.value !== ''){
+    var test = user.filter((filtro)=>{
+      return filtro.nome === nome.value
+    })
+
+    if (test.length === 0){
+      user = [...user, {nome: nome.value, senha: senha.value}]
+      erro.innerHTML=nome.value+' foi criado!'
+      window.localStorage.setItem('users', JSON.stringify(user))
+      erro.classList.remove('sumir')
+      setTimeout(() => {
+        logar(document.querySelector('#strong'))
+      
+      }, 3000);
+    }else{
+      erro.innerHTML=nome.value+' já existe!'
+      nome.focus()
+      erro.classList.remove('sumir')
+      setTimeout(() => {
+        erro.classList.add('sumir')
+      }, 3000);
+      console.log(user)
+    }
+
+  }else{
+    erro.innerHTML='Preencha os campos de Nome e Senha'
+    erro.classList.remove('sumir')
+    setTimeout(() => {
+      erro.classList.add('sumir')
+    }, 3000);
+  }
+
+}
+
+function logar(elem){
+  const container = document.querySelector('.inicial')
+  const title = document.querySelector('.inicial > span')
+  container.classList.add('sumir')
+
+  setTimeout(() => {
+    document.querySelector('#error').classList.add('sumir')
+    nome.value = ''
+    senha.value = ''
+    title.innerHTML = "Login"
+    elem.parentNode.innerHTML = 'Não possui conta? <strong onclick="cadastrar(this)">Cadastre-se</strong>'
+    document.querySelector('.inicial button').innerHTML = "Entrar"
+    container.classList.toggle('sumir')
+    document.querySelector('.inicial button').setAttribute('onclick', 'entrar()')
+
+  }, 300);
+}
+
+function entrar(){
+  const nome = document.querySelector('#nome')
+  const senha = document.querySelector('#senha')
+  const erro = document.querySelector('#error')
+
+  if (nome.value === '' || senha.value === ''){
+
+    console.log('Campos vazios')
+    erro.innerHTML = 'Preencha os campos de Nome e Senha'
+    erro.classList.remove('sumir')
+    setTimeout(() => {
+      erro.classList.add('sumir')
+      
+    }, 5000);
+    
+  }else{
+   
+    const filtro = user.filter((filtrar)=>{
+      return filtrar.nome === nome.value && filtrar.senha === senha.value
+    })
+
+   if (filtro.length > 0){
+
+    document.querySelector('.avatar').style.visibility='visible'
+    document.querySelector('.avatar').style.opacity=1
+    document.querySelector('#nomeUser').innerHTML = filtro[0].nome
+    document.querySelector('.inicial').classList.add('sumir')
+    document.querySelector('.containerInicial').style.display='flex'
+    document.querySelector('#avatarAtual').setAttribute('alt', filtro[0].nome.charAt(0))
+    setTimeout(() => {
+      document.querySelector('#avatarAtual').src = filtro[0].imgSaved
+      document.querySelector('header').style.height='60px'
+      document.querySelector('.inicial').style.display='none'
+      document.querySelector('.containerInicial').classList.remove('sumir')
+    }, 300);
+    
+
+   }else{
+    erro.innerHTML = "Nome e Senha não conferem!"
+    erro.classList.remove('sumir')
+    setTimeout(() => {
+      erro.classList.add('sumir')
+    }, 5000);
+   }
+  }
+
+ 
+}
+
+
+

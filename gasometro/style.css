@@ -8,16 +8,116 @@
 body{
     background-color: #000;
     font-family: 'Varela Round', sans-serif;
+    max-width: 450px;
+    margin: auto;
 }
+
+header{
+    height: 0px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    background-image: linear-gradient(to right bottom, #bbb, #555);
+    margin-bottom: 30px;
+    border-radius: 0 0 20px 20px;
+    transition: all .3s;
+    overflow: hidden;
+}
+
+.inicial{
+    color: #bbb;
+    margin-top: 50px;
+    width: 90%;
+    text-align: center;
+    border-radius: 10px;
+    transition: all .3s;
+}
+
+.inicial span{
+    font-size: 1.7rem;
+    margin: 50px 0;
+    display: block;
+}
+
+.inicial label{
+    margin-top: 30px;
+}
+.inicial p{
+    margin: 10px;
+}
+.inicial button{
+    margin: 30px;
+    background-color: #800;
+    color: #fff;
+    border: none;
+    padding: 5px 20px;
+    font-weight: 700;
+    border-radius: 5px;
+}
+.inicial button:active{
+    background-color: #600;
+}
+.inicial strong{
+    cursor: pointer;
+}
+.inicial *{
+    transition: all .3s;
+}
+
+
+
+.avatar{
+    overflow: hidden;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    margin-left: 10px;
+    visibility: hidden;
+    transition: all .3s;
+    opacity: 0;
+    object-fit: cover;
+    border: 2px solid #000;
+    font-size: 2rem;
+    color: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #eee;
+}
+.avatar:hover{
+    cursor: pointer;
+
+}
+.editAvatar{
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    border: 2px solid red;
+    object-fit: cover;
+    object-position: center;
+    margin: 50px;
+}
+
+#nomeUser{
+    color: #000;
+    font-weight: 900;
+    margin: 0 20px;
+    font-size: 1.5rem;
+}
+
 
 main, .containerInicial, .containerSecundario{
     display: flex;
     justify-content: start;
     align-items: center;
-    width: 100vw;
+    /* width: 100vw; */
     min-height: 100vh;
     flex-direction: column;
     transition: all .3s;
+}
+
+.containerInicial{
+    display: none;
 }
 
 .horaEdit{
@@ -33,10 +133,33 @@ main, .containerInicial, .containerSecundario{
 }
 
 .containerSecundario{
-    transform: translateX(30px);
-    opacity: 0;
-    visibility: hidden;
     display: none;
+}
+
+.btnAvatar{
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+    margin: 50px;
+}
+
+.btnAvatar button, #labelFileInput{
+    padding: 5px 10px;
+    font-weight: 700;
+    background-color: #800;
+    color: #eee;
+    border: none;
+    border-radius: 10px;
+}
+
+#imgInput{
+    /* border: 1px solid green; */
+    width: 80px;
+    font-size: 1rem;
+    background-color: transparent;
+    color: #eee;
+    display: none;
+
 }
 
 .sumir{
@@ -45,12 +168,12 @@ main, .containerInicial, .containerSecundario{
     visibility: hidden;
 }
 
-.aparecer{
+/* .aparecer{
     display: flex;
     transform: translateX(0px);
     opacity: 1;
     visibility: visible;
-}
+} */
 
 .iconeHome, .textHome{
     width: 20%;

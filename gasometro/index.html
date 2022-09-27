@@ -12,11 +12,38 @@
     <title>Medidor de Gás</title>
 </head>
 
-<body onload="onInit()">
+<body>
+
+    <header>
+        <img id="avatarAtual" src="" alt="Avatar" class="avatar" onclick="uploadAvatar()">
+        <span id="nomeUser"></span>
+    </header>
 
     <main>
 
-        <div class="containerInicial">
+        <div class="inicial">
+            <span>Login</span>
+
+            <label for="nome">
+                Nome:
+                <input id="nome" type="text" placeholder="digite seu nome">
+            </label>
+
+            <label for="senha">
+                Senha:
+                <input id="senha" type="password" placeholder="digite sua senha">
+            </label>
+            <p id="error" class="sumir">a</p>
+            <p>Não possui conta? <strong id="strong" onclick="cadastrar(this)">Cadastre-se</strong></p>
+            <button onclick="entrar()">Entrar</button>
+
+        </div>
+
+
+
+
+
+        <div class="containerInicial sumir">
             <div class="card" onclick="newReg()">
                 <div class="minorCard">
                     <div class="iconeHome">
@@ -51,7 +78,26 @@
             </div>
         </div>
 
+
+
+
+
+
+
         <div class="containerSecundario sumir">
+            
+            
+            <!-- <input id="imgInput" type="file" accept="image/jpeg, image/png, image/jpg" onchange="teste()">
+            
+            <img src="" id="img" class="editAvatar" />
+
+            <div class="btnAvatar">
+
+                <button onclick="mudarAvatar()">Aceitar</button>
+                <button onclick="cancelarMudancaAvatar()">cancelar</button>
+                
+            </div> -->
+
         </div>
 
     </main>
