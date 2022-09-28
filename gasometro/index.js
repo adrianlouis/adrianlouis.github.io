@@ -16,13 +16,13 @@ if (JSON.parse(localStorage.getItem('users'))){
 }
 
 function ampliar(el) {
-  el.nextElementSibling.style.height = "260px";
-  el.parentNode.style.height = "320px";
+  el.nextElementSibling.style.height = "390px";
+  el.parentNode.style.height = "450px";
 }
 
 function fecharDetail(el) {
   el.parentNode.parentNode.style.height = "0px";
-  el.parentNode.parentNode.parentNode.style.height = "60px";
+  el.parentNode.parentNode.parentNode.style.height = "80px";
 }
 
 function consultar() {
@@ -399,7 +399,7 @@ function uploadAvatar(){
   setTimeout(() => {
     containerSec.innerHTML= `
     
-    <img src="" id="img" class="editAvatar" />
+    <img src="" id="img" class="editAvatar" alt="Imagem do perfil"/>
     
     <div class="btnAvatar">
     
