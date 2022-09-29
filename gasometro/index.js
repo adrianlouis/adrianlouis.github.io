@@ -15,9 +15,35 @@ if (JSON.parse(localStorage.getItem('users'))){
   user = JSON.parse(localStorage.getItem('users'))
 }
 
+JSON.parse(localStorage.getItem('lastUser')) ? entrarOnLoad() : null;
+
+function entrarOnLoad(){
+  const lastLogin = JSON.parse(localStorage.getItem('lastUser'))
+  user.map((item)=>{
+    if (item.nome === lastLogin.nome){
+      userNow = item
+    }
+  })
+
+  document.querySelector('.avatar').style.visibility='visible'
+    document.querySelector('.avatar').style.opacity=1
+    document.querySelector('#nomeUser').innerHTML = userNow.nome
+    document.querySelector('.inicial').classList.add('sumir')
+    document.querySelector('.containerInicial').style.display='flex'
+    document.querySelector('#avatarAtual').setAttribute('alt', userNow.nome.charAt(0))
+    setTimeout(() => {
+      document.querySelector('#avatarAtual').src = userNow.imgSaved
+      document.querySelector('header').style.height='60px'
+      document.querySelector('.inicial').style.display='none'
+      document.querySelector('.containerInicial').classList.remove('sumir')
+    }, 300);
+  
+
+}
+
 function ampliar(el) {
   el.nextElementSibling.style.height = "390px";
-  el.parentNode.style.height = "450px";
+  el.parentNode.style.height = "400px";
 }
 
 function fecharDetail(el) {
@@ -26,7 +52,6 @@ function fecharDetail(el) {
 }
 
 function consultar() {
-  // container.classList.remove("aparecer");
   container.classList.add("sumir");
 
   setTimeout(() => {
@@ -35,14 +60,12 @@ function consultar() {
 
     setTimeout(() => {
       containerSec.classList.remove("sumir");
-      // containerSec.classList.add("aparecer");
     }, 50);
     listar();
   }, 500);
 }
 
 function voltar() {
-  // containerSec.classList.remove("aparecer");
   containerSec.classList.add("sumir");
 
   setTimeout(() => {
@@ -51,7 +74,6 @@ function voltar() {
 
     setTimeout(() => {
       container.classList.remove("sumir");
-      // container.classList.add("aparecer");
     }, 50);
   }, 500);
 }
@@ -137,7 +159,6 @@ function editar(elem, i){
     item.removeAttribute('disabled')
   })
 
-  // console.log(info[i])
   elem.parentNode.classList.toggle('sumir')
 
   
@@ -166,7 +187,6 @@ function salvarEdicao(item, i){
   info[i].dataEdit = new Date().toLocaleDateString()
 
   window.localStorage.setItem("array", JSON.stringify(info));
-  console.log(info)
 
   item.parentNode.classList.toggle('sumir')
   setTimeout(() => {
@@ -181,7 +201,6 @@ function salvarEdicao(item, i){
 }
 
 function newReg() {
-  // container.classList.remove("aparecer");
   container.classList.add("sumir");
 
   setTimeout(() => {
@@ -190,14 +209,13 @@ function newReg() {
 
     setTimeout(() => {
       containerSec.classList.remove("sumir");
-      // containerSec.classList.add("aparecer");
     }, 50);
     registrar();
   }, 500);
 }
 
 function registrar() {
-  let template = `<div class="card" style="height: 320px">
+  let template = `<div class="card" style="height: 400px">
     <div class="minorCard" >
     <div class="iconeHome">
         <i class="fa-solid fa-calendar-days"></i>
@@ -206,7 +224,7 @@ function registrar() {
         <span>${dataAtual}</span>
         </div>
     </div>
-    <div class="cardDetails" style="height: 260px;">
+    <div class="cardDetails" style="height: 390px;">
         <div class="detailsRow">
             <label for="l128">
                 Loja 128
@@ -298,7 +316,6 @@ function salvar() {
 
 function apagarRegistro(elem, i) {
   const icones = elem.parentNode;
-  // icones.classList.remove("aparecer");
   icones.classList.add("sumir");
   setTimeout(() => {
     icones.innerHTML = `
@@ -306,14 +323,12 @@ function apagarRegistro(elem, i) {
         <p onclick="del(this, ${i})" style="color: #0d0;" ><i class="fa-solid fa-check"></i></p>
         <p style="color: #900;" onclick="cancelarDel(this, ${i})"><i class="fa-solid fa-ban"></i></p>
         `;
-    // icones.classList.add("aparecer");
     icones.classList.remove("sumir");
   }, 300);
 }
 
 function cancelarDel(elem, i) {
   const icones = elem.parentNode;
-  // icones.classList.remove("aparecer");
   icones.classList.add("sumir");
   setTimeout(() => {
     icones.innerHTML = `
@@ -321,7 +336,6 @@ function cancelarDel(elem, i) {
             <i class="fa-solid fa-trash" onclick="apagarRegistro(this, ${i})"></i>
             <i class="fa-solid fa-xmark" onclick="fecharDetail(this)"></i>
             `;
-    // icones.classList.add("aparecer");
     icones.classList.remove("sumir");
   }, 300);
 }
@@ -399,15 +413,24 @@ function uploadAvatar(){
   setTimeout(() => {
     containerSec.innerHTML= `
     
-    <img src="" id="img" class="editAvatar" alt="Imagem do perfil"/>
+    <div class='avatarImgContainer'>
+    <img src="" id="img" class="editAvatar" alt=""/>
+    </div>
     
     <div class="btnAvatar">
     
-    <label id='labelFileInput' for='imgInput' >Buscar
-    <input id="imgInput" type="file" accept="image/jpeg, image/png, image/jpg" onchange="changeImg()">
+    <label class='btnAvatarUnd' id='labelFileInput' for='imgInput' >Buscar
+    <input id="imgInput" type="file" accept="image/jpeg, image/png, image/jpg" onchange="changeImg() ">
     </label>
-                <button onclick="mudarAvatar()">Aceitar</button>
-                <button onclick="cancelarMudancaAvatar()">Cancelar</button>
+
+    <label id='btnAceito' class="btnAvatarUnd labelInativo" for'aceitarBtn'>Aceitar
+    <button id='aceitarBtn' onclick="mudarAvatar()" disabled>Aceitar</button></label>
+
+    <label class="btnAvatarUnd" for='removerPic'>Remover
+    <button id='removerPic' onclick='removerPic()'></button></label>
+    
+    <label class='btnAvatarUnd' for='cancelarBtn'>Cancelar
+    <button class='btnAvatarUnd' id='cancelarBtn' onclick="cancelarMudancaAvatar()">Cancelar</button></label>
                 
             </div>
     `
@@ -425,8 +448,6 @@ function pickImg() {
     reader.readAsDataUrl(this.files[0])
 
   })
-
-  
 }
 
 function changeImg(){
@@ -434,13 +455,16 @@ function changeImg(){
   reader.onload = function(){
     var imgContainer = document.querySelector('#img')
     imgContainer.src = reader.result
+    document.querySelector('#btnAceito').classList.remove('labelInativo')
+    document.querySelector('#aceitarBtn').removeAttribute('disabled')
+
   }
   reader.readAsDataURL(event.target.files[0])
+  document.querySelector('.editAvatar').style.visibility='visible'
 }
 
 function mudarAvatar(){
   fotoNova = document.querySelector('#img')
-  console.log(fotoNova.src)
   document.querySelector('#avatarAtual').src = fotoNova.src
   var indice = ''
 
@@ -465,10 +489,10 @@ function mudarAvatar(){
 
   user[indice].imgSaved=fotoNova.src
   window.localStorage.setItem('users', JSON.stringify(user))
+  document.querySelector('#btnAceito').classList.add('labelInativo')
 }
 
 function cancelarMudancaAvatar(){
-  // containerSec.classList.remove('aparecer')
   containerSec.classList.add('sumir')
   setTimeout(() => {
     containerSec.style.display='none'
@@ -477,6 +501,8 @@ function cancelarMudancaAvatar(){
   setTimeout(() => {
     container.classList.remove('sumir')
   }, 400);
+  document.querySelector('#btnAceito').classList.add('labelInativo')
+
 }
 
 function cadastrar(elem){
@@ -499,8 +525,6 @@ function criarConta(){
   const senha = document.querySelector('#senha')
   const erro = document.querySelector('#error')
 
-  console.log(localStorage.getItem('users'))
-
   if (nome.value !== '' && senha.value !== ''){
     var test = user.filter((filtro)=>{
       return filtro.nome === nome.value
@@ -522,7 +546,6 @@ function criarConta(){
       setTimeout(() => {
         erro.classList.add('sumir')
       }, 3000);
-      console.log(user)
     }
 
   }else{
@@ -560,7 +583,6 @@ function entrar(){
 
   if (nome.value === '' || senha.value === ''){
 
-    console.log('Campos vazios')
     erro.innerHTML = 'Preencha os campos de Nome e Senha'
     erro.classList.remove('sumir')
     setTimeout(() => {
@@ -589,6 +611,7 @@ function entrar(){
       document.querySelector('.containerInicial').classList.remove('sumir')
     }, 300);
     
+    window.localStorage.setItem('lastUser', JSON.stringify(filtro[0]) )
 
    }else{
     erro.innerHTML = "Nome e Senha não conferem!"
@@ -602,5 +625,54 @@ function entrar(){
  
 }
 
+function logout(){
+  localStorage.removeItem('lastUser')
 
+  document.querySelector('.avatar').style.visibility='hidden'
+    document.querySelector('.avatar').style.opacity=0
+    document.querySelector('.inicial').classList.remove('sumir')
+    document.querySelector('#avatarAtual').setAttribute('alt', '')
+    document.querySelector('header').style.height='0px'
+    document.querySelector('#nomeUser').innerHTML = ''
+    document.querySelector('.containerInicial').classList.add('sumir')
+    zerarInputs()
+    
+    setTimeout(() => {
+      document.querySelector('.containerInicial').style.display='none'
 
+      document.querySelector('#avatarAtual').src = ''
+      document.querySelector('.inicial').style.display='block'
+
+    }, 300);
+}
+
+function zerarInputs(){
+  document.querySelector('#nome').value = ''
+  document.querySelector('#senha').value = ''
+
+}
+
+function removerPic(){
+  const userAtual = JSON.parse(localStorage.getItem('lastUser'))
+  var indice = ''
+  const filtrado = user.filter((filtro)=> {
+    return filtro.nome === userAtual.nome
+  })
+
+  user.map((item)=>{
+    if (item.nome === filtrado[0].nome){
+      indice = user.indexOf(item)
+    }
+  })
+
+  setTimeout(() => {
+    user[indice].imgSaved = ''
+  window.localStorage.setItem('users', JSON.stringify(user))
+  document.querySelector('#avatarAtual').src = ''
+  }, 300);
+
+  var lastUser = (JSON.parse(localStorage.getItem('lastUser')))
+  lastUser.imgSaved = ''
+  window.localStorage.setItem('lastUser', JSON.stringify(lastUser))
+  cancelarMudancaAvatar()
+}
